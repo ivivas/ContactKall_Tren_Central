@@ -1,0 +1,76 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title></title>
+        <style type="text/css">
+            /*#contenido #top {
+                background-image: url(images/top.jpg);
+                background-repeat: no-repeat;
+                height: 65px;
+                width: 766px;
+                margin: 0px;
+            }
+            #contenido #medio {
+                background-image: url(images/medio.jpg);
+                background-repeat: repeat-y;
+                width: 766px;
+            }*/
+            .linea2 {
+                background-color: #CCC;
+                height: 1px;
+                background-position: top;
+            }
+            /*#contenido #bottom {
+                background-image: url(images/bottom.jpg);
+                background-repeat: no-repeat;
+                height: 65px;
+                width: 766px;
+            }*/
+        </style>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+        %inicio_form%
+        <div id="contenido">
+                    <div id="top">
+                      <div id="titulo">
+                      %titulo%
+                      </div>
+                    
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="20">&nbsp;</td>
+                    <td valign="top">
+                        <table width="720" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                        <td height="1" colspan="2" class="linea2"></td>
+                        </tr>
+                        </table>
+                    </td>
+                    <td width="20">&nbsp;</td>
+                    </tr>
+                    </table>
+                    </div>
+                         %busqueda%
+                    <div id="medio">
+                         <center>%mensage_error%</center>
+                         %contenido%
+                    </div>
+                    <div id="bottom">
+                     <div id="botones">
+                         %botones%
+                     </div>
+                    </div>
+        </div> 
+        %fin_form%
+    </body>
+    
+</html>

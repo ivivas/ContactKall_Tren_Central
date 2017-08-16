@@ -1,0 +1,95 @@
+<script language="JavaScript">
+    function cambiaEstado(valor)
+    {
+        if (valor==0){
+            document.formUsuario.busca_fechaDesde.disabled=false;
+            document.formUsuario.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formUsuario.busca_fechaDesde.disabled=true;
+            document.formUsuario.busca_fechaHasta.disabled=true;
+        }
+    }
+
+    function comprobar() {
+        if(document.formUsuario.rango_fecha.value==0) {
+            document.formUsuario.busca_fechaDesde.disabled=false;
+            document.formUsuario.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formUsuario.busca_fechaDesde.disabled=true;
+            document.formUsuario.busca_fechaHasta.disabled=true;
+        }
+    }
+</script>
+<body onload="comprobar()">
+%error%
+ <form name="formUsuario" action="detalleReporte.jsp">
+    <table class="caja2" style="border:1px;">
+        <tr>
+            <td>
+                <strong>Internas</strong><br>%check_internas%
+            </td>
+            <td>
+                <strong>Externas</strong><br>%check_externas%
+                &nbsp;&nbsp;
+            </td>
+            <td nowrap>
+                %check_directas%
+            </td>
+            <td>
+                <strong>Fecha Inicial :</strong>
+                <input type="text" name="busca_fechaDesde" value="%busca_fechaDesde%" />
+            </td>
+            <td>
+                <strong>Fecha Final : </strong>
+                <input type="text" name="busca_fechaHasta" value="%busca_fechaHasta%" />
+            </td>
+            <td>
+                <Select NAME="rango_fecha" onChange="cambiaEstado(this.value);">
+                   %rangos_fecha%
+                </Select>
+            </td>
+            <td>
+                <select name="horario_valido">
+                    %horario_valido%
+                </select>
+            </td>
+            <input type="hidden" name="id_usuario" value="%id_usuario%" />
+            <input type="hidden" name="cargo" value="%cargo%" />
+            <input type="hidden" name="primera_vez" value="true" />
+            <td><input name="buscar" type="image" id="buscar" src="botones/buscar.png"></td>
+        </tr>
+    </table>
+</form>
+<br>
+<table class="caja2">
+    <tr>
+        <!--<td><strong>Resumen mensual %nombredelcentro% Enero 2008 </strong></td>-->
+    </tr>
+</table>
+
+<div class="tableContainer" style="width:1000px;">
+    <table class="caja2" cellspacing="0" border="1">
+              <thead >
+                  <tr bgcolor="#CCCCCC">
+                      <th class="titulo" align="center" > <strong>Registro </strong></th>
+                      <th class="titulo" align="center"  style="text-align:center;"> <strong>Hora</strong></th>
+                      <th class="titulo" align="center" > <strong>numero que marca</strong></th>
+                      <th class="titulo" align="center" > <strong>secretaria</strong></th>
+                      <th class="titulo" align="center" > <strong>asistente1</strong></th>
+                      <th class="titulo" align="center" > <strong>asistente2</strong></th>
+                      <th class="titulo" align="center" > <strong>contesto</strong></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  %listado%
+              </tbody>
+     </table>
+ </div>
+ <div align="center">%barraPaginado%</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold;">*Los porcentajes han sido redondeados para su comodidad</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold; padding-top:10px;">Rango efectivo de busqueda<br>Desde : %rangoDeBusquedaDesde%<br>Hasta : %rangoDeBusquedaHasta%</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold; padding-top:10px;">Primer registro: %primer_registro%</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold;">Ultimo registro: %ultimo_registro%</div>
+</body>

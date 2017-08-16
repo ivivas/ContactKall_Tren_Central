@@ -1,0 +1,44 @@
+<form name="adminForm_horarioModificar" action="horarioExcepciones.jsp" target="_self" method="post">
+    <div id="tabla_fondo" style="padding: 20px; padding-bottom: 20px;font-size: 12px">
+        <div class="tabla_fondo" style="padding-bottom: 20px;" >
+            <div  style="float:left;width: 130px; padding-right: 10px;" >%horexp_ingr_date% </div>
+            <input style="float: left;" type="text" name="fecha_excepcion" id="fecha_excepcion" value="%fecha_excepcion%" maxlength="10" size="15"/>
+            <div style="float: left;padding-right: 10px;padding-left: 10px;">%horexp_format%</div>
+            <!--<input type="submit" value="" >-->
+            <!--<a href="#" onclick="javascrip:document.adminForm_horarioModificar.submit()" class="botones btnadddel" >-->
+            <a href="#" onclick="guardaFecha()" class="botones btnadddel" >
+                %horexp_btn_add%
+            </a>
+        </div>
+    </div>
+    
+    <input type="hidden" name="id" value="%id%">
+    <input type="hidden" name="pg" value="%pg%">
+    <input type="hidden" name="agregar_excepcion_horario" value="true">
+    <input type="hidden" name="id_horario" value="%id_horario%">
+</form>
+
+<form name="adminForm_borrar_excepciones" action="horarioExcepciones.jsp" target="_self" method="post"  style="width: 100%" >
+
+     <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+             <th>N&deg;</th><th>%horexp_tbl_del%</th><th>%horexp_tbl_dateexp%</th>
+         </tr>
+         %registros_excepciones%
+
+         <!--<tr>
+             <td colspan="3">
+                     <input type="submit" value="%horexp_btn_del%" />
+             </td>
+         </tr>-->
+    </table>
+    <a href="#" onclick="javascrip:document.adminForm_borrar_excepciones.submit()" class="botones btnadddel" style="margin-top: 10px;">
+        %horexp_btn_del%
+    </a>
+    &nbsp;&nbsp;
+    <a href="#" onclick="javascrip:window.close();" class="botones btnadddel" style="margin-top: 10px;">
+        %horexp_btn_exit%
+    </a>
+    <input type="hidden" name="id_horario" value="%id_horario%">
+    <input type="hidden" name="eliminar_excepcion_horario" value="true">
+</form>

@@ -1,0 +1,90 @@
+%error_jsp%
+<script>
+        function mostrarToolTit(target){
+            $("#"+target).css("visibility","visible");
+            $("#"+target).css("display","inline");
+            $.ajax({
+            async:true,
+            type: "POST",
+            dataType: "html",
+            contentType: "application/x-www-form-urlencoded",
+            url:'ListaPilotoToolTip',
+            cache:false,
+            data:'piloto='+target+"&opcion=0",
+            timeout:4000,
+            success:
+               function(datos){
+                   if(datos === ""){
+                       $("#"+target).html("%no.anexos.asignados%");
+                   }
+                   else{
+                        $("#"+target).html("%anexos.asignados%<br>"+datos);
+                    }
+                }
+        });
+        }
+        function ocultarToolTit(target){
+            $("#"+target).css("visibility","hidden");
+            $("#"+target).css("display","none");
+            $("#"+target).html("");
+        }
+</script>
+<form name="adminForm_virtualRegistros" action="virtualRegistro.jsp"  method="post">
+    %div_titulo%
+    <div id="datos">
+        <div id="input" style="width: 90%;">
+            %vrtreg_numvrt%
+            &nbsp;
+            <input id="textfield" name="busca_virtual" type="text"  size="15" value="%busca_virtual%" />
+            &nbsp;&nbsp;
+            %vrtreg_descrip%
+            &nbsp;
+            <input name="busca_descripcion" type="text" id="textfield" size="30" value="%busca_descripcion%" />
+            &nbsp;&nbsp;
+            %vrtreg_regxpag%
+            &nbsp;
+            <select name="registros_mostrar" class="campos" id="select" >
+                %registros_mostrar_reemplazo%
+            </select>
+            <a href="#" onclick="document.adminForm_virtualRegistros.submit();">
+                <div class="botones" style="float: right;">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+                  
+    <div class="tableContainer" align="" style="width:90%; height:auto;margin: 0 auto;">
+      <table class="%estilocaja%" cellspacing="0" style=" margin: 2% auto;width: 100%;">
+        <thead>
+            <tr> 
+                <th >&nbsp; N&ordm;</th>
+                <th ><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                <th width="20%">%vrtreg_tbl_nvrt%</th>
+                <th width="20%">%vrtreg_tbl_desc%</th>
+                <th width="15%">%vrtreg_tbl_num%</th>
+                <th width="20%">%vrtreg_tbl_dis%</th>
+            </tr>
+        </thead>
+        <tbody>
+            %registros_extensiones%
+        </tbody>
+       </table>
+    </div>
+    
+    <input type="hidden" name="ncheckbox_eliminar" value="0">
+    <input type="hidden" name="ncheckbox_usuarios" value="0">
+    <div align="center">%barraPaginado%</div>
+            
+    <div align="center">
+        <a href="virtualAgregar.jsp" class="botones btnadddel">
+            %vrtreg_btn_new%
+        </a>
+        &nbsp;&nbsp;
+        <a href="#" class="botones btnadddel" onclick="virtualEliminar(document.adminForm_virtualRegistros);">
+            %vrtreg_btn_del%
+        </a>
+    </div>
+       
+</form>
+            

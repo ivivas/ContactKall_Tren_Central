@@ -1,0 +1,36 @@
+<script language="javascript" >
+    function cambiarColor (valor) {
+//        alert('Hola 1');
+        document.getElementById("botonON").value = valor;
+        document.getElementById("formBotones").submit();
+//        alert('Hola 2');
+//submit();
+    }
+
+    
+</script>
+<form name="formBotones" method="post" action="cabecera.jsp">
+    <table width="836" border="0" align="center" cellpadding="1">
+        <tr> 
+            <td width="135" align="center"><a href="campaniaRegistro.jsp" target="FramePrincipal"><img src="%botonCampania%" width="135" height="30" border="0" onclick="cambiarColor('1');"/></a></td>
+            <td width="135" align="center"><a href="agenteRegistro.jsp" target="FramePrincipal"><img src="%botonAgente%" border="0" width="135" height="30" onclick="cambiarColor('2');"></a></td>
+            <td width="135" align="center"><a href="llamadaRegistros.jsp" target="FramePrincipal"><img src="%botonLlamada%" border="0" width="135" height="30" onclick="cambiarColor('3');"></a></td>
+            <td width="135" align="center"><a href="reporteEstadisticas.jsp" target="FramePrincipal"><img src="%botonEstadistica%" border="0" width="135" height="30" onclick="cambiarColor('4');"></a></td>
+<!--            <td width="135" align="center"><a href="campaniaRegistro.jsp" target="FramePrincipal"><img src="%botonCampania%" width="135" height="30" border="0" onclick="cambiarColor('1');"/></a></td>
+            <td width="135" align="center"><a href="agenteRegistro.jsp" target="FramePrincipal"><img src="new_img/btn_Agentes.jpg" border="0" width="135" height="30" onclick="cambiarColor('2');"></a></td>
+            <td width="135" align="center"><a href="llamadaRegistros.jsp" target="FramePrincipal"><img src="new_img/btn_Llamadas.jpg" border="0" width="135" height="30" onclick="cambiarColor('3');"></a></td>
+            <td width="135" align="center"><a href="reporteEstadisticas.jsp" target="FramePrincipal"><img src="new_img/btn_Estadisticas.jpg" border="0" width="135" height="30" onclick="cambiarColor('4');"></a></td>-->
+        <input type="hidden" name="botonON" id="botonON">
+        <!--        <td width="135" align="center"><a href="campaniaRegistro.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_ccostos.jpg" width="135" height="30" border="0" /></a></td>
+                <td width="135" align="center"><a href="agenteRegistro.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_usuario.png" border="0" width="135" height="30"></a></td>
+                <td width="135" align="center"><a href="llamadaRegistros.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_llamada.png" border="0" width="135" height="30"></a></td>
+                <td width="135" align="center"><a href="reporteEstadisticas.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_estandar.jpg" border="0" width="135" height="30"></a></td>-->
+
+        <!--<td width="135" align="center"><a href="detalleUsuarioDia.jsp?id_centrocosto=17&anno=2009&mes=01" target="FramePrincipal"><img src="plantillas/botones/btn_llamada.png" border="0" width="135" height="30"></a></td>-->
+        <!--<td width="135" align="center"><a href="agenteRegistro.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_extensiones.jpg" width="135" height="30" border="0"></a></td>-->
+        <!--<td width="135" align="center"><a href="horario.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_claves.png" width="135" height="30" border="0"></a></td>-->
+        <!--<td width="135" align="center"><a href="modificarEstandares.jsp" target="FramePrincipal"><img src="plantillas/botones/btn_estandar.jpg" width="135" height="30" border="0" /></a></td>-->
+        <!--<td width="135" align="center"><a href="flujoCAP.jsp?id_centrocosto=3" target="FramePrincipal"><img src="botones/monitoreo.jpg" width="135" height="30" border="0"></a></td>-->
+        </tr>
+    </table>
+</form>

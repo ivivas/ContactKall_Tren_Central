@@ -1,0 +1,48 @@
+<div style="color: #AAAAAA;">%navegacion%</div>
+<hr style="color: #AAAAAA;">
+
+<table class="caja2_1" style="border:none; width:70px;">
+    <tr>
+
+    </tr>
+    <tr>
+        <td style="border:none;"> Rango de fechas :</td>
+        <td style="border:none;">
+            <Select style="width: 150px" NAME="rango_fecha" onChange="cambiaEstado(this.value);">
+                %rangos_fecha%
+            </Select>
+        </td>
+    </tr>
+    <tr>        
+        <td style="border:none;">
+            <strong>Fecha Inicial :</strong>
+        </td>
+        <td style="border:none;">
+            <input type="text" class="fecha" name="busca_fechaDesde" value="%busca_fechaDesde%" />
+        </td>
+        <td style="padding-left:11px; border:none;">
+            <strong>Fecha Final : </strong>
+        </td>
+        <td style="border:none;">
+            <input type="text" class="fecha" name="busca_fechaHasta" value="%busca_fechaHasta%" />
+        </td>
+    </tr>   
+    <tr>
+        <td style="border:none;"><strong>Tipo llamada : </strong></td>
+        <td style="border:none; " ><select style="width: 150" name="tipo_llamada">%tipo_llamada%</select></td>
+        <td style="border:none;"><strong>Vista dia: </strong></td>
+        <td style="border:none; " ><select style="width: 150" name="vista_dia">%vista_dia%</select></td>
+        <td style="border:none;"><strong>Filtro por: </strong></td>
+        <td style="border:none; " ><select style="width: 150" name="filtro">%filtro%</select></td>
+
+        <td style="border:none;"><input type="hidden" name="id_usuario" value="%id_usuario%" /></td>
+        <td style="border:none;"><input type="hidden" name="id_extension" value="%id_extension%" /></td>
+        <td style="border:none;"><input type="hidden" name="id_centrocosto" value="%id_centrocosto%" /></td>
+        <td style="border:none;"><input type="hidden" name="cargo" value="%cargo%" /></td>
+        <td style="border:none;"><input type="hidden" name="primera_vez" value="true" /></td>        
+        <td style="border:none;"><input name="buscar" type="image" id="buscar" src="botones/buscar.jpg"></td>
+
+
+    </tr>
+
+</table>

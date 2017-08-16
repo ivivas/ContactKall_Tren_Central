@@ -1,0 +1,143 @@
+
+<script type="text/javascript">
+    <!--
+    function MM_jumpMenu(targ,selObj,restore){ //v3.0
+        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+        if (restore) selObj.selectedIndex=0;
+    }
+    //-->
+</script>
+%error%
+<form id="form_llamadaRegistros" name="form_llamadaRegistros" method="post" action="llamadaRegistros.jsp">
+    <table   border="0" cellpadding="0" cellspacing="0" style="width:100px;">
+        <tr>
+            <td class="sinborde" valign="top" align="left" rowspan="2" style="width:50px;">
+                <!--<table class="admincaja3" width="220" border="0" cellpadding="0" cellspacing="0">-->
+                <table  class="caja2_1" border="0" cellpadding="0" cellspacing="0" >
+                    <!--<table   width="219" height="298" border="0"  >-->
+                    <tr>
+                        <td nowrap><span class="busqueda">Id llamada</span></td>
+                        <td ><input name="busca_idllamada" type="text" class="campos" id="textfield" size="7" value="%busca_idllamada%"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap><span class="busqueda">Anexo agente</span></td>
+                        <td ><input name="busca_extension" type="text" class="campos" id="textfield" size="7" value="%busca_extension%"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="busqueda">Telefono Cliente</span></td>
+                        <td><input name="busca_contraparte" type="text" class="campos" id="textfield2" size="7" value="%busca_contraparte%"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="busqueda">Ultima redirecci&oacute;n</span></td>
+                        <td><input name="busca_ultima_redireccion" type="text" class="campos" id="textfield2" size="7" value="%busca_ultima_redireccion%"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="busqueda">N&uacute;mero Final</span></td>
+                        <td><input name="busca_numero_final" type="text" class="campos" id="textfield2" size="7" value="%busca_numero_final%"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap><span class="busqueda" >Nombre Campa&ntilde;a</span></td>
+                        <td><input name="busca_centroCosto" type="text" class="campos" id="textfield7" size="7" value="%busca_centroCosto%"></td>
+                    </tr>
+<!--                    <tr>
+                        <td nowrap><span class="busqueda" >Rings m&iacute;nimos</span></td>
+                        <td><input name="busca_ringsMinimos" type="text" class="campos" id="textfield7" size="7" value="%busca_ringsMinimos%"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap><span class="busqueda" >Rings m&aacute;ximos</span></td>
+                        <td><input name="busca_ringsMaximos" type="text" class="campos" id="textfield7" size="7" value="%busca_ringsMaximos%"></td>
+                    </tr>-->
+                    <!--<tr>
+                      <td>Horario</td>
+                      <td>
+                          <select name="horario_valido">
+                              %horario_valido%
+                          </select>
+                      </td>
+                    </tr>-->
+                    <tr>
+                        <td><span class="busqueda">Nombre Agente</span></td>
+                        <td><input name="busca_usuario" type="text" class="campos" id="textfield7" size="7" value="%busca_usuario%"></td>
+                    </tr>
+<!--                    <tr>
+                        <td><span class="busqueda">Tipo</span></td>
+                        <td><select name="busca_tipo" class="campos" id="select">
+                                <option>Todos</option>
+                                %tipos_disponibles%
+                            </select></td>
+                    </tr>-->
+                    <tr>
+                        <td nowrap><span class="busqueda">Fecha desde:</span></td>
+                        <td><span id="toolTipBox" width="200" class="busqueda"></span>
+                            <input name="busca_fechaDesde" type="text" class="campos" id="textfield5" size="7" value="%busca_fechaDesde%" onmouseover="toolTip('<strong>Formatos v&aacute;lidos</strong></br>1) dd/mm/aaaa</br>2) dd/mm/aaaa HH:mm',this)">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td nowrap><span class="busqueda">Fecha Hasta:</span></td>
+                        <td><span id="toolTipBox" width="200" class="busqueda"></span>
+                            <input name="busca_fechaHasta" type="text" class="campos" id="textfield5" size="7" value="%busca_fechaHasta%" onmouseover="toolTip('<strong>Formatos v&aacute;lidos</strong></br>1) dd/mm/aaaa</br>2) dd/mm/aaaa HH:mm',this)">
+                        </td>
+                    </tr>
+<!--                    <tr>
+                        <td nowrap><span class="busqueda">Abandonada</span></td>
+                        <td>
+                            %check_abandonadas%
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td nowrap><span width="200" class="busqueda" >Duraci&oacute;n m&iacute;nima</span></td>
+                        <td><input name="busca_duracion" type="text" class="campos" id="textfield4" size="7" value="%busca_duracion%" onmouseover="toolTip('<strong>Formato v&aacute;lido</strong></br>1) HH:mm:ss',this)"></td>
+                    </tr>
+                    <tr>
+                        <td>Registros por p&aacute;gina</td>
+                        <td><select name="registros_mostrar" class="campos" id="select" >
+                                %registros_mostrar_reemplazo%
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td height="34">&nbsp;</td>
+                        <td><input name="buscar" type="image" id="buscar" src="plantillas/botones/btn-buscar.jpg"></td>
+                    </tr>
+                </table>
+
+            </td>   
+            <td class="sinborde" valign="top" align="left" >
+                <!--<div class="tableContainer" style="height:400px; width:470px;" >
+                <table class="caja" cellspacing="0" style="width:470px;">-->
+                <div class="tableContainer" style="height:400px; width:770px;" >
+                    <table id="tabla_excel" name="tabla_excel" class="caja" cellspacing="0" style="width:770px;" >
+                        %listallamadas%
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="sinborde" valign="top" align="center">
+                <div align="center" style="font-size:10px;" >
+                    %barrapaginado%
+                </div>
+
+                <!--<div align="center">
+                    <input name="excel" type="image" value="true" src="imagenes/excel.png">
+                 <a href="informeExcel.jsp"><img src="imagenes/excel.jpg" border="0" width="135" height="30"></a>
+                </div>-->
+            </td>
+        </tr>
+
+    </table>
+</form> 
+<div align="center">
+    <input type="hidden" name="pg" value="%pg%">
+    <form method="post" action="informeExcel.jsp" name="formExcel" >
+        <input type="hidden" value="" id="tablaEstadisticas" name="tablaEstadisticas" />
+        <img src="imagenes/excel.jpg" border="0" width="135" height="30" onclick="enviarInfoParaInformeExcel()" />
+    </form>
+    <!--<a href="informeExcel.jsp"><img src="imagenes/excel.jpg" onclick="enviarInfoParaInformeExcel()" border="0" width="135" height="30"></a>-->
+</div>
+<div style="font-family:verdana; font-size: 11px; font-weight:bold;">Totales : %registros_totales%</div>
+<div style="font-family:verdana; font-size: 11px; font-weight:bold;">*Formatos de fecha validos(dd/mm/aaaa hh:mm:ss) o (dd/mm/aaaa)</div>
+
+
+
+

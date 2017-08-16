@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>IPKALL</title>
+<script type="text/javascript" src="_lib/jquery.js"></script>
+<script type="text/javascript" src="_lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="_lib/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="jquery.jstree.js"></script>
+	<link rel="StyleSheet" href="plantillas/dtree.css" type="text/css" />
+	<script type="text/javascript" src="plantillas/dtree.js"></script>
+        <script type="text/javascript" src="syntax/!script.js"></script>
+
+</head>
+
+<body>
+
+
+<h2></h2>
+
+<div class="dtree">
+<!--<div id="demo" class="demo">-->
+
+	<!--<p><a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a></p>-->
+
+	<script type="text/javascript">
+		
+//$(function () {
+//    alert("ALGO");
+//        $("#demo").jstree({
+//            "json_data" : {
+//                "ajax" : {
+//                    "url" : "arbol.jsp",
+//                    "data" : function (n) {
+//                        return { id : n.attr ? n.attr("id")+"&"+n.attr("tipo") : 0 };
+//                    }
+//                }
+//            },
+//            "plugins" : [ "themes", "json_data" ]
+//        });
+//    });
+                
+                d = new dTree('d');
+                %javascript%
+		document.write(d);
+
+		
+	</script>
+
+</div>
+
+</body>
+
+</html>

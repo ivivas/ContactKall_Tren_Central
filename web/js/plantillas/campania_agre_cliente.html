@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <script language="JavaScript">
+            function envia_clientes(num_check){
+//                alert('Hola 1');
+                var i;
+                var cont=0;
+                receptor = opener.document.getElementById('select_clientes_asignados');
+                //                alert("Paso 0 " + receptor);
+                //                receptor = opener.document.adminForm_centrocostoAgregar.select_usuarios_asignados.options;
+//                alert('Hola 2');
+                for(i = receptor.length; i>=0; i--) {
+                    //alert("valor "+receptor[i].value);
+                    receptor[i] = null;
+                    //                    alert("ciclo = " + i);
+                }
+//                alert('Hola 3');
+                //                alert("Paso 1 ");
+                for(i=0;i<num_check;i++) {
+//                                        alert("Paso For ");
+                    checkos = document.getElementById('checkoC'+i.toString());
+                    //                    alert("Paso 2 ");
+                    if(checkos.checked==true) {
+                        var op=opener.document.createElement("option"); 
+                        op.text  = checkos.name;
+                        op.value = checkos.value;
+//                        alert('Hola 4');
+                        receptor.add(op);
+//                        alert('Hola 5');
+                        cont++;
+                        //                        alert("Valor de Check" + op); 
+                    }
+                }
+                //                alert("Paso Final ");
+                window.close();
+            } 
+        </script>
+    </head>
+    <body>
+        <form id="form1" name="form1" action="campania_agre_cliente.jsp" enctype="multipart/form-data" method="post">      
+            <table width="200" border="1" class="adminlista" style="width:50%;">
+                <tr>
+                    <th colspan="2" style="text-align: center">Seleccione el archivo con extension .csv</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" name="nombre_csv" id="nombre_csv"/>
+                    </td>
+                    <td>
+                        <input type="submit" name="btn_subirCSV" value ="Cargar Archivo...">
+                    </td>
+                </tr>
+            </table>
+            <table width="200" border="1" class="adminlista" style="width:50%;">
+                <tr>
+                    <th>Clientes disponibles</th>
+                </tr>
+                %usuarios_disponibles%
+                <tr>
+                    <td>
+                        <img src="plantillas/imagenes/guardar.png" onclick="envia_clientes('%num_checkbox%')"/>
+                        <input type="hidden" name="nchecks" value="%ncheckbox%" />
+                        <input type="hidden" name="id_campania_actual" value="%id_campania_actual%" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

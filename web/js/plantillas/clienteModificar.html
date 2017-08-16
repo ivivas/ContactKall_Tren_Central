@@ -1,0 +1,53 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+%error_jsp%
+<form name="adminForm_clienteModificar" action="clienteModificar.jsp" target="_self" method="post">
+    <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top" align="center">
+                <div style="margin-left:10px; height:330px; text-align:left; float:left; width:950px;">
+                    <div style="border-bottom:1px solid #ccc; width:950px;"><strong>Modificar Cliente</strong></div><p>
+                    <table border="0" cellpadding="0" cellspacing="3" width="450" align="center">
+                        <tr><th colspan="2">Datos a Modificar</th></tr>
+                        <tr>
+                            <td>Nombre Cliente</td><td><input type="text" name="cliente_nombre" size="25" maxlength="15" value="%cliente_nombre%" >
+                                (*)</td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Cliente</td><td><input type="text" name="cliente_apellido" size="25" maxlength="15" value="%cliente_apellido%" >
+                                (*)</td>
+                        </tr>
+                        <tr>
+                            <td>Telefono Cliente</td><td><input type="text" name="cliente_numero" size="25" maxlength="15" value="%cliente_numero%" >
+                                (*)</td>
+                        </tr>
+                        <tr>
+                            <td>Criterio</td><td><input type="text" name="cliente_sep" size="25" maxlength="30" value="%cliente_sep%" >
+                                (*)</td>
+                        </tr>
+                        <tr>
+                            <td>Observaciones</td><td><input type="text" name="usuario" size="25" maxlength="30" value="%usuario%" >
+                                (*)</td>
+                        </tr>
+                        <tr>
+                            <td></td><td>(*) La clave se generara automaticamente igual al Usuario Aplicacion</td>
+                        </tr>
+                    </table>
+                    <!--<div style="text-align:center; width:850px; padding-top:190px;"><strong>NOTA :</strong>Todos los campos son obligatorios.</div>-->
+                </div>
+            </td>
+    </table>
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <input type="hidden" name="id" value="%id%">
+            <input type="hidden" name="pg" value="%pg%">
+            <input type="hidden" name="modificar_cliente" value="true">
+            <span style="cursor:pointer">
+                <img src="plantillas/imagenes/guardar.png" onclick="clienteModificar(document.adminForm_clienteModificar);" />
+                <a href="clienteRegistro.jsp"><img src="plantillas/imagenes/cancelar.png" border="0" /></a>
+            </span>
+        </div>
+    </center>
+</form>

@@ -1,0 +1,42 @@
+
+            <div id="info_piloto">
+            <input type="hidden" id="rpHidden">
+            <div id="contenido" style="height: 100px">
+                <div id='info_' style="text-align:left;width: 250px">
+                    %supervisor% %usuario%<br>
+                    %anx% %anexo%<br>
+                    %devname% %devicename%
+                    <input id="supervisor" type="hidden" value="%datosSupervisor%">
+                </div>
+                <div id="contenedor_pl">
+                    <div id='loading' style='width:50px;height:30px;'></div>
+                </div>
+                <div id="divGraficos">
+                    <!--<img id='llamadaGralPool' src='imagenes/llamadaGralPool.jpg' alt ='Llamadas' title='Llamadas'>-->
+                    <div id="infoCampanas" style="text-align: left;">
+                        %campana_disponible%
+                        <div id="contenedorCampana" %visible%>
+                            %lista_campanas%
+                        </div>
+                        <a href="#" id="asignarCampanaPool"><img src="imagenes/edit.png"></a>
+                    </div>
+                    <div id="panelAgenteCampana" style="text-align: left;">
+                    </div>
+                    <div id="panel"></div>
+                </div>
+                <div id="aqui"><div class='headers'></div></div>
+            </div>
+            <div id="divGraficosDetalle">
+                <a onclick="salirDetalle()">Salir</a><br>
+                <img id='llamadaPerdidaPool' src='imagenes/llamadaPerdidaPool.jpg' alt ='Llamadas Perdidas' title='Llamadas Perdidas'>
+                <img id='llamadaContestadaPool' src='imagenes/llamadaContestadaPool.jpg' alt ='Llamadas Contestadas' title='Llamadas Contestadas'>
+            </div>
+            
+            <div id="pAgentes"></div>
+            <div id="ppal"></div>
+            <div id="monitores"></div>
+            <div id="ventanaWhispering"></div>
+            <div id="divPickup"></div>
+            <div id="listaGrabaciones"></div>
+            <div id="simbol"></div>
+        </div>

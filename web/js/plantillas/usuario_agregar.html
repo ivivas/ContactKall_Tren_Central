@@ -1,0 +1,77 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<script language="javascript" >
+
+        function Abrir_ventana(pagina) {
+            var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=508, height=365, top=85, left=140";
+            receptor = document.getElementById('select_anexos_asignados');
+            window.open(pagina,"",opciones);
+        }
+</script>
+<form name="adminForm_usuarioAgregar" action="usuarioAgregar.jsp" target="_self" method="post">
+            <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+            <td valign="top" align="center">
+            <div style="margin-left:10px; text-align:left; float:left; width:850px;">
+                <div style="border-bottom:1px solid #ccc; width:100%;"><strong>Nuevo Usuario</strong></div><p>
+            <div style="height:120px; text-align:left; float:left; width:330px;">
+                <table border="0" cellpadding="0" cellspacing="3" width="330">
+                <tr><th colspan="2">Datos Usuario</th></tr>
+                <tr>
+                    <td>
+                        Nombre
+                    </td>
+                    <td>
+                        <input type="text" name="usuario_nombre" size="20" maxlength="50" value="%usuarioNombre%">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cargo
+                    </td>
+                    <td>
+                        <input type="text" name="usuario_cargo" size="20" maxlength="30" value="%usuarioCargo%">
+                    </td>
+                </tr>
+                </table>
+            </div>
+
+              <table cellpadding="0" cellspacing="0" width="100%" align="left" style="padding-top:80px">
+                <tr>
+                  <th width="100%" colspan="3">Asignaci&oacute;n de Extensiones</th>
+                </tr>
+                <tr>
+                  <td valign="top" class="sinBorde">
+                        <tr>
+                        <td class="sinBorde">Extensi&oacute;nes Asignadas</td>
+                        <td class="sinBorde">
+                            <select name="select_anexos_asignados"  size ="5" multiple="multiple" id="select_anexos_asignados" style="width:400px;">
+                                  %select_anexosAsignados%
+                            </select>
+                        </td>
+                        <td class="sinBorde">
+                            <span style="cursor:pointer">
+                                <img src="plantillas/imagenes/asignar_extensiones.gif" onclick="Abrir_ventana('user_agre_extension.jsp');"/>
+                            </span>
+                        </td>
+                        </tr>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            </td>
+            </table>
+            <center>
+                <div style="width:250px; height:30px; padding-top:10px;">
+                <input type="hidden" name="agregar_usuario" value="true">
+                 <span style="cursor:pointer">
+                 <img src="plantillas/imagenes/guardar.png" onclick="verForm_usuarioAgregar(document.adminForm_usuarioAgregar);" />
+                 <a href="usuarioRegistro.jsp"><img src="plantillas/imagenes/cancelar.png" border="0" /></a>
+                 </span>
+                </div>
+            </center>
+            </form>
+        <!--</td>-->
+        <noscript><center><div class="divError">Su navegador no soporta javascript o lo tiene desactivado, no estaran todas las funcionalidades disponibles</div></center></noscript>

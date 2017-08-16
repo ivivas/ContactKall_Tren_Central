@@ -1,0 +1,67 @@
+%error_jsp%
+<script>
+    function mostrarToolKit(target,nro){
+            target.style.visibility = "visible";
+            target.style.display = "block";
+            if(nro===1){
+                target.innerHTML = "%monitorNumeroToolkit%";
+            }
+            else if(nro===2){
+                target.innerHTML = "%monitorDNToolkit%";
+            }
+            else if(nro===3){
+                target.innerHTML = "%monitorNombreToolkit%";
+            }
+            else{
+                target.innerHTML = "%monitorPilotoToolkit%";
+            }
+        }
+        function ocultarToolKit(target){
+            target.style.visibility = "hidden";
+            target.style.display = "none";
+        }
+</script>
+<form name="adminForm_extensionAgregar" action="monitorAgregar.jsp" target="_self" method="post">
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey;"><strong>%monnagr_tbl_title%</strong></div>
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 150px; padding-right: 10px;" >%monnagr_tbl_monn% </div>
+            <div style="float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'),1)" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t1" class="toolkit"></div>
+            <input type="text" name="extension_numero" size="20" maxlength="15" value="%extensionNumero%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 150px; padding-right: 10px;" >Devicename </div>
+            <div style="float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'),2)" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t2" class="toolkit"></div>
+            <input type="text" name="devicename_numero" size="20" maxlength="15" value="%devicenameNumero%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 150px; padding-right: 10px;" >%monnagr_tbl_name% </div>
+            <div style="float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t3'),3)" onmouseout="ocultarToolKit(document.getElementById('t3'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t3" class="toolkit"></div>
+            <input type="text" name="extension_nombre" size="20" maxlength="30" value="%extensionNombre%" >
+        </div>
+    </div>
+    
+    <input type="hidden" name="agregar_anexo" value="true">
+    
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <a href="#" onclick="monitorAgregar(document.adminForm_extensionAgregar);" class="botones btnadddel">
+                %extnagr_btn_save%
+            </a>
+            &nbsp;&nbsp;
+            <a href="monitorRegistro.jsp" class="botones btnadddel">
+                %extagr_btn_cancel%
+            </a>
+        </div>
+    </center>
+</form>

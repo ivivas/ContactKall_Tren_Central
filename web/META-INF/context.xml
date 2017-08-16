@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/PortalContactCenter">
+     <Resource auth="Container" driverClassName="org.postgresql.Driver" 
+              logAbandoned="true" minEvictableIdleTimeMillis="900000" name="jdbc/PortalContactCenter"
+              numTestsPerEvictionRun="15" password="adp2016" removeAbandoned="true"
+              removeAbandonedTimeout="300" testOnBorrow="false" testWhileIdle="true"
+              timeBetweenEvictionRunsMillis="900000" type="javax.sql.DataSource"
+              url="jdbc:postgresql://localhost:5432/AcdkallControl_contact" username="postgres"/>
+</Context>

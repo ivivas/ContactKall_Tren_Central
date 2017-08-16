@@ -1,0 +1,80 @@
+%error_jsp%
+<script>
+    function mostrarToolKit(target,nro){
+            target.style.visibility = "visible";
+            target.style.display = "block";
+            if(nro===1){
+                target.innerHTML = "%ctiNumeroToolkit%";
+            }
+            else if(nro===2){
+                target.innerHTML = "%ctiDescripcionToolkit%";
+            }
+            else if(nro===3){
+                target.innerHTML = "%ctiLargoToolkit%";
+            }
+            else{
+                target.innerHTML = "%ctiTipoToolkit%";
+            }
+        }
+        function ocultarToolKit(target){
+            target.style.visibility = "hidden";
+            target.style.display = "none";
+        }
+</script>
+<form name="adminForm_extensionAgregar" action="ctiportAgregar.jsp" method="post">
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey;"><strong>%nuevonum%</strong></div>        
+    <!--<div style="color:grey; padding-left: 100px;text-align: left;padding-bottom: 10px;">%nuevonum%</div>-->
+    
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%nom% *</div>
+            <div style="float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'),1)" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t1" class="toolkit"></div>
+            <input type="text" name="musica_nombre" size="20" maxlength="15" value="%musica_nombre%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%desc% *</div>
+            <div style="float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'),2)" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t2" class="toolkit"></div>
+            <input type="text" name="virtual_descripcion" size="20" maxlength="30" value="%virtual_descripcion%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%lar%</div>
+            <div style="float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t3'),3)" onmouseout="ocultarToolKit(document.getElementById('t3'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t3" class="toolkit"></div>
+            <input type="text" name="largo" size="20" maxlength="30" value="%largo%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%tipo% *</div>
+            <div style="float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t4'),4)" onmouseout="ocultarToolKit(document.getElementById('t4'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t4" class="toolkit"></div>
+            <select name="tipo">
+                <option value="5">%sel%</option>
+                %opciones_musica%
+            </select>
+        </div>
+    </div>
+ 
+    <input type="hidden" name="agregar_anexo" value="true">
+    
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <a href="#" class="botones btnadddel" onclick="ctiportModificar(document.adminForm_extensionAgregar);" style="cursor:pointer">
+                %vrtmod_btn_save%
+            </a>
+            &nbsp;&nbsp;
+            <a href="ctiportRegistro.jsp" class="botones btnadddel" style="cursor:pointer">
+                %vrtmod_btn_cancel%
+            </a>
+        </div>
+    </center>
+</form>

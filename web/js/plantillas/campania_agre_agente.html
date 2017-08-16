@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script language="JavaScript">
+            function envia_agentes(num_check){
+                var i;
+                var cont=0;                                    
+                receptor = opener.document.getElementById('select_agentes_asignados');
+                
+                //                receptor = opener.document.getElementById('adminForm_centrocostoAgregar');                
+                //                receptor = opener.document.adminForm_centrocostoAgregar.select_usuarios_asignados.options;
+                for(i = receptor.length; i>=0; i--) {
+                    //alert("valor "+receptor[i].value);
+                    receptor[i] = null;
+                    
+                    //                    alert("ciclo = " + i);
+                }
+                //                alert("Paso 1 ");
+                for(i=0;i<num_check;i++) {
+//                    alert("Paso For " + num_check);
+                    checkos = document.getElementById('checko'+i.toString());
+//                    alert("Paso 5 " + checkos+ " - " + checkos);
+                    if(checkos.checked==true) {
+                        //alert("Paso checkeado ");
+                        var op=opener.document.createElement("option"); 
+                        op.text  = checkos.name;
+                        op.value = checkos.value;
+                        receptor.add(op);
+                        cont++;
+                        //alert("Valor de Check" + op); 
+                    }
+                }
+                //                alert("Paso Final ");
+                window.close();
+            } 
+        </script>
+    </head>
+    <body>
+        <form id="form1" name="form1">
+            <table width="200" border="1" class="adminlista" style="width:50%;">
+                <tr>
+                    <th>Agentes disponibles</th>
+                </tr>
+                %usuarios_disponibles%
+                <tr>
+                    <td>
+                        <img src="plantillas/imagenes/guardar.png" onclick="envia_agentes('%num_checkbox%')"/>
+                        <input type="hidden" name="nchecks" value="%ncheckbox%" />
+                        <input type="hidden" name="id_campania_actual" value="%id_campania_actual%" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

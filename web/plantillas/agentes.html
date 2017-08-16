@@ -1,0 +1,47 @@
+    %div_titulo%
+    <div id="contenido">
+        <div style="width: 100%">
+            <div style="width: 100%;height: 10%;float: left;">
+                <div id='info_' style="float: left;text-align: left;width: 40%;">
+                    %supervisor% %usuario%<br>
+                    %anx% %anexo%<br>
+                    %devname% %devicename%
+                   <input id="supervisor" type="hidden" value="%datosSupervisor%">
+                   <input type='hidden' value='si' id='tieneAutoRefresco'>
+                </div>
+                <div id="selector" style="float: left;padding-right: 7%;width:20%">
+                    <div style="float: left;">%num_piloto%</div>
+                    <select id="piloto" name="piloto" >
+                            %opciones_piloto%
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="contenedor_ag" style="float: left;">
+            <div id="carga"></div>
+        </div>
+        <div id="divGraficos" style="">
+            <img id='llamadaGral' src='imagenes/nada.jpg' alt ='Total Llamadas' title='Total Llamadas'>
+            <div id="colaLlamadas">
+            </div>
+            <div id="panel"></div>
+        </div>
+        <div id="ppal"></div>
+        <div id="ventanaWhispering"></div>
+        <div id="hd"></div>
+        <div id="divPickup"></div>
+        <div id="listaGrabaciones">
+            <div id="loading"></div>
+            <div id="realListaGrabaciones"></div>
+        </div>
+        <div id="divConf"></div>
+        <div id="divGraficosDetalle">
+            <a style="color:black" onclick="salirDetalle()">Salir</a><br>
+            <img id='llamadaPerdida' src='imagenes/nada.jpg' alt ='Llamadas Perdidas' title='Llamadas Perdidas'>
+            <img id='llamadaContestada' src='imagenes/nada.jpg' alt ='Llamadas Contestadas' title='Llamadas Contestadas'>
+        </div>
+        <div id="aqui"><div class='headers'></div></div>
+        <input id="anexo" type="hidden" value="%anexo%">
+        <input id="respuestaPaso" type="hidden" value="">
+    </div>

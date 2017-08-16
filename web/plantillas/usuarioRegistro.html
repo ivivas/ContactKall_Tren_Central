@@ -1,0 +1,58 @@
+%msg_carga%
+<form name="adminForm_usuarioRegistros" action="usuarioRegistro.jsp" method="post" >
+    %div_titulo%
+    <div id="datos">
+        <div id="input">
+            %usuario_reg_user%
+            &nbsp;
+            <input name="buscar_usuario" type="text" id="textfield" size="7" value="%buscar_usuario%" />
+            &nbsp;&nbsp;
+            %usuario_reg_regxpag%
+            &nbsp;
+            <select name="registros_mostrar" class="campos" id="select" >
+                %registros_mostrar_reemplazo%
+            </select>
+            <a href="#" onclick="document.adminForm_usuarioRegistros.submit();" >
+                <div class="botones" style="float: right">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+                        
+    <div style="width: 90%; height: 300px;padding-top: 2%;padding-left: 3%; ">
+        <table class="adminlista" border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>                    
+                <th width="2%" nowrap>N&ordm;</th>
+                <th width="4%"><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                <th width="16%">%usuario_tbl_user%</th>
+                <!--<th width="16%">Clave</th>-->
+                <th width="16%">%usuario_tbl_type%</th>
+            </tr>
+            %registros_usuarios%
+        </table>
+    </div>   
+    
+    <center>
+    <div style="width:500px; height:30px;">
+        %paginado_usuarios%
+        <input type="hidden" name="ncheckbox_eliminar" value="0" />
+        <input type="hidden" name="ncheckbox_usuarios" value="0" />
+        <span >
+            <a href="usuarioAgregar.jsp" class="">
+                <div class="botones btnadddel" >
+                %usuario_btn_new%
+                </div>
+            </a>
+            <!--<img src="imagenes/eliminar.jpg" onclick="usuarioEliminar(document.adminForm_usuarioRegistros);">-->
+            &nbsp;&nbsp;
+            <a href="#" class="" onclick="usuarioEliminar(document.adminForm_usuarioRegistros);">
+                <div class="botones btnadddel" >
+                %usuario_btn_delete%
+                </div>
+            </a>
+        </span>
+    </div>
+    </center>
+</form>
+        

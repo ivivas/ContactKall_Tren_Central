@@ -1,0 +1,133 @@
+pa#divContenido{
+    margin:10px;
+    padding:30px;
+    height: 600px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+#campañas{
+    width: 93%;
+    height: 60%;
+    //margin-top: 20px;
+    //margin-left: 20px;
+    margin: 2% auto;    
+}
+#panelModificar{
+    width: 400px;
+    height: 300px;
+}
+
+#cargarFileClientes{
+    text-align: right;
+}
+
+#panelAgregar,#panelModificar{
+    position:absolute;
+    background-color: whitesmoke;
+    top:50px;
+    left:300px;
+    padding:40px;
+    border:1px solid black;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 10px;
+    width: 650px;
+    height: 500px;
+}
+#asignarAgente{
+    //position:absolute;
+    //top:200px;
+    //left:90px;
+    /*    float:left;//Magio
+        margin-right: 100px;//Magio
+        margin-top: 20px;*///Magio
+}
+#asignarCliente{
+    //position:absolute;
+    //top:200px;
+    //left:250px;
+    float: right;//Magio
+    margin-right: 100%;//Magio
+    //margin-top: 10px;
+}
+#panelAgente{
+    //position:absolute;
+    top:250px;
+    left:50px;
+    width:150px;
+    height:200px;
+    text-align: left;
+    color:black;
+    float:left;
+}
+#panelAgente *{
+    color:black;
+}
+#panelCliente{
+    //position:absolute;
+    top:250px;
+    left:250px;
+    width:200px;
+    height:200px;
+    text-align: left;
+    color:black;
+    float:left;
+    overflow-y: auto;
+}
+#datosCliente{
+    width:200px;
+    height:200px;
+}
+.tablaCampana{
+    //position:absolute;
+    //top:60px;
+    //left:300px;
+    border:1px solid black;
+    width:100%;
+    overflow-y: auto;
+    color:black;
+}
+.tablaCampana tr{
+    text-align: center;
+    background-color: white;
+    border:1px solid black;
+}
+.tablaCampana th{
+    background-color: black;
+    color: white;
+}
+
+table, th, td{
+    color:black;
+}
+#botonAgregarCampana{
+    //position:absolute;
+    //top:350px;
+    //left:50px;
+}
+#agregarCampana{
+    position:absolute;
+    top:500px;
+    left:80px;
+}
+#botonEliminarCampana{
+    //position:absolute;
+    //top:395px;
+    //left:130px;
+}
+input {
+    width: auto;
+}
+
+.subirClienteCampana{
+    position:absolute;
+    background-color: whitesmoke;
+    top:10px;
+    left:10px;
+    padding:30px;
+    border:1px solid black;
+    /*box-shadow: 10px 10px 10px black;*/
+    border-radius: 10px;
+    width: 550px;
+    height: 320px;
+
+}

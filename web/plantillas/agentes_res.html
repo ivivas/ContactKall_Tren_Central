@@ -1,0 +1,71 @@
+    <div id="contenido">
+        <div id='info_' style="float: left;text-align: left;width: 300px;height:130px;">
+            %supervisor% %usuario%<br>
+            %anx% %anexo%<br>
+            %devname% %devicename%
+           <input id="supervisor" type="hidden" value="%datosSupervisor%">
+           <input type='hidden' value='si' id='tieneAutoRefresco'>
+        </div>
+        <div id="selector" style="float: left;height:130px;padding-right: 20px;">
+            <select id="piloto" name="piloto" >
+                    %opciones_piloto%
+            </select>
+        </div>
+        <div id="alertas" style="float: left;"></div>
+        <div id="simbol" style="float:left;height:130px;">
+            <div style="width: 95px;float:left;text-align: left;">%agente.ok%</div><img style="float: left;" src="imagenes/logoon.png">
+            <br><div style="width: 95px;float:left;text-align: left;">%agente.nook%</div><img style="float: left;" src="imagenes/logooff.png">
+            <br><div style="width: 95px;float:left;text-align: left;">%agente.out%</div><img style="float: left;" src="imagenes/logoout.png">
+            <br/><div style="width: 95px;float:left;text-align: left;">En Campaña</div><img alt="camp." style="float: left;" src="imagenes/logcamp.png">
+            <br><div style="width: 95px;float:left;text-align: left;">%agente.sin%</div><img style="float: left;" src="imagenes/logosin.png">
+        </div>
+        
+        <div id="contenedor_ag" style="float: left;">
+            <div id="carga"></div>
+        </div>
+        <div id="divGraficos" style="">
+            <img id='llamadaGral' src='imagenes/nada.jpg' alt ='Total Llamadas' title='Total Llamadas'>
+            <div id="infoCampanas" >
+                %campana_disponible%
+                <div id="contenedorCampana" %visible%>
+                    %lista_campanas%
+                </div>
+                <a href="#" id="asignarCampanaPool"><img src="imagenes/edit.png"></a>
+            </div>
+            <div id="panelAgenteCampana" style="text-align: left;"></div>
+            <div id="panel"></div>
+        </div>
+        <div id="ppal"></div>
+        <div id="ventanaWhispering"></div>
+        <div id="hd"></div>
+        <div id="divPickup"></div>
+        <div id="listaGrabaciones">
+            <div id="loading"></div>
+            <div id="realListaGrabaciones"></div>
+        </div>
+        <div id="divConf"></div>
+        <div id="divGraficosDetalle">
+            <a onclick="salirDetalle()">Salir</a><br>
+            <img id='llamadaPerdida' src='imagenes/nada.jpg' alt ='Llamadas Perdidas' title='Llamadas Perdidas'>
+            <img id='llamadaContestada' src='imagenes/nada.jpg' alt ='Llamadas Contestadas' title='Llamadas Contestadas'>
+        </div>
+        <div id="aqui"><div class='headers'></div></div>
+    </div>
+
+<!--<div class="columnados" id="caluga" onclick="expandir(this)" draggable="true" ondragstart="transferirPagina(event,this)" ondrop="recibirData(event,this)" ondragover="allowDrop(event)">
+    <input id="numeroAgente" value="4520" type="hidden">
+    <input id="devNameAgente" value="SEP0024142F003C" type="hidden">
+    <div class="encabezado">4520 - Daniel Pezoa</div>
+    <img src="imagenes/off.png"><br>
+    <div id="perdida_ag" class="ok"><img src="imagenes/perdida.png">&nbsp;0</div>
+    <div id="recibida_ag" class="ok"><br><img src="imagenes/recibida.png">&nbsp;0</div>
+    <div id="rendimiento_ag" class="malo"><img src="imagenes/performance.png"> 0 %</div>
+    <div id="promedio">
+        <div class="ok" id="ringeo_ag">
+            <img src="imagenes/ring.png"> 00:00:00
+        </div>
+        <div class="malo" id="contesto_ag">
+            <img src="imagenes/call.png"> 00:00:00
+        </div>
+    </div>
+</div>-->

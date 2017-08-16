@@ -1,0 +1,152 @@
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jscal2.js"></script>
+<script type="text/javascript" src="js/es.js"></script>
+<script language="javascript" >
+    function CalendarioStart() {
+        RANGE_CAL_1 = new Calendar({
+            inputField: "addInicio",
+            dateFormat: "%Y-%m-%d 00:00:00",
+            trigger: "addInicio",
+            bottomBar: false,
+            onSelect: function () {
+                var date = Calendar.intToDate(this.selection.get());
+                LEFT_CAL.args.min = date;
+                LEFT_CAL.redraw();
+                this.hide();
+            }
+        });
+    }
+    function CalendarioStart2() {
+        RANGE_CAL_1 = new Calendar({
+            inputField: "addFin",
+            dateFormat: "%Y-%m-%d 23:59:59",
+            trigger: "addFin",
+            bottomBar: false,
+            onSelect: function () {
+                var date = Calendar.intToDate(this.selection.get());
+                LEFT_CAL.args.min = date;
+                LEFT_CAL.redraw();
+                this.hide();
+            }
+        });
+    }
+    function buscar() {
+        window.location.href = 'campana.jsp?limit=' + document.getElementById("reg").value + '&cadena=' + $("#cadena").val();
+    }
+</script>
+<input type='hidden' value='no' id='tieneAutoRefresco'>
+  
+<div id="ventanaEspera" ></div>
+<div style="text-align: left;float:left;width: 100%">
+    <div id="datos" style="width: 98%;padding-left:2%;">    
+        %campanas_disponibles%
+        &nbsp;
+        %nombre% <input id="cadena" type="text" name="cadena" value="%valor_cadenna%">
+        &nbsp;&nbsp;&nbsp;
+        %reg% 
+        &nbsp;
+        <select id="reg" name="limit">
+            <option value="15" %15%>15</option>
+            <option value="30" %30%>30</option>
+            <option value="50" %50%>50</option>
+        </select>
+        <div style="float:right;margin-right: 12%;">
+            <a href='#' onclick='buscar()' >
+                <!--<img src='imagenes/buscar.png' />-->
+                <div class="botones" style="float:right;">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a><!-- boton para buscar camapañas -->
+
+        </div>
+    </div>
+
+    <!--<input type="button" value="buscar" onclick="buscar()">-->
+    <div id="campañas">
+
+
+        <table class="tablaCampana">
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>%nombre%</th>
+                <th>%descripcion%</th>
+                <th>%inicio%</th>
+                <th>%fin%</th>
+                <th>%estado%</th>
+            </tr>
+
+
+            %lista_campanas%
+            <br>
+            %paginado%
+            
+                <div style="width: 20%; margin: 0 auto;">
+                    <!--<div style="">-->
+                        <a href="#" id='botonAgregarCampana' class="botones btnadddel" >%nueva_campana%</a>
+                    <!--</div>-->
+                    <!--<div >-->
+                        <a href="#" id='botonEliminarCampana' class="botones btnadddel">%eliminar_campana%</a>
+                        <input type="hidden" name="session_name" id="session_name" value="%session_name%" />
+                    <!--</div>-->
+                </div>
+            
+            </div>
+            <div id="panelModificar">
+                
+            </div>
+            <div id="panelAgregar">
+                <div id="respuestaAgregar" style="color:red"></div>
+                <br>
+                <table class='tablacampana' width="100%">
+                    <tr>
+                        <td>%nombre% *</td><td><input type='text' id='addNombre'></td>
+                    </tr>
+                    <tr>
+                        <td>%descripcion% *</td><td><input type='text' id='addDescripcion' ></td>
+                    </tr>
+                    <tr>
+                        <td>%inicio% *</td>
+                        <td>
+                            <!--<input type='text' readonly onclick="CalendarioStart()" onkeydown="if(this.value.length >= 40){ return false; } else { return true;}" id='addInicio' >-->
+                            <input type='text' id='addInicio' >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>%fin% *</td>
+                        <td>
+                            <!--<input type='text' readonly  onclick="CalendarioStart2()" onkeydown ="if(this.value.length >= 40){ return false; } else { return true;}"  id='addFin' >-->
+                            <input type='text'  id='addFin' >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            %estado%
+                        </td>
+                        <td>
+                            <select id='addEstado'>
+                                <option value=''>...</option>
+                                <option value='activa'>%activa%</option>
+                                <option value='inactiva'>%inactiva%</option>
+                                <option value='completada'>%completada%</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <!--<a href='#' id='asignarAgente'><img src='imagenes/agente.png'></a> boton para asignar agentes a campaña -->
+                <div id="cargarFileClientes" style="width:100%;">
+                    <a href='#' onclick="subir()" class="botones btnadddel">%agregar_cargar_cliente%</a><!-- boton para asignar clientes a campaña -->
+                    <!--<a href='#' id='asignarCliente' class="botones btnadddel">Cargar Clientes</a> boton para asignar clientes a campaña -->
+                    <!--                <a href='#' id='asignarCliente'><img src='imagenes/asignarC.png'></a> boton para asignar clientes a campaña -->
+                </div>
+                <div id="panelAgente" style="width:50%;"></div>
+                <div id="panelCliente" style="width:50%;"></div>
+                <!--<a id="cerrarDiv" ><img src='imagenes/exit.png'></a>-->
+                <!--<a href='#' id='agregarCampana'><img src='imagenes/ok.png'></a> boton agregarCampaña -->
+                <a href='#' id='agregarCampana' style='position:absolute;top:500px;left:40px;' class="botones btnadddel">%guardar_campana%</a><!-- boton agregarCampaña -->
+                <!--<a id="cerrarDiv" style='position:absolute;top:500px;left:180px;'><img src='imagenes/exit.png'></a>-->
+                <a id="cerrarDiv" style='position:absolute;top:500px;left:600px;' class="botones btnadddel">%cancelar_campana%</a>
+                
+            </div>
+    </div>   
+

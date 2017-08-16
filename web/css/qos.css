@@ -1,0 +1,161 @@
+#contenido{
+    //width: 1300px;
+    height: 40%;
+    //background-color: whitesmoke;
+    padding: 2%;
+    //border-radius: 10px;
+}
+#contenedorArbol{
+    //position: absolute;
+    //top:150px;
+    //left:-20px;
+    color: black;
+    height: 100%;
+    overflow-y: scroll;
+}
+#arbol a{
+    color:black;
+}
+#arbol{
+    padding-left: 0px;
+}
+
+ul,li{
+    font-size:12.5px;
+    /*    width:200px;
+        height: 40px;
+        background-color: green;
+        color:white;*/
+    //width:190px;
+    list-style: none;
+}
+li{
+    padding-left: 0px;
+}
+#lapso{
+    //position:absolute;
+    top:130px;
+    left:20px;
+}
+
+.exp_excel{
+    //position:absolute;
+    top:130px;
+    left:20px;
+}
+
+#exp_excel{
+    //position:absolute;
+    top:130px;
+    left:20px;
+}
+#datosEstadisticos{
+    font-size:12.5px;
+    //position:absolute;
+    //top:150px;
+    //left:230px;
+    //width:500px;
+    width:80%;
+    height:100%;
+    overflow-y: scroll;
+    margin-left:2%;
+    //background-color: white;
+}
+#datosEstadisticos table{
+    margin-left: 20px;
+    width:90%;
+}
+th{
+    background-color: #3b3f3f;
+}
+td{
+    color:black;
+}
+.graficos{
+    //position:absolute;
+    //top:30px;
+    //left:750px;
+    //width:570px;
+    height:50%;
+    font-size:12px;
+    //border:solid 1px black;
+    margin-left: 2%;
+    //margin-top: 20px;
+    width: 95%;
+    overflow-x: scroll;
+}
+.columna11{
+    //position:absolute;
+    //top:15px;left:10px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna12{
+    //position:absolute;
+    //top:15px;left:290px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna21{
+    //position:absolute;
+    //top:165px;left:10px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna22{
+    //position:absolute;
+    //top:165px;left:290px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna13{
+    //position:absolute;
+    //top:315px;left:10px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna23{
+    //position:absolute;
+    top:315px;left:290px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna14{
+    //position:absolute;
+    //top:465px;left:10px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna24{
+    //position:absolute;
+    //top:465px;left:290px;
+    width:265px;
+    height:130px;
+    border:solid 1px black;
+}
+.columna{
+    float: left;
+    margin: 8px;
+}
+
+.grfcol{
+    float: left;
+    margin: 8px;
+    width:265px;
+    height:130px;
+}
+
+#panelGraficoGrande{
+    position:absolute;
+    top:300px;
+    left:400px;
+    width:600px;
+    height:360px;
+}

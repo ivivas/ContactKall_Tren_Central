@@ -1,0 +1,87 @@
+<!-- 
+    Document   : usuarioRegistro
+    Created on : 02-03-2009, 07:33:55 PM
+    Author     : max
+-->
+
+<form name="adminForm_usuarioRegistros" action="usuarioRegistro.jsp" target="_self" method="post">
+    <table class="admincaja3" width="950" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="sinborde" valign="top" align="center">          
+                <!-- <div style=" height:350px; text-align:left; float:left; width:700px;"> -->
+                <table width="220" border="0" align="left">
+                    <tr>
+                        <td>Nombre</td>
+                        <td>
+                            <label>
+                                <input name="busca_usuario" type="text" id="textfield" size="7" value="%busca_usuario%" />
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cargo</td>
+                        <td>
+                            <label>
+                                <input name="busca_cargo" type="text" id="textfield" size="7" value="%busca_cargo%" />
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Centro de Costo</td>
+                        <td>
+                            <label>
+                                <input name="busca_centrocosto" type="text" id="textfield" size="7" value="%busca_centrocosto%" />
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Registros por p&aacute;gina</td>
+                        <td>
+                            <select name="registros_mostrar" class="campos" id="select" >
+                                %registros_mostrar_reemplazo%
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="34">&nbsp;</td>
+                        <td><input name="buscar" type="image" id="buscar" src="botones/buscar.jpg"></td>
+                    </tr>
+                </table>
+                <div style="width:700;  float:right;">
+                    <table class="adminlista" border="0" align="right" cellpadding="0" cellspacing="0">
+                        <tr>                    
+                            <th width="2%" nowrap>N&ordm;</th>
+                            <th width="4%" ><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);" /></th>
+                            <th width="26%">Nombre</th>
+                            <th width="16%">Cargo</th>
+                            <th width="26%" nowrap>Centro de Costo</th>
+                        </tr>
+                        <tr>
+                            <td colspan="8" valign="top" height="288"> 
+                                <div style="overflow:auto;  height:300;">
+                                    <table class="adminlista" border="0" cellpadding="0" cellspacing="0">
+                                        %registros_usuarios%
+                                    </table>
+                                </div>
+                            </td>    
+                        </tr>
+                    </table>
+                </div>
+            </td>
+    </table>
+    <center>
+        <div>
+            %paginado_usuarios%
+        </div>
+        <div style="width:250px; height:70px;">
+            <input type="hidden" name="ncheckbox_eliminar" value="0" />
+            <input type="hidden" name="ncheckbox_usuarios" value="0" />
+            <span style="cursor:pointer">
+                <a href="usuarioAgregar.jsp"><img src="imagenes/nuevo.jpg" border="0"></a>
+                <img src="imagenes/eliminar.jpg" onclick="usuarioEliminar(document.adminForm_usuarioRegistros);">
+            </span>
+        </div>
+    </center>
+</form>
+</td>
+<noscript><center><div class="divError">Su navegador no soporta javascript o lo tiene desactivado, no estaran todas las funcionalidades disponibles</div></center></noscript>

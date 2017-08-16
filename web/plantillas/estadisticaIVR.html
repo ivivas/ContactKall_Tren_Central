@@ -1,0 +1,133 @@
+ <script src="js/jquery.js"></script>
+<script src="js/Chart.js"></script>
+<style>
+    .sinborde{
+        width:80%;
+    }
+    table tr td{
+        
+        color:black;
+    }
+
+</style>
+<script>
+    
+    function mostrarToolKit(target){
+        target.style.visibility = "visible";
+        target.style.display = "block";
+    }
+    
+    function ocultarToolKit(target){
+        target.style.visibility = "hidden";
+        target.style.display = "none";
+    }
+    function buscar(){
+        var desde = document.getElementById('fechaDesde').value;
+        var hasta = document.getElementById('fechaHasta').value;
+        //alert('desde '+desde);
+        if(desde === '' || hasta === ''){
+            alert('%empty%');
+        }else{
+            if(validaFecha(desde) && validaFecha(hasta)){
+                document.getElementById('estadisticaIVR').submit();
+            }else{
+                alert('Formato Valido DD/MM/AAAA HH:MM:SS');
+            }
+        }
+    }
+    
+    function validaFecha(fecha){
+        //var reg = /([0-9]{2})\/([0-9]{2})\/([0-9]{4})/;
+        var reg = /([0-9]{2})\/([0-9]{2})\/([0-9]{4})\s([0-9]{2})\:([0-9]{2})\:([0-9]{2})/;
+        var valida = false;
+        if(reg.test(fecha)){
+            valida = fechaExiste(fecha);
+        }
+        return valida;
+    }
+    
+    function fechaExiste(fecha){
+        var year = fecha.split('/')[2];
+        year = year.split(" ")[0];
+        var month = fecha.split('/')[1];
+        var day = fecha.split('/')[0];
+        var valida = false;
+        
+        if(month<13){
+            var date = new Date(year, month, 0);
+            valida = ((day - 0) <= (date.getDate() - 0));
+        }
+        
+        return valida;
+    }
+    
+</script>
+%div_titulo%
+<form name="estadisticaIVR" id="estadisticaIVR" action="estadisticaIVR.jsp" method="post" style="height: 100%;" >
+    <div id="datos_1" style="float: left;width: 20%;">
+        <div id="input_1">
+            <span>%fechaDesde%</span>
+            <br/>
+            <div style="width:100%;height: 5%">
+                <input style="width:45%;float:left;" type="text" name="fechaDesde" id="fechaDesde" value="%desde%">&nbsp;
+                <div style="float:left;margin-top: 3%;margin-left: 2%;">(*)</div>
+                <div style="margin-left: 3%;margin-top: 3%;float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'))" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                    <i class="fa fa-question-circle"></i>
+                </div> 
+                <div id="t1" class="toolkit" >%format1%</div>
+            </div>
+            <br/>
+            <span>%fechaHasta%</span>
+            <br/>
+            <div style="width:100%;height: 5%">
+                <input style="width:45%;float: left;" type="text" name="fechaHasta" id ="fechaHasta" value="%hasta%">&nbsp;
+                <div style="float:left;margin-top: 3%;margin-left: 2%;">(*)</div>
+                <div style="margin-top: 3%;margin-left: 3%;float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'))" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                    <i class="fa fa-question-circle"></i>
+                </div>
+                <div id="t2" class="toolkit" >%format2%</div>
+            </div>
+            <br>
+            <span>Nivel</span>
+            <br/>
+            <div style="width:100%;height: 5%">
+                <select name="nivel" id="nivel" value="%nivel%" >
+                    <option value="1" %sel1%>Menu Principal</option>
+                    <option value="3" %sel2%>Consulta Horario Servicios</option>
+                    <!--<option value="6" %sel3%>Nivel 3</option>-->
+                </select>
+            </div>
+            <br>
+            Invalidas
+                <input type="checkbox" name="invalida" %checked%>
+                <br>
+                <br>
+                <a style="float: left;" onclick="buscar()" href="#">
+                <div class="botones" style="">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+    <table class="sinborde">
+        <tr>
+            
+            <td>
+                <div id="canvas-holder">
+                    <canvas id="grafico" width="500" height="500"></canvas>
+                </div>
+            </td>
+            <td>
+                <div id="simbologia">%simbologia_ivr%</div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var pieData = [
+               %valores_grafico%
+                            ];
+            var ctx2 = document.getElementById("grafico").getContext("2d");
+            window.myPie = new Chart(ctx2).Pie(pieData);
+    </script>
+</form>

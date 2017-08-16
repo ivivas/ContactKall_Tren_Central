@@ -1,0 +1,132 @@
+<script language="JavaScript">
+    function cambiaEstado(valor)
+    {
+        if (valor==0){
+            document.formBuscador.busca_fechaDesde.disabled=false;
+            document.formBuscador.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formBuscador.busca_fechaDesde.disabled=true;
+            document.formBuscador.busca_fechaHasta.disabled=true;
+        }
+    }
+
+    function comprobar() {
+        if(document.formBuscador.rango_fecha.value==0) {
+            document.formBuscador.busca_fechaDesde.disabled=false;
+            document.formBuscador.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formBuscador.busca_fechaDesde.disabled=true;
+            document.formBuscador.busca_fechaHasta.disabled=true;
+        }
+    }
+</script>
+<body onload="comprobar()">
+%error%
+ <form name="formBuscador" action="detalleCCsuperior.jsp">
+    <table class="caja2_1" style="border:1px; width:70px;">
+        <tr>
+            <td>
+               <!--<strong>Internas</strong>
+               %check_internas% -->
+               <Select NAME="tipo_llamada" >
+                   %tipo_llamada%
+                </Select>
+            </td>
+            <td>
+               <Select NAME="tipo_desvio" >
+                   %tipo_desvio%
+                </Select>
+            </td>
+            <!--<td style="padding-left:50px;">
+                <select name="horario_valido" >
+                        %horario_valido%
+                </select>
+            </td>-->
+            <td style="padding-left:50px;">
+                <Select NAME="rango_fecha" onChange="cambiaEstado(this.value);">
+                   %rangos_fecha%
+                </Select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha Inicial :</strong>
+            </td>
+            <td>
+                <input type="text" class="fecha" name="busca_fechaDesde" value="%busca_fechaDesde%" />
+            </td>
+            <td style="padding-left:11px;">
+                <strong>Fecha Final : </strong>
+            </td>
+            <td>
+                <input type="text" class="fecha" name="busca_fechaHasta" value="%busca_fechaHasta%" />
+            </td>
+        </tr>
+        <tr>
+            <input type="hidden" name="id_usuario" value="%id_usuario%" />
+            <input type="hidden" name="id_centrocosto" value="%id_centrocosto%" />
+            <input type="hidden" name="cargo" value="%cargo%" />
+            <input type="hidden" name="primera_vez" value="true" />
+            <td><input name="buscar" type="image" id="buscar" src="botones/buscar.jpg"></td>
+        </tr>
+    </table>
+</form>
+<br>
+<table class="caja2">
+    <tr>
+        <!--<td><strong>Resumen mensual %nombredelcentro% Enero 2008 </strong></td>-->
+    </tr>
+</table>
+
+<div class="tableContainer" style="width:700px;">
+    <table class="caja2_1" cellspacing="0" border="1">
+              <thead>
+<!--                  <tr bgcolor="#CCCCCC">
+                      <th class="titulo" style="text-align:center;" > <strong>&nbsp;&nbsp; Centro de costo b&aacute;sico </strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; Total <br>llamadas</strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; % Abandonadas</strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; % Desvio <br>programado</strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; % Desvio <br>no contesta</strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; % Desvio <br>ocupado</strong></th>
+                      <th class="titulo" > <strong>&nbsp;&nbsp; % Contestadas</strong></th>
+                      <th class="titulo" > <strong>TMO</strong></th>
+                  </tr>-->
+
+                  <tr bgcolor="#CCCCCC">
+                      <th class="titulo" style="text-align:center;" rowspan="2"> <strong>&nbsp;&nbsp; Nombre </strong></th>
+                      <th class="titulo" rowspan="2" > <strong>&nbsp;&nbsp; Total <br>llamadas</strong></th>
+                      <th class="titulo"  colspan="2" > <strong>&nbsp;&nbsp; Abandonadas</strong></th>
+                      <th class="titulo"  colspan="2" > <strong>&nbsp;&nbsp; Desvio <br>programado</strong></th>
+                      <th class="titulo"  colspan="2" > <strong>&nbsp;&nbsp; Desvio <br>no contesta</strong></th>
+                      <th class="titulo"  colspan="2" > <strong>&nbsp;&nbsp; Desvio <br>ocupado</strong></th>
+                      <th class="titulo"  colspan="2" > <strong>&nbsp;&nbsp; Contestadas</strong></th>
+                      <th class="titulo" align="center" rowspan="2" > <strong>TMO</strong></th>
+                  </tr>
+                  <tr bgcolor="#CCCCCC">
+<!--                      <th class="titulo"  > <strong>&nbsp;&nbsp; Total <br>llamadas</strong></th>-->
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; %</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; Q</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; %</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; Q</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; %</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; Q</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; %</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; Q</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; %</strong></th>
+                      <th class="titulo"  > <strong>&nbsp;&nbsp; Q</strong></th>
+                      <!--<th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; % Desvio ocupado</strong></th>-->
+                  </tr>
+              </thead>
+              <tbody>
+                  %listado%
+              </tbody>
+     </table>
+ </div>
+ <div align="center">%barraPaginado%</div>
+ <!--<div style="font-family:verdana; font-size: 11px; font-weight:bold; padding-top:50px;">*Los porcentajes han sido redondeados para su comodidad</div>-->
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold; padding-top:50px;">Rango efectivo de busqueda<br>Desde : %rangoDeBusquedaDesde%<br>Hasta : %rangoDeBusquedaHasta%</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold; padding-top:10px;">Primer registro: %primer_registro%</div>
+ <div style="font-family:verdana; font-size: 11px; font-weight:bold;">Ultimo registro: %ultimo_registro%</div>
+</body>

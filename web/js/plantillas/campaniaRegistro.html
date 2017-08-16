@@ -1,0 +1,61 @@
+%error_jsp%
+<form name="adminForm_extensionRegistros" action="campaniaRegistro.jsp" target="_self" method="post">
+    <table border="0" align="left">
+        <tr>
+            <td valign="top">
+                <table class="caja2_1" width="180" border="0" align="left">
+                    <tr>
+                        <td width="82">Campa&ntilde;a</td>
+                        <td width="128"><label>
+                                <input name="busca_extension" type="text" id="textfield" size="10" value="%busca_extension%"/>
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td>Registros por pagina</td>
+                        <td><select name="registros_mostrar" class="campos" id="select" >
+                                %registros_mostrar_reemplazo%
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td height="34">&nbsp;</td>
+                        <td><input name="buscar" type="image" id="buscar" src="plantillas/botones/btn-buscar.jpg"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <div class="tableContainer" align=""  style=" height:400px;">
+                    <table class="%estilocaja%" cellspacing="0" style="width:700px;">
+                        <thead>
+                            <tr>     
+                                <th width=\"7%\">&nbsp; N&ordm;</th>
+                                <th width=\"7%\"><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Fecha/Hora Inicio</th>
+                                <th>Fecha/Hora Termino</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <center>
+                            %registros_extensiones%
+                        </center>
+                        </tbody>
+                    </table>
+                </div>
+                <div align="center">%barraPaginado%</div>
+                <!--<center>-->
+                <div align="center">
+                    <input type="hidden" name="ncheckbox_eliminar" value="0">
+                    <input type="hidden" name="ncheckbox_usuarios" value="0">
+                    <span style="cursor:pointer">
+                        <a href="campaniaAgregar.jsp"><img src="imagenes/nuevo.jpg" border="0"></a>
+                        <img src="imagenes/eliminar.jpg" onclick="ccostoEliminar(document.adminForm_extensionRegistros);">
+                        <!--<img src="imagenes/eliminar.jpg" onclick="extensionEliminar(document.adminForm_extensionRegistros);">-->
+                    </span>
+                </div>
+                <!--</center> -->
+            </td>
+        </tr>
+    </table>
+</form>

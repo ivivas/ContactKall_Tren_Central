@@ -1,0 +1,100 @@
+<script language="JavaScript">
+    function seleccionOpcionRadio(nombre, anexo) {
+        window.open('opcionDeDeshabilitacion.jsp?nombre=' + nombre + '&anexo=' + anexo, 'window', 'height=179,width=375');
+        return false;
+    }
+    function cambiaCombo(elemento, nombre, anexo) {
+        var sel = elemento.value;
+        if (sel === '0') {
+            //window.open('opcionDeDeshabilitacion.jsp?nombre='+nombre+'&anexo='+anexo,'window','height=179,width=375');
+            document.getElementById('guardar_des').value = 'true';
+        }
+    }
+    function validaSave() {
+        var valida = true;
+        if (document.getElementById('guardar_des').value !== '') {
+
+            valida = document.getElementById('motivo_deshab').value !== '';
+        }
+        if (valida) {
+            document.getElementById('guardar').value = 'true';
+            document.formulario.submit();
+        } else {
+            alert('%alert_empty%');
+        }
+    }
+
+</script>
+<form name="formulario" action="habilitador2.jsp" method="post">
+    %div_titulo%
+    <div id="datos" >
+        <div id="input" style="height: auto;">
+            <span>%habilit_tabla_name%</span>
+            <input id="textfield" name="nombre" type="text"   size="7" value="%nombre%" />
+            <span>%habilit_tabla_extn%</span>
+            <input name="extension"  type="text" id="textfield" size="7" value="%extension%" />
+            <span>%habilit_tabla_estado%</span>
+            <select name="est_ag" id="est_ag" class="campos" >
+                %combo_est_ag%
+            </select>
+            &nbsp;&nbsp;
+            %tag_piloto%
+            &nbsp;
+            <select name="piloto" class="campos" id="piloto" >
+                %combo_piloto%
+            </select>
+
+            &nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="document.formulario.submit();" title="%titl_search%">
+                <div style="float:right;" class="botones" >
+                    <i class="fa fa-search"></i>
+                </div>  
+            </a>
+        </div>
+    </div>
+    <div style="width: 90%;margin-top: 1%">
+        <span>%tag_motivo%</span>
+        <select style="margin-left: 2%;" name="motivo_deshab" id="motivo_deshab">
+            %opcion_deshab%
+        </select>
+    </div>
+    <div id="tabla">
+
+        <table id="t01" style="width: 90%;margin: 0 auto;" class="cajaM">
+            <thead>
+                <tr>
+                    <td>Agente</td>
+                    <td>Estado</td>
+                    <td>Motivo</td>
+                    <td>Acci&oacute;n</td>
+                    <td>Login</td>
+                    <td>Logout</td>
+                </tr>
+            </thead>
+            <tbody>
+                %salidaTabla%
+            </tbody>
+            <!--%salidaTabla%-->
+        </table>
+
+        <div id="paginacion">%paginado%</div>
+        <input name="guardar" type="hidden" id="guardar" value="" />
+        <input name="nsecretarias" type="hidden" value="%nsecretarias%" />
+        <input name="guardar_des" type="hidden" id="guardar_des" value="" />
+        <div id="boton-tabla">
+
+            <a href="#" onclick="validaSave()" title='%titl_save%'>
+                <div style="float:right;margin-right: 2%;" class="botones">
+                    <i class="fa fa-floppy-o"></i>
+                </div>  
+            </a>
+            &nbsp;
+            &nbsp;&nbsp;
+            <a href="habilitador2.jsp"  title='%titl_cncl%'>
+                <div style="float:right;margin-right: 2%" class="botones">
+                    <i class="fa fa-times"></i>
+                </div>  
+            </a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,129 @@
+    <!--<body style="background-image:url('img/bg.png');background-repeat:repeat-x;" onload="llenarSecretaria()">-->
+        <body  onload="llenarSecretaria()">
+            
+        <form action="grabaciones.jsp" method="post" id="form">
+            <input type="hidden" id="usuario" value="%usuario%">
+            <input type="hidden" name="buscar" value="buscar">
+            <!--<div style="position:absolute;left:200px;top:20px;border:solid 1px gray;border-radius:10px;width:1000px;height:500px;background-color:white;">
+            <div style="position:absolute;left:40px;top:30px;">-->
+            <div id="datos_1" >
+                <div id="input_1">
+                    <span>%cantidad%</span>
+                    <br/>
+                    <select name="limit" style="width:70%;">
+                        <option value="20" %20%>20</option>
+                        <option value="50" %50%>50</option>
+                        <option value="100" %100%>100</option>
+                        <option value="200" %200%>200</option>
+                    </select>
+                    <br/>
+                    <span>%numpiloto%</span>
+                    <br/>
+                    <select id="piloto" name="piloto" onchange="llenarSecretaria()" style="width:70%;">
+                        %opcion_piloto%
+                    </select>
+                    <br/>
+                    <span>%numeroRevisado%</span>
+                    <br/>
+                    <input type="hidden" id="numeroX" name="numerox" value="%num%">
+                    <select id="numero_" name="numero_" style="width: 70%" >
+                    </select>
+                    <br/>
+                    <span>%contraparte%</span>
+                    <br/>
+                    <input type="text" style="width: 70%" name="contraparte"  style="" value="%valor_contraparte%">
+                    <br/>
+                    <span>%fechaDesde%</span>
+                    <br/>
+                    <div style="width: 100%;height: 5%">
+                        <input style="width: 70%;float: left;" type="text" name="desde" id="desde" value="%desde%">
+                        <div  style="float: left;margin: 5% 3% 3%" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'))" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                        <br><br>
+                        <div id="t1" class="toolkit" >%formato_f_desde%</div>
+                    </div>
+                    <br/>
+                    <span>%fechaHasta%</span>
+                    <br/>
+                    <div style="width: 100%;height: 5%">
+                        <input style="width: 70%;float: left;" type="text" name="hasta" id="hasta" value="%hasta%">
+                        <div style="float: left;margin: 5% 3% 3%;width: 20%" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'))" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                        <br><br>
+                        <div id="t2" class="toolkit" >%formato_f_hasta%</div>
+                    </div>
+                    <br/>
+                    <span>%id_call%</span>
+                    <br/>
+                    <input type="text" style="width: 70%" name="id_call" id="id_call"  style="" value="%valor_id_call%">
+                    <br/>
+                    <br/>
+                    
+                    <a href="#" onclick="enviar()" >
+                        <div style="" class="botones">
+                            <i class="fa fa-search"></i>
+                        </div>  
+                    </a>
+                </div>
+            </div>
+            
+                <div style="width:85%;height: 50%;overflow-y:scroll;margin: 1%;">
+                <table border="1" class="caja">
+                    <thead>
+                        <tr>
+                            %titulosGenerados%
+                        </tr>
+                    </thead>
+                    <tbody>
+                        %tablaGrabaciones%
+                    </tbody>
+                </table>
+            </div>
+        <!--</div>-->
+                <!-- <p style="top:470px;left:700px;" align="center">%paginado%</p>-->
+                <div style="text-align:center;width:90%;height:10%">%paginado%</div>
+        </form>
+            <div id="memo"></div>
+                
+                    <div id="reproductor">
+                        <div id="myBar"></div>
+                        <div id="por" style="float:left;width:120px;height:20px;"></div><div id="nombreGrabacion" style="float:left;display:inline;width:120px;height:20px;"></div>
+                        
+                        <div id="controles" style="display:inline;width:200px;height:20px;">
+                            
+                            <a href="#" id="player">
+                                <!--<img width="16" height="16" id="foto" name="play" src="imagenes/play.png">-->
+                                <div  style="display: inline;">
+                                    <i id ="foto" class="fa fa-play"></i>
+                                </div>
+                            </a>
+                            
+                            <a href="#" id="stop">
+                                <!--<img width="16" height="16" src="imagenes/stop.png">-->
+                                <div style="display: inline;margin-left: 5px;"><i class="fa fa-stop"></i></div>
+                            </a>
+                            <a href="#" id="rewind">
+                                <!--<img width="16" height="16" src="imagenes/rewind.png">-->
+                                <div style="display: inline;margin-left: 5px;"><i class="fa fa-backward"></i></div>
+                            </a>
+                            <a href="#" id="reward">
+                                <!--<img width="16" height="16" src="imagenes/reward.png">-->
+                                <div style="display: inline;margin-left: 5px;"><i class="fa fa-forward"></i></div>
+                            </a>
+                            <a href="#" id="addTag">
+                                <!--<img width="16" height="16" src="imagenes/tag.png">-->
+                                
+                                <div style="display: inline;margin-left: 5px;"><i class="fa fa-map-marker"></i></div>
+                            </a>
+                            <a href="#" id="mute">
+                                <!--<img width="16" height="16" id="fotoVolumen" name="music" src="imagenes/music.png">-->
+                                <div style="display: inline;margin-left: 5px;"><i class="fa fa-volume-up"></i></div>
+                            </a>
+                            <input type="range" id="volumen" min="0" max="10">
+                        </div>
+                    </div>
+                    <div id="res"></div>
+                    <input type="hidden" id="idGrabacion">
+    </body>

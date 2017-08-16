@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Documento sin t&iacute;tulo</title>
+        <link href="estilos_prosegur.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="_lib/jquery.js"></script>
+        <script type="text/javascript" src="_lib/jquerybase64.js"></script>
+
+        <script language="JavaScript">
+            function cambiaEstado(valor)
+            {
+                if (valor==0){
+                    document.formBuscador.busca_fechaDesde.disabled=false;
+                    document.formBuscador.busca_fechaHasta.disabled=false;
+                }
+                else{
+                    document.formBuscador.busca_fechaDesde.disabled=true;
+                    document.formBuscador.busca_fechaHasta.disabled=true;
+                }
+            }
+
+            function comprobar() {
+                if(document.formBuscador.rango_fecha.value==0) {
+                    document.formBuscador.busca_fechaDesde.disabled=false;
+                    document.formBuscador.busca_fechaHasta.disabled=false;
+                }
+                else{
+                    document.formBuscador.busca_fechaDesde.disabled=true;
+                    document.formBuscador.busca_fechaHasta.disabled=true;
+                }
+            }
+            
+          
+        </script>
+    </head>
+
+    <body onload="comprobar()">
+
+        <form action="detalleMesCCSuperior.jsp" name="formBuscador" >
+            %buscador%
+        </form>
+        <center>
+            <br></br>
+            <br></br>
+            
+
+            <h1 style="color: #BBBBBB;"><font size="15">.:: Bienvenido a AcdKall Gestion ::.</font>                
+            </h1>
+        </center>
+
+        <!--        <table width="900" border="1" cellspacing="0" cellpadding="1" id="estadisticas" name="estadisticas">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th >Recibidas</th>
+                            <th>Atendidas</th>
+                            <th colspan="6">Indicadores</th>
+                            <th colspan="2">Abandonadas</th>
+                        </tr>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Cantidad</th>
+                            <th>Cantidad</th>
+                            <th>NS</th>
+                            <th>Antes 15 seg</th>
+                            <th colspan="2">Desv&iacute;o Grupo</th>
+                            <th colspan="2">Desv&iacute;o Organizaci&oacute;n</th>
+                            <th>Externas</th>
+                            <th>%</th>
+                            <th>Cantidad</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         Aqui van las filas con las estadisticas 
+                        %estadisticas%
+                      
+                    </tbody>
+                </table>-->
+        <!--        <div width="950px" align="center">
+                    <form method="post" action="informeExcelEstadisticas.jsp" name="formExcel" >
+                        <input type="hidden" value="" id="tablaEstadisticas" name="tablaEstadisticas" />
+                        <img src="imagenes/excel.jpg" border="0" width="135" height="30" onclick="enviarInfoParaInformeExcel()" />
+                    </form>
+                           
+                </div>-->
+    </body>
+</html>
+
+

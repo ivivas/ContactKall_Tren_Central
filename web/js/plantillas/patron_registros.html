@@ -1,0 +1,60 @@
+%error_jsp%
+<table border="0" align="center">
+    <tr>
+        <td>
+            <form name="adminForm_patronRegistros" action="patronRegistros.jsp" target="_self" method="post">         
+                    <table class="caja2" width="220" border="0" align="left">
+                      <tr>
+                        <td width="82">Partici&oacute;n</td>
+                        <td width="128"><label>
+                          <input name="busca_particion" type="text" id="textfield" size="10" value="%busca_particion%" />
+                        </label></td>
+                        <td>Descripci&oacute;n</td>
+                        <td><label>
+                          <input name="busca_descripcion" type="text" id="textfield" size="10" value="%busca_descripcion%" />
+                        </label></td>
+                        <td>Valor/seg</td>
+                        <td><label>
+                          <input name="busca_valor" type="text" id="textfield" size="10" value="%busca_valor%" />
+                        </label></td>
+                        <td>Registros por pagina</td>
+                        <td><select name="registros_mostrar" class="campos" id="select" >
+                          %registros_mostrar_reemplazo%
+                        </select></td>
+                        <td height="34">&nbsp;</td>
+                        <td><input name="buscar" type="image" id="buscar" src="botones/btn-buscar.jpg"></td>
+                      </tr>
+                    </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="tableContainer">
+                <table class="caja2" cellspacing="0">
+                    <thead>
+                        <tr>                    
+                            <th width="7%">N&ordm;</th>
+                            <th width="7%"><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                            <th >Partici&oacute;n</th>
+                            <th >Descripci&oacute;n</th>
+                            <th >Valor segundo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        %registros_particiones%
+                    </tbody>
+                </table>
+            </div> 
+            <div align="center">%paginado_usuarios%</div>
+            <div align="center">
+                <input type="hidden" name="ncheckbox_eliminar" value="0">
+                <input type="hidden" name="ncheckbox_usuarios" value="0">
+                <span style="cursor:pointer">
+                 <a href="patronAgregar.jsp"><img src="plantillas/imagenes/nuevo.png" border="0"></img></a>
+                <img src="plantillas/imagenes/eliminar.png" onclick="eliminaPatron(document.adminForm_patronRegistros);">
+                </span>
+            </div>   
+        </td>
+    </tr>
+</table>    

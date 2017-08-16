@@ -1,0 +1,132 @@
+ <script src="js/jquery.js"></script>
+<script src="js/Chart.js"></script>
+%div_titulo%
+<form name="encuestaIvr" id="encuestaIvr" action="encuestaIvr.jsp" method="post" style="height: 100%;" >
+    <div><strong>%error%</strong></div>
+    <div id="datos_1" style="float: left;width: 20%;">
+        <div id="input_1">
+            <span>%fechaDesde%</span>
+            <br/>
+            <div style="width:100%;height: 5%">
+                <input style="width:45%;float:left;" type="text" name="desde" id="desde" value="%desde%" maxlength="10">&nbsp;
+                <div style="float:left;margin-top: 3%;margin-left: 2%;">(*)</div>
+                <div style="margin-left: 3%;margin-top: 3%;float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'), 1)" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                    <i class="fa fa-question-circle"></i>
+                </div> 
+                <div id="t1" class="toolkit" ></div>
+            </div>
+            <br/>
+            <span>%fechaHasta%</span>
+            <br/>
+            <div style="width:100%;height: 5%">
+                <input style="width:45%;float: left;" type="text" name="hasta" id ="hasta" value="%hasta%" maxlength="10" >&nbsp;
+                <div style="float:left;margin-top: 3%;margin-left: 2%;">(*)</div>
+                <div style="margin-top: 3%;margin-left: 3%;float: left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'), 1)" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                    <i class="fa fa-question-circle"></i>
+                </div>
+                <div id="t2" class="toolkit" ></div>
+            </div>
+            <br/>
+            <span>%numpiloto%</span>
+            <br/>
+            <select id="piloto" name="piloto" onchange="llenarSecretaria()" style="width:100px;">
+                %opcion_piloto%
+            </select>&nbsp;(*)
+            <br/>
+            <span>%numeroRevisado%</span>
+            <br/>
+            <input type="hidden" id="numeroX" name="numerox" value="%num%">
+            <input type="hidden" id="buscar" name="buscar" value="%num%">
+            <select id="numero_" name="numero_" style="width:100px;" >
+                <option value=''>Seleccione</option>
+            </select>&nbsp;(*)
+            <br/>
+            <span>%num_preg% (*)</span>
+            <br/>
+            <select id="preguntas" name="preguntas" style="width:100px;">
+                <option value="sel">Seleccione </option>
+                %opcion_preguntas%
+            </select>
+            <br/>
+            <br/><br/>
+            <a href="#" onclick="buscar()" style="float: left;">
+                <div style="" class="botones">
+                    <i class="fa fa-search"></i>
+                </div>  
+            </a>
+            &nbsp;&nbsp;
+            <a href="#" onclick="descargaExcel()" style="margin-left: 10px;float: left;">
+                <div style="" class="botones">
+                    <i class="fa fa-file-excel-o"></i>
+                </div>  
+            </a>
+            <div style="height: auto;float: left;width: 100%;margin-top: 8%;">
+                <div style="width: 70%;float: left;">Total de Registros:</div><span>%total%</span>
+            </div>
+            <br/>
+            <div style="height: auto;float: left;width: 100%;">
+                <div style="width: 70%;float: left;">%tag_min%:</div><span>%reg_min%</span>
+            </div>
+            <div style="height: auto;float: left;width: 100%;">
+                <div style="width: 70%;float:left;">%tag_max%:</div><span>%reg_max%</span>
+            </div>
+        </div>
+    </div>
+    <div style="float: left;width:80%;height: 100%;">
+        <div style="width: 100%;height: 60%;">
+           <!-- <img src="GraficoEncuesta" style="width:75%;height: 100%;float: left;" alt="Grafico Encuesta" >-->
+            <div id="canvas-holder">
+                    <canvas id="grafico" width="300" height="400"></canvas>
+                </div>
+            <div style="width: 25%;float: left; margin: 4% 0% 0%">
+                %lbl_preguntas%
+            </div>
+        </div>
+        <div style="height: 32%;overflow-x: scroll">
+            <table class="caja_" style="margin: 10px 0px 0px 20px; ">
+                <thead style="border: 1px solid #cecdc8">
+                    <tr>
+                        <th>%tbl_id%</th>
+                        <th>%tbl_anexo%</th>
+                        <th>%tbl_contr%</th>
+                        <th>%tbl_pregunta%</th>
+                        <th>%tbl_respuesta%</th>
+                        <th>%tbl_fecha%</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    %data_encuesta%
+                </tbody>
+            </table>
+        </div>
+        <div style="width:100%">%paginado%</div>
+    </div>
+    <script>
+        var barChartData = {
+                    labels: [%lblGraficos%],
+                    datasets: [
+                        %datasets%
+                    ]
+
+                }    ;
+        var ctx2 = document.getElementById("grafico").getContext("2d");
+            window.myPie = new Chart(ctx2, {
+                    type: 'bar',
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                    type: 'time',
+                                    position: 'bottom',
+                                    stacked: true,
+                                    ticks: {
+                                        min: 1,
+                                        max: 1000
+                                    }
+                                }],
+                            yAxes: [{
+                                    stacked: true
+                                }]
+                        }
+                    }
+                }).Bar(barChartData, {scaleFontColor: "black", scaleFontSize: 20});    </script>
+</form>

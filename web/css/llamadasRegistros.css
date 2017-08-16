@@ -1,0 +1,21 @@
+.inputGestion{
+    width: 35%;
+    float: left;
+    margin: 0;
+}
+.tagGestion{
+    width: 55%;
+    float: left;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#input_1 input{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0;
+}
+#input_1 select{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0;
+}

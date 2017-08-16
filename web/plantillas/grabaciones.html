@@ -1,0 +1,131 @@
+<style>
+    th{
+        background-color:black;
+    }
+</style>
+<body  onload="llenarSecretaria()">
+    <div style="height: auto;">
+        <form action="grabaciones.jsp" method="post" id="form">
+            <input type="hidden" id="usuario" value="%usuario%">
+            <input type="hidden" name="buscar" value="buscar">
+            %div_titulo%
+            <div id="datos_1" >
+                <div id="input_1">
+                    <span>%cantidad%</span>
+                    <br/>
+                    <select name="limit">
+                        <option value="20" %20%>20</option>
+                        <option value="50" %50%>50</option>
+                        <option value="100" %100%>100</option>
+                        <option value="200" %200%>200</option>
+                    </select>
+                    <br/>
+                    <span>%numpiloto%</span>
+                    <br/>
+                    <select id="piloto" name="piloto" onchange="llenarSecretaria()" style="width:100px;">
+                        %opcion_piloto%
+                    </select> (*)
+                    <br/>
+                    <span>%numeroRevisado%</span>
+                    <br/>
+                    <input type="hidden" id="numeroX" name="numerox" value="%num%">
+                    <select id="numero_" name="numero_" style="width:100px;" >
+                        <option value=''>Seleccione</option>
+                    </select> (*)
+                    <br/>
+                    <span>%contraparte%</span>
+                    <br/>
+                    <input type="text" name="contraparte"  style="width:100px;" value="%valor_contraparte%">
+                    <br/>
+                    <span>%fechaDesde%</span>
+                    <br/>
+                    <div style="width: 100%;height: 40px">
+                    <input style="width:100px;float: left;" type="text" id="desde" name="desde" value="%desde%">
+                    <div style="margin-left: 3%;margin-top: 3%;float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'))" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                        <i class="fa fa-question-circle"></i>
+                    </div> 
+                    <div id="t1" class="toolkit" style="left: 150px;width: 20%" >%format_fecha%</div>
+                    </div>
+                    <div style="float:left;">%fechaHasta%</div>
+                    <br/>
+                    <div style="float: left; width: 100%;">
+                        <input style="width:100px;float: left;" type="text" id="hasta" name="hasta" value="%hasta%">
+                        <div style="margin-left: 3%;margin-top: 3%;float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'))" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                            <i class="fa fa-question-circle"></i>
+                        </div> 
+                        <div id="t2" class="toolkit" style="left: 150px;width: 20%" >%format_fecha%</div>
+                    </div>
+                    <div style="float: left; width: 100%;">
+                        %tot_reg% : %cant_tot_reg%
+                    </div>
+                    <br/>
+                    <br/>
+                    <div style="float:left;">
+                    <a href="#" onclick="enviar()" >
+                        <div style="" class="botones">
+                            <i class="fa fa-search"></i>
+                        </div>  
+                    </a>
+                        </div>
+                </div>
+            </div>
+            <div style="width:83%;height: 55%;overflow-y:scroll;float:left;margin: 1%;">
+                <table border="1" class="caja">
+                    <thead>
+                        <tr >
+                            %titulosGenerados%
+                        </tr>
+                    </thead>
+                    <tbody>
+                            %tablaGrabaciones%
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center;width:90%;height:25%">
+                %paginado%
+            </p>
+            <div id="memo"></div>   
+            <div id="reproductor" style="height: 8%">
+                <div id="myBar"></div>
+                <div id="por" style="float:left;width:120px;height:20px;"></div>
+                <div id="nombreGrabacion" style="float:left;display:inline;width:120px;height:20px;"></div>
+                <div id="controles" style="display:inline;width:200px;">
+                    <a href="#" id="player">
+                        <div id="play" style="display: inline;">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="stop">
+                        <div style="display: inline;margin-left: 5px;">
+                            <i class="fa fa-stop"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="rewind">
+                        <div style="display: inline;margin-left: 5px;">
+                            <i class="fa fa-backward"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="reward">
+                        <div style="display: inline;margin-left: 5px;">
+                            <i class="fa fa-forward"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="addTag">
+                        <div style="display: inline;margin-left: 5px;">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="mute">
+                        <div style="display: inline;margin-left: 5px;">
+                            <i class="fa fa-volume-up"></i>
+                        </div>
+                    </a>
+                    <input type="range" id="volumen" min="0" max="10">
+                </div>
+            </div>
+        
+            <div id="res"></div>
+            <input type="hidden" id="idGrabacion">
+        </form>
+    </div>
+</body>

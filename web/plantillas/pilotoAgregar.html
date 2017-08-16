@@ -1,0 +1,54 @@
+%error_jsp%
+<form name="adminForm_pilotoModificar" action="pilotoAgregar.jsp" target="_self" method="post" >
+    %div_titulo%
+    <div id="datos" style="padding-top: 10px;">
+        <div id="input" style="width: 90%;height: 5%;margin-top: 1%;">
+            <div style="width: 20%;float: left; margin-left: 5%"><strong>%mntadan_tbl_data%</strong></div>
+            <div style="float: left; margin-left: 2%;margin-right: 1%;">%vrtadan_tbl_num%</div>
+            <input style="float: left;" type="text" name="usuario_nick" size="20" maxlength="20" value="%usuarioNick%" disabled>
+            <div style="float: left;margin-left:2%;margin-right: 1%">%vrtadan_tbl_desc%</div>
+            <input style="float: left;" type="text" name="usuario_nombre" size="20" maxlength="50" value="%usuarioNombre%" disabled  >
+        </div>
+    </div>
+    <div  style="color:#3b3f3f;margin-top: 1%; float: left; margin-left: 5%; width: 95%; text-align: left;">%mntadan_tbl_titleanx%</div>
+    
+    <div style="height: 320px;margin: 0px auto; width: 500px;">
+        <div style="float:left;width: auto;" >
+            <span style="color:#3b3f3f;">%vrtadan_tbl_pilasg%</span>
+            <br>
+            <select name="select_anexos_asignados" id="select_anexos_asignados" size="15" multiple  style="width:200px;height:230px;margin-top: 10px;">
+                %select_anexosAsignados%
+            </select>
+        </div>
+        <div style="float:left;width: auto;height: auto; margin: 20px;margin-top: 20%;">
+            <img src="imagenes/botones/asignarAnexo.png">
+            <br/><br/>
+            <a class="botones btnadddel" onclick="selectAsignarAnexo();"><i class="fa fa-arrow-left"></i></a>
+            <br/><br/>
+            <a class="botones btnadddel" onclick="selectEliminarAnexo();"><i class="fa fa-arrow-right"></i></a>
+        </div>
+        <div style="float:left;width: auto;" >
+            <span style="color:#3b3f3f;">%vrtadan_tbl_pildsp%</span>
+            <br>
+            <select  name="select_anexos_disponibles" id="select_anexos_disponibles" size="15" multiple  style="width:200px;height:230px;margin-top: 10px;">
+                %select_anexosDisponibles%
+            </select>
+        </div>
+    </div>
+    
+    <center>
+        <div style="width:auto; height:30px; padding-top:10px;">
+            <input type="hidden" name="id" value="%id%">
+            <input type="hidden" name="p" value="%p%">
+            <input type="hidden" name="modificar" value="true">
+
+            <a href="pilotoAgregar.jsp" class="botones btnadddel" onclick="verForm_usuarioModificar(document.adminForm_pilotoModificar)">
+                %vrtadan_btn_save%
+            </a>
+            &nbsp;&nbsp;
+            <a href="monitorRegistro.jsp" class="botones btnadddel">
+                %vrtadan_btn_cancel%
+            </a>
+        </div>
+    </center>
+</form>

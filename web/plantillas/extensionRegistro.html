@@ -1,0 +1,62 @@
+%error_jsp%
+<form name="adminForm_extensionRegistros" action="extensionRegistro.jsp" target="_self" method="post">
+    %div_titulo%
+    <div id="datos">
+        <div id="input">
+            %extreg_tbl_extn%
+            &nbsp;
+            <input name="busca_extension" type="text" id="textfield" size="15" value="%busca_extension%" />
+            &nbsp;&nbsp;
+            %extreg_tbl_name%
+            &nbsp;
+            <input name="busca_nombre" type="text" id="textfield" size="30" value="%busca_nombre%" />
+            &nbsp;&nbsp;
+            %extreg_tbl_reg%
+            &nbsp;
+            <select name="registros_mostrar" class="campos" id="select" >
+                %registros_mostrar_reemplazo%
+            </select>
+            <a href="#" onclick="document.adminForm_extensionRegistros.submit();" >
+                <div class="botones" style="float: right;">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+            <!--/////////////////////////////////////////////////////////-->
+    <div class="tableContainer" align="center" style="width:100%; height:auto;">
+      <table class="%estilocaja%" cellspacing="0" style="width:90%;margin-top:20px;">
+        <thead>
+        <tr>     
+        <th width=\"7%\">&nbsp; N&ordm;</th>
+        <th width=\"7%\"><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+        <th>%extreg_tbldat_extn%</th>
+        <th>%extreg_tbldat_name%</th>
+        <th>%extreg_tbldat_est%</th>
+        <th>%extreg_tbldat_estus%</th>
+        </tr>
+        </thead>
+        <tbody>
+            %registros_extensiones%
+        </tbody>
+       </table>
+    </div>
+            
+    <div align="center" style="margin-top:20px;">
+        %barraPaginado%
+    </div>
+    
+    <div align="center" style="margin-top:20px;">
+        <input type="hidden" name="ncheckbox_eliminar" value="0">
+        <input type="hidden" name="ncheckbox_usuarios" value="0">
+        <a href="extensionAgregar.jsp" class="botones btnadddel">
+            %extreg_btn_new%
+        </a>
+        &nbsp;&nbsp;
+        <a href="#" onclick="extensionEliminar(document.adminForm_extensionRegistros);" class="botones btnadddel">
+            %extreg_btn_delete%
+        </a>
+    </div>
+
+</form>
+            

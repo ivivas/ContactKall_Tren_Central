@@ -1,0 +1,53 @@
+<form action="">
+    <table class="caja2">
+        <tr>
+            <td><strong>Extension <input type="text"></strong></td>
+            <td><strong>Tipo </strong>
+            <select>
+                <option>Todas</option>
+                <option>Internas</option>
+                <option>Externas</option>
+            </select> 
+            <td><strong>Mes </strong>
+            <select>
+                <option>Enero</option>
+                <option>Febrero</option>
+            </select>   
+            </td>
+            <td><strong>A&ntilde;o </strong>
+            <select>
+                <option>2009</option>
+            </select>   
+            </td>
+            <td><input name="buscar" type="image" id="buscar" src="botones/btn-buscar.jpg"></td>
+        </tr>    
+    </table>
+</form>
+<br>
+<table class="caja2">
+    <tr>
+        <td><strong>Trafico por dia Enero 2008 Extension : 1017</strong></td>
+    </tr>    
+</table>
+
+<div class="tableContainer" style="width:1000">
+    <table class="caja2" cellspacing="0" border="1">
+              <thead>
+                  <tr bgcolor="#CCCCCC">
+                      <th class="titulo" align="center" nowrap> <strong> Dia </strong></th>
+                      <th class="titulo" align="right" nowrap> <strong>&nbsp;&nbsp; Salientes </strong></th>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Entrantes </strong></th>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Atendidas directas</strong></th>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Atendidas grupo</strong></th>
+                      <td  align="center" bgcolor="#99CCFF" nowrap> <strong>&nbsp;&nbsp; NS</strong></td>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Antes de 15 seg </strong></th>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Desvio grupo </strong></th>
+                      <th class="titulo" align="center" nowrap> <strong>&nbsp;&nbsp; Desvio organizacion </strong></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  %listado%
+              </tbody>
+     </table>
+ </div>
+ <div align="center">%barraPaginado%</div>

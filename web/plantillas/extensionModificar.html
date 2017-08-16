@@ -1,0 +1,48 @@
+<form name="adminForm_extensionModificar" id="adminForm_extensionModificar" action="extensionModificar.jsp" target="_self" method="post">
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey"><strong>%extnmod_tbl_title%</strong></div>
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%extnmod_tbl_extn% </div>
+            &nbsp;&nbsp;
+            <input type="text" name="extension_numero" size="20" maxlength="15" value="%extensionNumero%" >(*)
+        </div>
+        <br/>
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >Devicename </div>
+            &nbsp;&nbsp;
+            <input type="text" name="devicename_numero" size="20" maxlength="15" value="%devicenameNumero%" >
+        </div>
+        <br/>
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%extnmod_tbl_name% </div>
+            &nbsp;&nbsp;
+            <input type="text" name="extension_nombre" size="20" maxlength="30" value="%extensionNombre%" >(*)
+        </div>
+        <br>
+        <div class="tabla_fondo" >
+            %opcion_Reckall%
+        </div>
+    </div>
+    
+    <input type="hidden" name="id" value="%id%">
+    <input type="hidden" name="pg" value="%pg%">
+    <input type="hidden" name="idReckall" id="idReckall" value="%id_Reckall%">
+    <input type="hidden" name="idGestion" id="idGestion" value="%id_Gestion%">
+    <input type="hidden" name="modificar_anexo" value="true">
+    <center>
+        <div style="width:250px; height:30px; padding-top:30px;">
+            <a href="#" onclick="extensionModificar(document.adminForm_extensionModificar);">
+                <div class="botones btnadddel">
+                %extnmod_btn_save%
+                </div>
+            </a>
+            &nbsp;&nbsp;
+            <a href="extensionRegistro.jsp" >
+                <div class="botones btnadddel">
+                %extnmod_btn_cancel%
+                </div>
+            </a>
+        </div>
+    </center>
+</form>

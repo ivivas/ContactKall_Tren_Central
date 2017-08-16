@@ -1,0 +1,92 @@
+%error_jsp%
+<script>
+        function mostrarToolTit(target){
+            $("#"+target).css("visibility","visible");
+            $("#"+target).css("display","inline");
+            $.ajax({
+            async:true,
+            type: "POST",
+            dataType: "html",
+            contentType: "application/x-www-form-urlencoded",
+            url:'ListaPilotoToolTip',
+            cache:false,
+            data:'piloto='+target+"&opcion=1",
+            timeout:4000,
+            success:
+               function(datos){
+                    if(datos === ""){
+                        $("#"+target).html("%no_piloto_asignados%");
+                    }else{
+                        $("#"+target).html("%piloto_asignados%<br>"+datos);
+                    }
+                }
+            });
+        }
+        function ocultarToolTit(target){
+            $("#"+target).css("visibility","hidden");
+            $("#"+target).css("display","none");
+            $("#"+target).html("");
+        }
+</script>
+<form name="adminForm_extensionRegistros" action="monitorRegistro.jsp" target="_self" method="post">
+    %div_titulo%
+    <div id="datos">
+        <div id="input" style="width: 90%;">
+            %monreg_tbl_monn%
+            &nbsp;
+            <input name="busca_extension" type="text" id="textfield" size="15" value="%busca_extension%" />
+            &nbsp;&nbsp;
+            %monreg_tbl_name%
+            &nbsp;
+            <input name="busca_nombre" type="text" id="textfield" size="30" value="%busca_nombre%" />
+            &nbsp;&nbsp;
+            %extreg_tbl_reg%
+            &nbsp;
+            <select name="registros_mostrar" class="campos" id="select" >
+                %registros_mostrar_reemplazo%
+            </select>
+            <a href="#" onclick="document.adminForm_extensionRegistros.submit();" >
+                <div class="botones" style="float: right;">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="tableContainer" align="" style="width: 90%; height: auto; margin: 0px auto; padding-top: 20px; padding-bottom: 20px;">
+      <table class="%estilocaja%" cellspacing="0" style="width:100%">
+        <thead>
+        <tr>     
+        <th width=\"7%\">&nbsp; N&ordm;</th>
+        <th width=\"7%\"><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+        <th>%monreg_tbldat_monn%</th>
+        <th>%monreg_tbldat_name%</th>
+        <th>%monreg_tbldat_dev%</th>
+        <!--<th>%monreg_tbldat_add%</th>-->
+        </tr>
+        </thead>
+        <tbody>
+            %registros_extensiones%
+        </tbody>
+       </table>
+    </div>
+    
+    <div align="center">%barraPaginado%</div>
+    
+    <input type="hidden" name="ncheckbox_eliminar" value="0">
+    <input type="hidden" name="ncheckbox_usuarios" value="0">
+            
+    <div align="center">
+                
+        <span style="cursor:pointer">
+        <a href="monitorAgregar.jsp" class="botones btnadddel">
+            %extreg_btn_new%
+        </a>
+        &nbsp;&nbsp;
+        <a href="#" onclick="monitorEliminar(document.adminForm_extensionRegistros);" class="botones btnadddel">
+            %extreg_btn_delete%
+        </a>
+    </div>
+
+</form>
+            

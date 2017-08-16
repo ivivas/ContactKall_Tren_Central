@@ -1,0 +1,134 @@
+<script language="javascript" >
+
+        function Abrir_ventana(pagina) {
+            var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=508, height=365, top=85, left=140";
+            receptor = document.getElementById('select_anexos_asignados');
+            window.open(pagina,"",opciones);
+        }
+        function mostrarToolKit(target,nro){
+            target.style.visibility = "visible";
+            target.style.display = "block";
+            if(nro===1){
+                target.innerHTML = "%userNombreToolkit%";
+            }else if(nro===2){
+                target.innerHTML = "%userPassToolkit%";
+            }else if(nro===4){
+                target.innerHTML = "%userTipoToolkit%";
+            }else if(nro===5){
+                target.innerHTML = "%userExtensionToolkit%";
+            }else if(nro===6){
+                target.innerHTML = "%userPoolToolTip%";
+            }
+        }
+        function ocultarToolKit(target){
+            target.style.visibility = "hidden";
+            target.style.display = "none";
+        }
+        function mostrarDatosSupervisor(){
+            var index = document.getElementById("tipox").options.selectedIndex;
+            if(document.getElementById("tipox").options[index].text==="supervisor"){
+                document.getElementById("trAnexo").style.visibility="visible";
+                document.getElementById("trDevName").style.visibility="visible";
+            }
+            else{
+                document.getElementById("trAnexo").style.visibility="hidden";
+                document.getElementById("trDevName").style.visibility="hidden";
+            }
+        }
+        function cambiaTipo(combo){
+            if(combo.value==='supervisor'){
+                document.getElementById('cmb_extn_sup').style.display='block';
+                document.getElementById('cmb_extn_sup').style.visibility='visible';
+                document.getElementById('cmb_pool_sup').style.display='block';
+                document.getElementById('cmb_pool_sup').style.visibility='visible';
+            }else{
+                document.getElementById('cmb_extn_sup').style.display='none';
+                document.getElementById('cmb_extn_sup').style.visibility='hidden';
+                document.getElementById('cmb_pool_sup').style.display='none';
+                document.getElementById('cmb_pool_sup').style.visibility='hidden';
+            }
+        }
+    
+</script>
+<form name="adminForm_usuarioAgregar" action="usuarioAgregar.jsp" target="_self" method="post">   
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey"><strong>%usragr_tbl_title%</strong></div>
+    %error_jsp%
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_user% </div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'),1)" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;
+            <div id="t1" class="toolkit" ></div>
+            <input  style="float:left;width: 15%;" type="text" name="usuario" size="20" maxlength="15" value="%usuario%">
+        </div>
+        <br/>
+
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_pass% </div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'),2)" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t2" class="toolkit" ></div>
+            <input style="float:left;width: 15%;" type="password" name="clave" size="20" maxlength="50" value="%clave%">
+        </div>
+        <br/>
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_reppass% </div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t3'),2)" onmouseout="ocultarToolKit(document.getElementById('t3'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t3" class="toolkit" ></div>
+            <input style="float:left;width: 15%;" type="password" name="repclave" size="20" maxlength="50" value="%repclave%">
+        </div>
+        <br/>
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_type%</div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t4'),4)" onmouseout="ocultarToolKit(document.getElementById('t4'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            &nbsp;&nbsp;<div id="t4" class="toolkit"></div>
+            %seleccion_tipo% 
+        </div>
+        <br/>
+        <div id="cmb_extn_sup" style="visibility:hidden;display:none;" class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_extn%</div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t5'),5)" onmouseout="ocultarToolKit(document.getElementById('t5'))">
+                <i class="fa fa-question-circle"></i>
+            </div>&nbsp;&nbsp;
+            <div id="t5" class="toolkit"></div>
+            %seleccion_extension_sup% 
+        </div>
+        <br/>
+        <div id="cmb_pool_sup" style="visibility:hidden;display:none;" class="tabla_fondo">
+            <div  style="float:left;width: 15%;" >%usragr_tbl_pool%</div>
+            <div style="float:left;margin-right: 10px;margin-left: 10px;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t6'),6)" onmouseout="ocultarToolKit(document.getElementById('t6'))">
+                <i class="fa fa-question-circle"></i>
+            </div>&nbsp;&nbsp;
+            <div id="t6" class="toolkit"></div>
+            %seleccion_pool_sup% 
+        </div>
+    </div>
+    
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+        <input type="hidden" name="agregar_usuario" value="true">
+
+         <a href="#" onClick="verForm_usuarioAgregar(document.adminForm_usuarioAgregar);" >
+             <div class="botones btnadddel">
+             %usragr_btn_save%
+             </div>
+         </a>
+         &nbsp;&nbsp;
+         <a href="usuarioRegistro.jsp" >
+             <div class="botones btnadddel">
+             %usragr_btn_cancel%
+             </div>
+         </a>
+
+        </div>
+    </center>
+</form>
+        

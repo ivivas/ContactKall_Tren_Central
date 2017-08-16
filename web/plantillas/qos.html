@@ -1,0 +1,46 @@
+%div_titulo%
+<div id="contenido">
+    <input type="hidden" value="%usuario%" id="usuario">
+    <input id="supervisor" type="hidden" value="%datosSupervisor%">
+    <input type='hidden' value='si' id='tieneAutoRefresco'>
+    <!--<div id='info_'>%supervisor% %usuario%<br>%anx% %anexo%<br>%devname% %devicename%</div>-->
+    <div style="float: left;text-align: left;width: 20%;height: 90%;">
+        <select id="lapso" name="lapso">
+            <option value="0">%qos.comboLapso.diaro%</option>
+            <option value="1">%qos.comboLapso.semanal%</option>
+            <option value="2" selected>%qos.comboLapso.mensual%</option>
+        </select>
+
+
+        <!--<input type="button" value="Excel" name="exp_excel" id="exp_excel"/>-->
+        <div id="contenedorArbol">
+            %lista_tipo_arbol%
+        </div>
+    </div>
+    <!--    <div style="" class="botones">
+            <i class="fa fa-file-excel-o"></i>
+        </div>-->
+    <div id="datosEstadisticos"><div style='margin:12%;font-size:20px;color:#ccccff;'>%seleccione.opcion.info%</div></div>
+
+
+    <form method="post" action="informeExcelEstadisticas.jsp" name="formExcelMagio" >
+        <div style="float: left;" class="botones">
+            <input type="hidden" value="" id="tablaEstadisticasExcelMagio" name="tablaEstadisticasExcelMagio" /> 
+            <!--<img src="imagenes/excel.jpg" border="0" width="135" height="30" onclick="enviarInfoParaInformeExcel()" />-->    
+            <i class="fa fa-file-excel-o" id="exp_excel" onclick="exportarTablaExcel()"></i>
+        </div>
+    </form>
+
+</div> 
+<div id="graficos" style="display: none" class="graficos">
+    <div class="columna11 columna"></div>
+    <div class="columna21 columna"></div>
+    <div class="columna12 columna"></div>
+    <div class="columna22 columna"></div>
+    <div class="columna13 columna"></div>
+    <div class="columna23 columna"></div>
+    <div class="columna14 columna"></div>
+    <div class="columna24 columna"></div>
+</div>
+<div id="panelGraficoGrande" style="border: solid;"><div style="margin-left:95%;color:red;" class="fa fa-times" aria-hidden="true"></div></div>
+

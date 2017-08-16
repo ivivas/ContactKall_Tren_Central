@@ -1,0 +1,35 @@
+package clienteSocket;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class Cliente
+{
+  static final String HOST = "127.0.0.1";
+  static final int PUERTO = 6000;
+
+    public Cliente(String numeroRoutePoint){
+        try{
+            System.out.println("algo X ");
+            Socket skCliente = new Socket("", 6000);
+            OutputStream auxW = skCliente.getOutputStream();
+            DataOutputStream flujoW = new DataOutputStream(auxW);
+            System.out.println("numero del router : " + numeroRoutePoint + " puerto : " + 6000);
+            flujoW.writeUTF("Soy el cliente applet," + numeroRoutePoint);
+            InputStream aux = skCliente.getInputStream();
+            DataInputStream flujo = new DataInputStream(aux);
+            System.out.println(flujo.readUTF());
+            skCliente.close();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+  public static void main(String[] arg){
+    new Cliente("86998");
+  }
+}

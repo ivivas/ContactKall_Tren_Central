@@ -1,0 +1,139 @@
+<!--To change this template, choose Tools | Templates
+and open the template in the editor.-->
+
+%error_jsp%
+
+<script language="javascript" >
+    function Abrir_ventana (pagina) {
+        //        alert("Parametro = " + parametro);
+        var opciones="toolbar=no, location=no, directories=no, status=no, menuba=no, scrollbars=yes, resizable=yes, width=508, height=365, top=85, left=140";
+        window.open(pagina,"",opciones);
+    }
+    function cargarArchivo (pagina, parametro) {
+        //            alert("Parametro = " + parametro);
+        var opciones="toolbar=no, location=no, directories=no, status=no, menuba=no, scrollbars=yes, resizable=yes, width=708, height=365, top=85, left=140";
+        window.open(pagina + "?archivo="+parametro,"",opciones);
+    }
+    
+</script>
+<form name="adminForm_centrocostoAgregar" action="campaniaAgregar.jsp" target="_self" method="post">
+<!--<form name="adminForm_centrocostoAgregar" action="campaniaAgregar.jsp" target="_self" method="post" enctype="MULTIPART/FORM-DATA">-->
+    <!--<label for="f_rangeStart">Campo Fecha:</label>-->
+    <!--<input size="15" id="f_rangeStart" />-->
+    <!--<button id="f_rangeStart_trigger" onclick="CalendarioStart()">...</button>-->
+    <!--<button id="f_clearRangeStart" onclick="clearRangeStart()">Limpiar</button>-->
+    <!--<form action="#" method="get">-->
+    <!--<form name="adminForm_centrocostoAgregar" action="campaniaAgregar.jsp" target="_self" method="post" enctype="MULTIPART/FORM-DATA">-->
+    <!--<form name="adminForm_centrocostoAgregar" action="subirArchivo.jsp" target="_self" method="post" enctype="MULTIPART/FORM-DATA">-->
+    <!--<form name="adminForm_centrocostoAgregar" action="campaniaAgregar.jsp" target="_self" method="post" >-->
+    <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top" align="center">
+                <div style="border-bottom:1px solid #ccc; width:850px;">
+                    <strong>Agregar Campa&ntilde;a</strong>
+                </div><p>
+                    <!--<div style="height:330px; text-align:left; float:left; width:300px;">-->
+
+                <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                        <th colspan="8">Datos de la Campa&ntilde;a</th>
+                    </tr>
+                    <tr>
+                        <td width="130">Nombre Campa&ntilde;a</td>
+                        <td width="150"><input size="40" type="text" name="campania_nombre" maxlength="30" value="%campania_nombre%"></td>                        
+                        <td width="130">Descripcion Campa&ntilde;a</td>
+                        <td width="200" colspan="3"><input size="85" type="text" name="descripcion_campania" maxlength="50" value="%descripcion_campania%"></td>                                           
+                    </tr>
+                    <tr>
+                        <td width="100" title="Formato: DD/MM/AAAA hh:mm:ss">Fecha/Hora Inicio</td>
+                        <td>
+                            <textarea name="tiempo_inicio" cols="20" title="Formato: DD/MM/AAAA hh:mm:ss" id="f_rangeStart_trigger" onclick="CalendarioStart()" onkeydown="if(this.value.length >= 40){ return false; } else { return true;}" >%tiempo_inicio%</textarea>
+                            <img src="img/trash.gif" onclick="clearRangeStart()"/>
+                        </td>
+                        <td width="90" title="Formato: DD/MM/AAAA hh:mm:ss">Fecha/Hora Fin</td>
+                        <td>
+                            <textarea name="tiempo_fin" cols="20" title="Formato: DD/MM/AAAA hh:mm:ss" id="f_rangeStart_trigger2" onclick="CalendarioStart2()" onkeydown ="if(this.value.length >= 40){ return false; } else { return true;}" >%tiempo_fin%</textarea>
+                            <img src="img/trash.gif" onclick="clearRangeStart2()"/>
+                        </td>
+                        <td width="60">Estado Campa&ntilde;a</td>
+                        <td>
+                            <select name="estado_campania" class="campos" id="estado_campania" >
+                                <option selected value="activa">Activa</option>
+                                <option value="inactiva">Inacativa</option>
+                                <option value="completada">Completada</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td> 
+
+                <table width="250" cellpadding="0" cellspacing="0" align="left" border="1">
+                    <tr>
+                        <th width="190" colspan="3">Asignaci&oacute;n de Agentes</th>
+                    </tr>
+                    <tr>
+                        <td width="100" class="sinBorde">Agentes Asignados</td>
+                        <td width="100" class="sinBorde">
+                            <select  id="select_agentes_asignados" name="select_agentes_asignados"  size="10" multiple style="width:300px;">
+                                %select_agentes_asignados%
+                            </select>
+                        </td>
+                        <td width="60" class="sinBorde">
+                            <span style="cursor:pointer">
+                                <img src="new_img/Btn_AsignarAgentes.gif" onclick="Abrir_ventana('campania_agre_agente.jsp');"/>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table width="250" cellpadding="0" cellspacing="0" align="right" border="1">
+                    <tr>
+                        <th width="190" colspan="4">Asignaci&oacute;n de Clientes</th>
+                    </tr>
+                    <tr>
+                        <td width="100" class="sinBorde">Clientes Asignados</td>
+                        <td width="100" class="sinBorde">
+                            <select  id="select_clientes_asignados" name="select_clientes_asignados"  size="10" multiple style="width:300px;">
+                                %select_clientes_asignados%
+                            </select>
+                        </td>                        
+                        <td>
+                            <table align="center">
+                                <tr>
+                                    <th width="100" align="center" colspan="2">Cargar Clientes</th>
+                                </tr>
+<!--                                <tr>
+                                    <td width="30" class="sinBorde" colspan="2">
+                                        <span style="cursor:pointer">
+                                            <input type="file" title="archivo con extension .csv" name="nombre_archivo"/>
+                                        </span>
+                                    </td>
+                                </tr>-->
+                                <tr>
+                                    <td>Seleccione Archivo .csv</td>
+                                    <td>
+                                        <img src="new_img/Btn_AsignarClientes.gif" onclick="cargarArchivo('subirArchivo.jsp', document.adminForm_centrocostoAgregar.nombre_archivo);"/>
+                                        <!--<img src="new_img/Btn_AsignarClientes.gif" onclick="cargarArchivo('campania_agre_cliente.jsp', document.adminForm_centrocostoAgregar.nombre_archivo);"/>-->
+                                        <!--<input type="button" name="cargar_cliente" value="Cargar">-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <center>
+        <div style="width:250px; height:40px; padding-top:20px;">
+            <input type="hidden" name="agregar_usuario" value="true">
+            <!--<input type="hidden" name="id_campania" value="%id_campania%">-->
+            <span style="cursor:pointer">
+                <img src="plantillas/imagenes/guardar.png" onclick="verForm_ccostoAgregar(document.adminForm_centrocostoAgregar);" /> 
+                <a href="campaniaRegistro.jsp"><img src="plantillas/imagenes/cancelar.png" border="0" /></a>
+            </span>
+        </div>
+    </center>
+</form>

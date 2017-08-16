@@ -1,0 +1,198 @@
+<script>
+    window.onload = function(){
+        llenarSecretaria();
+    };
+    
+    function abreExcel(){
+        
+        window.location.href="./ExcelGestion?query="+document.getElementById("queryExcel").value;
+    }
+    
+    function llenarSecretaria(){
+        makeRequest("ComboSecretaria?piloto="+document.getElementById("piloto").value+"&numero="+document.getElementById("numeroX").value);
+    }
+    
+    function makeRequest(url) {
+        http_request = false;
+        if (window.XMLHttpRequest) { // Mozilla, Safari,...
+            http_request = new XMLHttpRequest();
+            if (http_request.overrideMimeType) {
+                http_request.overrideMimeType('text/xml');
+            }
+        }else if (window.ActiveXObject) { // IE
+            try {
+                http_request = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e) {
+                try {
+                    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {}
+            }
+        }
+        if (!http_request) {
+            alert('Falla :( No es posible crear una instancia XMLHTTP');
+            return false;
+        }
+        http_request.onreadystatechange = alertContents;
+        http_request.open('POST', url, true);
+        http_request.send(null);
+    }
+    function alertContents() {
+        if (http_request.readyState === 4) {
+            if (http_request.status === 200) {
+                document.getElementById("numero_").innerHTML = http_request.responseText;
+            } 
+            else {
+                alert('Hubo problemas con la petición.');
+            }
+        }
+    }
+    
+    function validaBuscar(){
+        //alert('buscar');
+        if(document.getElementById('piloto').value===''){
+            alert('%empty1%');
+        }else{
+            if(document.getElementById('numero_').value===''){
+                alert('%empty2%');
+            }else{
+                //alert('ok');
+                document.getElementById('form').submit();
+            }
+            
+        }
+        //
+    }
+
+</script>
+
+%div_titulo%
+<form action="llamadasRegistros.jsp" method="post" id="form">
+    <input type="hidden" name="buscar" value="buscar">
+    <div style="width: 100%">
+        <div id="datos_1" style="font-size: 85%;width: 20%;padding: 0 0 1%;" >
+            <div id="input_1" style="margin: 5%">
+                <div class='tagGestion'>%cantidad%</div>&nbsp;
+                <select name="limit" class='inputGestion'>
+                    <option value="20" %20%>20</option>
+                    <option value="50" %50%>50</option>
+                    <option value="100" %100%>100</option>
+                    <option value="200" %200%>200</option>
+                </select>
+
+                <br/>
+                <div class='tagGestion' >%id_llamada%</div>&nbsp;
+                <input type="text" id="id_call" name="id_call" class='inputGestion' value="%valor_id_call%">
+                <br/>
+                <!--<div class='tagGestion'>%extension%</div>
+                &nbsp;
+                <input type="text" name="extension" id='extension' class='inputGestion' value="%valor_extension%">
+                <br/>-->
+                <div class='tagGestion'>%piloto%</div>
+                &nbsp;
+                <select class='inputGestion' name="piloto" id="piloto" onchange="llenarSecretaria()" >
+                    %opciones_piloto%
+                </select><div style="float: left;margin-top: 2%">&nbsp;(*)</div>
+                <br/>
+                <div class='tagGestion'>%numeroRevisado%</div>
+                &nbsp;
+                <input type="hidden" id="numeroX" name="numerox" value="%num%">
+                <select class='inputGestion'  id="numero_" name="numero_"  >
+                    <option value=''>Seleccione</option>
+                </select>
+                <div style="float: left;margin-top: 2%">&nbsp;(*)</div>
+                <br/>
+                
+                <div class='tagGestion'>%contraparte%</div>
+                &nbsp;
+                <input type="text" name="contraparte" id='contraparte' class='inputGestion' value="%valor_contraparte%">
+                <br/>
+                <div class='tagGestion'>%ult_red%</div>
+                &nbsp;
+                <input type="text" name="ult_red" id='ult_red' class='inputGestion' value="%valor_ult_red%">
+                <br/>
+                <div class='tagGestion'>%num_final%</div>
+                &nbsp;
+                <input type="text" name="num_final" id="num_final" class='inputGestion' value="%valor_n_final%">
+                <br/>
+                <div class='tagGestion' >%ring_min%</div>
+                &nbsp;
+                <input type="text" name="ring_min" id='ring_min' class='inputGestion' value="%valor_ring_min%">
+                <br/>
+                <div class='tagGestion'>%ring_max%</div>
+                &nbsp;
+                <input type="text" name="ring_max" id='ring_max' class='inputGestion' value="%valor_ring_max%">
+                <br/>
+                <div class='tagGestion'>%tipo%</div>
+                &nbsp;
+                <select name="busca_tipo"  id="busca_tipo" class='inputGestion' >
+                    %select_tipo%
+                </select>
+                <br/>
+                <div class='tagGestion'>%fecha_desde%</div>
+                &nbsp;
+                <input type="text" name="fecha_desde" id='fecha_desde' class='inputGestion' value="%valor_fecha_desde%">
+                <br/>
+                <div class='tagGestion'>%fecha_hasta%</div>
+                &nbsp;
+                <input type="text" name="fecha_hasta" id='fecha_hasta' class='inputGestion' value="%valor_fecha_hasta%">
+                <br/>
+                <div class='tagGestion'>%abandonada%</div>
+                &nbsp;
+                <input type="checkbox" name="abandonada" id='abandonada' class='inputGestion' value="1" %abandonada%>
+                <br/>
+                <div class='tagGestion'>%dur_min%</div>
+                &nbsp;
+                <input type="text" name="dur_min" id='dur_min' class='inputGestion' value="%valor_dur_min%">
+                <br/>
+                <br/>
+                <a href="#" onclick="validaBuscar()" >
+                    <div style="" class="botones">
+                        <i class="fa fa-search"></i>
+                    </div>  
+                </a>
+                <a href="#" onclick="abreExcel()" >
+                    <div style="" class="botones">
+                        <i class="fa fa-file-excel-o"></i>
+                    </div>  
+                </a>
+                <div class='tagGestion' style="width: 100%;margin-top: 2%">
+                    <div style="width: 55%;margin-top:2%;float:left; ">%total%</div>
+                    <!--<input type="text" name="total" id='total' disabled="" class='inputGestion' value="%valor_total%">-->
+                    <div style="margin-top:2%;float:left;">%valor_total%</div>
+                </div>
+            </div>
+        </div>
+        <div style="float:left;width: 80%">
+            <div style="width:98%;height: 70%;overflow-y:scroll;margin: 0 1%;">
+                <table border="1" class="caja">
+                    <thead>
+                        <tr>
+                            <th >N°</th>
+                            <th >%tbl_id%</th>
+                            <th >%tbl_extn%</th>
+                            <th >%tbl_contraparte%</th>
+                            <th >%tbl_ult_red%</th>
+                            <th >%tbl_num_final%</th>
+                            <th >%tbl_est_extn%</th>
+                            <th >%tbl_est_lstred%</th>
+                            <th >%tbl_est_numfnl%</th>
+                            <th >%tbl_tipo%</th>
+                            <th >%tbl_fecha%</th>
+                            <th >%tbl_inicio%</th>
+                            <th >%tbl_duracion%</th>
+                            <th >%tbl_ring%</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        %tablaLlamadas%
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" id="queryExcel" value="%queryExcel%">
+            <p style="top:470px;left:700px;" align="center">%paginado%</p>
+        </div>
+    </div>
+    
+</form>

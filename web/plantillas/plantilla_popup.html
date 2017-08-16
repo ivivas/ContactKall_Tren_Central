@@ -1,0 +1,426 @@
+<html>
+<head>
+<title>.:: ::: Adportas AcdKall ::: ::.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="js/iefix/yahoo-dom-event.js" type="text/javascript"></script>
+<script src="js/iefix/ie-select-width-fix.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+%javascript%
+
+
+</script>
+
+<script type="text/javascript">
+var theObj="";
+
+function Abrir_ventana (pagina) {
+var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width=508, height=365, top=85, left=140";
+window.open(pagina,"",opciones);
+}
+ 
+function toolTip(text,me) {
+       theObj=me;
+       theObj.onmousemove=updatePos;
+       document.getElementById('toolTipBox').innerHTML=text;
+       document.getElementById('toolTipBox').style.display="block";
+       window.onscroll=updatePos;
+}
+function updatePos() {
+       var ev=arguments[0]?arguments[0]:event;
+       var x=ev.clientX;
+       var y=ev.clientY;
+       diffX=24;
+       diffY=0;
+       document.getElementById('toolTipBox').style.top  = y-2+diffY+document.body.scrollTop+ "px";
+       document.getElementById('toolTipBox').style.left = x-2+diffX+document.body.scrollLeft+"px";
+       theObj.onmouseout=hideMe;
+}
+ 
+function hideMe() {
+       document.getElementById('toolTipBox').style.display="none";
+}
+</script>
+
+<style type="text/css">
+#toolTipBox {
+       display: none;
+       padding: 5;
+       font-size: 12px;
+       border: black solid 1px;
+       font-family: verdana;
+       position: absolute;
+       background-color: #ffd038;
+       color: 000000;
+}
+</style>
+
+<style>
+
+body{background-image:url(img/fondo.jpg); background-repeat:repeat-x; background-color:#DDDDDD; margin:1px 0px 0px 0px;}
+.pGris_arribaIzquierda{background-image:url(img/pGris_arribaIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+.pGris_arribaCentro{background-image:url(img/pGris_arribaCentro.jpg); background-repeat:repeat-x; width:180px; height:10px;}
+.pGris_centroIzquierda{background-image:url(img/pGris_centroIzquierda.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+.pGris_centro{background-image:url(img/pGris_centro.jpg); background-repeat:repeat;}
+.pGris_abajoIzquierda{background-image:url(img/pGris_abajoIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+.pGris_abajoCentro{background-image:url(img/pGris_abajoCentro.jpg); background-repeat:repeat-x; width:180px; height:10px;}
+
+.pOscuro_arribaIzquierda{background-image:url(img/pOscuro_arribaIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+.pOscuro_arribaCentro{background-image:url(img/pOscuro_arribaCentro.jpg); background-repeat:repeat-x; width:560px; height:10px;}
+.pOscuro_arribaDerecha{background-image:url(img/pOscuro_arribaDerecha.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+.pOscuro_centroIzquierda{background-image:url(img/pOscuro_centroIzquierda.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+.pOscuro_centro{background-image:url(img/pOscuro_centro.jpg); background-repeat:repeat;}
+.pOscuro_centroDerecha{background-image:url(img/pOscuro_centroDerecha.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+.pOscuro_abajoIzquierda{background-image:url(img/pOscuro_abajoIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+.pOscuro_abajoCentro{background-image:url(img/pOscuro_abajoCentro.jpg); background-repeat:repeat-x; width:560px; height:10px;}
+.pOscuro_abajoDerecha{background-image:url(img/pOscuro_abajoDerecha.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+
+
+.pBlanco_arribaIzquierda{background-image:url(img/pBlanco_arribaIzquierda.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+.pBlanco_arribaCentro{background-image:url(img/pBlanco_arribaCentro.jpg); background-repeat:repeat-x; width:140px; height:15px;}
+.pBlanco_arribaDerecha{background-image:url(img/pBlanco_arribaDerecha.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+.pBlanco_centroIzquierda{background-image:url(img/pBlanco_centroIzquierda.jpg); background-repeat:repeat-y; width:15px; height:50px;}
+.pBlanco_centro{background-color:#FFFFFF;}
+.pBlanco_centroDerecha{background-image:url(img/pBlanco_centroDerecha.jpg); background-repeat:repeat-y; width:15px; height:50px;}
+.pBlanco_abajoIzquierda{background-image:url(img/pBlanco_abajoIzquierda.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+.pBlanco_abajoCentro{background-image:url(img/pBlanco_abajoCentro.jpg); background-repeat:repeat-x; width:140px; height:15px;}
+.pBlanco_abajoDerecha{background-image:url(img/pBlanco_abajoDerecha.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+
+a.adportas:link {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+a.adportas:visited {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+a.adportas:active {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+a.adportas:hover {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+
+.botonera {cursor:pointer; border:1px solid #cccccc; display:inline; float:left;  height:22px; margin-right:20px;}
+.botonera img { float:left; margin-left:10px;}
+.botonera a:link {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+.botonera a:visited {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+.botonera a:active {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+.botonera a:hover {text-decoration:none;color:#990000; margin:0px 10px 0px 10px;}
+/****************************************************/
+/********** Estilo Botones Paginado ********/
+/****************************************************/
+.estiloDivPaginado{font-family: Verdana; margin:5px 0px 8px 0px; color:#990000; font-weight:500;}
+.estiloDivPaginado .boton,.botonPay{
+border:1px solid #000000;
+text-align:center;
+padding:0px 3px 0px 3px;
+margin:0px 3px 0px 3px;
+display:inline;
+background-color:#F5F5F5;
+}
+.estiloDivPaginado a.boton:link{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.boton:visited{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.boton:active{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.boton:hover{text-decoration:none; color:#CC0000;}
+.estiloDivPaginado a.botonPay:link{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.botonPay:visited{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.botonPay:active{text-decoration:none; color:#000000;}
+.estiloDivPaginado a.botonPay:hover{text-decoration:none; color:#CC0000;}
+.estiloDivPaginado a:link {text-decoration:none;color:#000000;}
+.estiloDivPaginado a:visited {text-decoration:none;color:#000000;}
+.estiloDivPaginado a:active {text-decoration:none;color:#000000;}
+.estiloDivPaginado a:hover {text-decoration:underline;color:#CC0000;}
+
+/****************************************************/
+/******* Estilo Tabla Administracion Listado ********/
+/****************************************************/
+table.admin {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.admin th {
+	margin: 0px;
+	font-size: 11px;
+        text-align: left;
+}
+
+table.admin th.titulo {
+	color:#FFFFFF;
+	font-weight:bold;
+	font-family:Arial;
+        font-size:13px;     
+}
+
+table.adminlista {
+	background-color: #FFF;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border-collapse: collapse;
+	border:1px solid #ccc;
+}
+
+table.adminlista th {
+        text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 2px solid #ffffff;
+	height: 25px;
+	background-color:#E4E1DC;
+        font-size: 11px;        
+}
+
+table.adminlista th.titulo {
+	text-align: center;
+	color:#FFFFFF;
+        background-color:#cccccc;
+	font-weight:bold;        
+	font-family:Verdana;
+}
+
+table.adminlista tr.fila0 {
+	background-color: #F5F5F5;
+}
+table.adminlista tr.fila1 {
+	background-color: #FFF;
+}
+table.adminlista td {
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 11px;
+	font-weight: normal;
+	font-family:Verdana;
+	color:#333333;
+	margin: 0px;
+	padding: 2px;
+}
+
+table.adminlista td.registro {
+	color:#333333;                
+	font-weight: bold;
+}
+table.adminlista td.anexo {	
+	color:#333333;	
+}
+table.adminlista td.contraparte {	
+	color:#333333;	
+}
+table.adminlista td.fecha {	
+	color:#333333;        
+}
+table.adminlista td.inicio {	
+	color:#333333;	
+}
+table.adminlista td.termino {	
+	color:#333333;	
+}
+table.adminlista td.duracion {	
+	color:#993333;	
+}
+
+table.adminlista td a{color:#990000 ; text-decoration: none; font-weight:200;}
+table.adminlista td a:link{color: #990000; text-decoration: none; font-weight:200;}
+table.adminlista td a:visited{color: #990000; text-decoration: none; font-weight:200;}
+table.adminlista td a:hover{color:#CC0000;	text-decoration: none;}
+
+table.adminlista td a.opaco{color:#333333; text-decoration: none;}
+table.adminlista td a.opaco:link{color: #333333; text-decoration: none;}
+table.adminlista td a.opaco:visited{color: #333333; text-decoration: none;}
+table.adminlista td a.opaco:hover{color:#333333; text-decoration: none;}
+
+
+table.adminlista tr.fila0:hover {
+	background-color: #EDFBCE;
+}
+table.adminlista tr.fila1:hover {
+	background-color:#EDFBCE;
+}
+
+select.seleccion, input.seleccion{
+	font-size: 9px;
+	font-weight: normal;	
+}
+
+textarea.seleccion {font-family:Verdana; font-size:11px;}
+
+select.seleccion_alerta{
+	font-size: 9px;
+	font-weight: normal;
+	background-color:#C2E3E7;	
+}
+option.option_alerta {
+	background-color:#C2E3E7;
+}
+
+/****************************************************/
+/********* Estilo Tabla Administracion Caja *********/
+/****************************************************/
+table.admincaja {	
+	padding: 0px;
+}
+
+table.admincaja th {
+	margin: 0px;
+	padding: 4px;
+	text-align: left;
+	border-bottom:1px solid #ccc;
+	height:24px;
+	color:#000000;
+	font-weight:bold;
+	font-family:Verdana;
+	font-size: 11px;
+}
+
+table.admincaja td {
+	font-size: 11px;
+	font-weight: normal;
+	font-family:Verdana;
+	color:#333333;
+	margin: 0px;
+	padding: 5px;
+}
+
+table.admincaja td input.buscador {
+        width: 100px;
+}
+table.admincaja td input.fecha {
+        width: 100px;
+        font-size: 10px;
+}
+table.admincaja td select.buscador {
+        width: 100px;
+}
+/****************************************************/
+/********* Estilo Tabla Administracion Caja2 *********/
+/****************************************************/
+table.admincaja2 {	
+	padding: 0px;
+}
+
+table.admincaja2 td {
+	font-size: 11px;
+	font-weight: normal;
+	font-family:Verdana;
+	color:#333333;
+	margin: 0px;
+	padding: 5px;
+        border:none;
+}
+
+.divError {
+background-color:#FFFFCC;
+border:1px solid #CCCCCC;
+width:600px;
+padding:0px 10px 0px 10px;
+margin:3px 0px 5px 0px;
+text-align:center;
+}
+
+/****************************************************/
+/********* Estilo Tabla Administracion Caja *********/
+/****************************************************/
+table.admincaja3 {	
+	padding: 0px;
+}
+
+table.admincaja3 th {
+	margin: 0px 0px 2px 0px;
+	padding: 2px;
+	text-align: left;
+	border-bottom:1px solid #ccc;
+	height:23px;
+	color:#000000;
+	font-weight:bold;
+	font-family:Verdana;
+	font-size: 11px;
+        background-color:#E4E1DC;
+}
+
+table.admincaja3 td {
+        border-bottom: 1px solid #e5e5e5;
+	font-size: 11px;
+	font-weight: normal;
+	font-family:Verdana;
+	color:#333333;
+	margin: 0px;
+	padding: 2px;
+}
+
+table.admincaja3 td.sinborde {        
+	font-size: 11px;
+	font-weight: normal;
+	font-family:Verdana;
+	color:#333333;
+	margin: 0px;
+	padding: 2px;
+        border:none;
+}
+
+table.admincaja3 .inputCRM {
+	width:90px;
+        border:1px solid #ccc;
+}
+
+
+/****************************************************/
+/******************* Estilo toolTips*****************/
+/****************************************************/
+#toolTipBox {
+        display: none;        
+        padding: 5;
+        font-size: 11px;
+        border:1px outset #ccc;
+        font-family: verdana;
+        position: absolute;
+        background-color:ffffe1;
+        color: 000000;        
+}
+#toolTipBox label { width:100px; float:left; font-weight:bold; text-align:center;}
+
+
+/***********************************************/
+/* Componentes Imagenes                        */
+/***********************************************/
+.skin {margin-top:3px;}
+.skin_leftTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftTop.png); width:12px; height:15px; background-repeat:no-repeat;}
+.skin_leftBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftBottom.png); width:12px; height:15px; background-repeat:no-repeat;}
+.skin_leftMidle{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftMidle.png); width:12px; background-repeat:repeat-y;}
+.skin_rightTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightTop.png); width:12px; height:15px; background-repeat:no-repeat;}
+.skin_rightBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightBottom.png); width:12px; height:15px; background-repeat:no-repeat;}
+.skin_rightMidle{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightMidle.png); width:12px; background-repeat:repeat-y;}
+.skin_centerTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_centerTop.png); height:15px; background-repeat:repeat-x;}
+.skin_centerBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_centerBottom.png); height:15px; background-repeat:repeat-x;}
+.relleno{background-color:#FFFFFF;}
+.skin_title{font-family:Verdana; font-size:12px; font-weight:bold; height:20px;}
+
+/*******************************************/
+/* Esta clase es necesaria (FIX WIDTH IE)  */
+/*******************************************/
+.selectbox {	
+    font-family:Verdana;font-size:12px;
+    behavior:expression(window.dropdown_menu_hack!=null?window.dropdown_menu_hack(this):0);
+}
+
+body{background-image:url(img/fondo.jpg); background-repeat:repeat-x; background-color:#DDDDDD; margin:1px 0px 0px 0px;}
+
+</style>
+</head>
+<body bgcolor="#CCCCCC">
+<div id="toolTipBox" width="100"></div>
+<table width="848" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr> 
+        
+        
+       
+  </tr>
+  <td colspan="13"><div align="center"><img src="img/fondoCabezera2.jpg" width="770" height="69"></div></td>
+    <tr>
+<td colspan="3" height="40" valign="middle">
+            %menu_plantilla%        </td>
+    </tr>
+    <tr>
+        <td colspan="3" height="450" valign="top">
+            %contenido_pagina%        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+<!--
+%alertAfterLoad%
+-->
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>.:: ::: Adportas AcdKall ::: ::.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style> 
+            %css%
+        </style>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/agenteAjax.js"></script>
+        <script>
+            %javascript%
+        </script>
+    </head>
+    <body>
+        <div id="contenido">
+            <div id="menu">
+                <a href="#" onclick="logOut()" style="text-decoration: none;color: #000000;"><div style="width:120px;height:30px;float:right;" >%cerrar_sesion%</div></a>
+            </div>
+            <div id='info' style="border: 2px solid #000000;">
+                %supervisor% %usuario%<br>
+                %anx% %anexo%<br>
+                %devname% %devicename%
+               <input id="supervisor" type="hidden" value="%datosSupervisor%">
+               <input type='hidden' value='no' id='tieneAutoRefresco'>
+               <input id="anexo" type="hidden" value="%anexo%">
+               <input id="usuario" type="hidden" value="%usuario%">
+               <input id="device" name="device" type="hidden" value="%device%">
+            </div>
+            <div style="height: 40px; border-radius: 25px;border: 2px solid #73AD21;" id="listado_llamadas">
+                
+            </div>
+            <div style="border: 2px solid #000000;height: 30px;">
+                <div id='contestar' style="position:relative;float:left;"><img src="./img/boton1.png" alt="Contestar"/></div>
+                <div id='espera' style="position:relative;float:left;"><img src="./img/boton2.png" alt="hold"/></div>
+                <div id='cortar' style="position:relative;float:left;"><img src="./img/boton3.png" alt="Cortar"/></div>
+                <div id='redirect' style="position:relative;float:left;">Redireccionar</div>
+                <div id='conferenciar' style="position:relative;float:left;">Conferencia</div>
+            </div>
+            <div id="estado" style="height: 30px">%estado%</div>
+            <div id="hdAgente">%hd%</div>
+            <div id='hd'></div>
+        <!--<div style="width:24px;height:21px;background-image:url('imagenes/exit.png')" onclick="window.location.href='principal.jsp'"></div>-->
+        
+    <div id="listaGrabacionesAgente">
+        <div id="loading"></div>
+        <div id="realListaGrabacionesAgente"></div>
+    </div>
+   <!--<div id="nuevaPestania">+</div>-->
+        <div id="infoCampanas">
+            %campana_disponible%
+            <div id="contenedorCampana" %visible%>
+                %lista_campanas%
+            </div>
+            <a href="#" id="asignarCampanaPool"><img src="imagenes/edit.png"></a>
+        </div>
+        <div id="panelAgenteCampana">
+
+        </div>
+    <div id="alertasSupervisor"></div>
+    <div id='llamar'>Llamar</div>    <input type='text' id='destino'>
+    
+
+    <div id='controlPanel'></div>
+    <div id="aqui"><div class='headers'></div></div>
+    <!--<a href="grafico.jsp">Grafico</a>-->
+    </div>
+    </body>
+</html>

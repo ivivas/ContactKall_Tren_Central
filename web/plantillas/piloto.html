@@ -1,0 +1,38 @@
+    %div_titulo%
+    <div id="info_piloto">
+        <input type="hidden" id="rpHidden">
+        <input type="hidden" id="user" name="user" value="%value_user%">
+        <input type="hidden" id="perfil" name="perfil" value="%value_perfil%">
+        <input type="hidden" id="idpilas" name="idpilas" value="%value_idpilas%">
+        <input type="hidden" id="pilasoc" name="pilasoc" value="%value_pilasoc%">
+        <div id="contenido" style="height: 100%">
+            <div id='info_' style="text-align:left;width: 40%">
+                %supervisor% %usuario%<br>
+                %anx% %anexo%<br>
+                %devname% %devicename%
+                <input id="supervisor" type="hidden" value="%datosSupervisor%">
+            </div>
+            <div id="contenedor_pl">
+                <div id='loading' style='width:50px;height:30px;'></div>
+            </div>
+            <div id="divGraficos">
+                <img id='llamadaGralPool' src='imagenes/diario/llamadaGralPool.jpg' alt ='Llamadas' title='Llamadas'>
+                <div id="colaLlamadas"></div>
+            </div>
+            <div id="panel"></div>
+        </div>
+        <div id="aqui"><div class='headers'></div></div>
+    </div>
+
+    <div id="divGraficosDetalle">
+        <a style="color:black;" onclick="salirDetalle()">Salir</a><br>
+        <img id='llamadaPerdidaPool' src='imagenes/diario/llamadaPerdidaPool.jpg' alt ='Llamadas Perdidas' title='Llamadas Perdidas'>
+        <img id='llamadaContestadaPool' src='imagenes/diario/llamadaContestadaPool.jpg' alt ='Llamadas Contestadas' title='Llamadas Contestadas'>
+    </div>            
+    <div id="pAgentes"></div>
+    <div id="ppal"></div>
+    <div id="monitores"></div>
+    <div id="ventanaWhispering"></div>
+    <div id="divPickup"></div>
+    <div id="listaGrabaciones"></div>
+    <div id="simbol"></div>

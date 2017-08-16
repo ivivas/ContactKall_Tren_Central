@@ -1,0 +1,150 @@
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<script language="JavaScript">
+    function Abrir_ventana(pagina) {
+        var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=508, height=365, top=85, left=140";
+        //receptor = document.getElementById('select_anexos_asignados');
+        window.open(pagina,"",opciones);
+    }
+
+
+    function cambiaEstado(valor)
+    {
+        if (valor==0){
+            document.formFlujo.busca_fechaDesde.disabled=false;
+            document.formFlujo.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formFlujo.busca_fechaDesde.disabled=true;
+            document.formFlujo.busca_fechaHasta.disabled=true;
+        }
+    }
+
+    function comprobar() {
+        if(document.formFlujo.rango_fecha.value==0) {
+            document.formFlujo.busca_fechaDesde.disabled=false;
+            document.formFlujo.busca_fechaHasta.disabled=false;
+        }
+        else{
+            document.formFlujo.busca_fechaDesde.disabled=true;
+            document.formFlujo.busca_fechaHasta.disabled=true;
+        }
+    }
+</script>
+<style type="text/css">
+<!--
+.Estilo2 {font-size: 12px; font-family: "Times New Roman", Times, serif; font-weight: bold; }
+-->
+</style>
+
+<body onload="comprobar()">
+
+<!--se le resta 40 al top-->
+
+<form name="formFlujo" action="flujoCAP.jsp">
+    <table class="caja2_1" style="border:1px; width:20px;">
+	<tr>
+            <td colspan="2">
+                <Select NAME="id_centrocosto" style="width:160px; font-size:10px;" >
+                   %centroscosto%
+                </Select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <Select NAME="rango_fecha" SIZE="1" onChange="cambiaEstado(this.value);" style="width:160px; font-size:10px;">
+                   %rangos_fecha%
+                </Select>
+            </td>
+        </tr>
+        <tr>
+            <td nowrap >Fecha Inicial:</td>
+            <td>
+                <input type="text" name="busca_fechaDesde" value="%busca_fechaDesde%" style="width:60px; font-size:10px;" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td nowrap>Fecha Final:</td>
+            <td>
+                <input type="text" name="busca_fechaHasta" value="%busca_fechaHasta%" style="width:60px; font-size:10px;" disabled />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select name="horario_valido" style="width:160px; font-size:10px;">
+                    %horario_valido%
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select name="llamada_derivada" style="width:160px; font-size:10px;">
+                    %llamada_derivada%
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <!--<td><input type="submit" name="submit"/></td>-->
+            <input type="hidden" name="primera_vez" value="true" />
+            <!--<input type="hidden" name="id_centrocosto" value="%id_centrocosto%" />-->
+            <td colspan="2"><input name="buscar" type="image" id="buscar" src="botones/buscar.jpg"></td>
+        </tr>
+    </table>
+</form>
+<div style="position:absolute; left:185px; top:25px;"><img src="imagenes/elflujo.jpg" usemap="#Map" border="0" />
+<map name="Map"><area shape="rect" coords="29,77,99,124" href="flujoCAPinternas.jsp?horario_valido=%horario_validoGet%&rango_fecha=%rango_fechaGet%&busca_fechaDesde=%busca_fechaDesde%&busca_fechaHasta=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%" target="_self">
+<area shape="rect" coords="30,288,97,330" href="flujoCAPexternas.jsp?horario_valido=%horario_validoGet%&rango_fecha=%rango_fechaGet%&busca_fechaDesde=%busca_fechaDesde%&busca_fechaHasta=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%"></map>
+</div>
+<div class="Estilo2" style="position:absolute; width:91px; top:194px; left:305px">%ingresadas_porcentaje%</div>
+<!--<div class="Estilo2" style="position:absolute; width:77px; top:255px; left:310px">%ingresadas_cantidad%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:91px; top:163px; left:215px" >%internas%</div></span>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:91px; top:283px; left:215px" >%externas%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:193px; left:405px" >%abandonadas_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:245px; left:410px" >%abandonadas_cantidad%</div></span>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:107px; left:410px" >%contestadas_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:60px;  left:405px" >%contestadas_porcentaje%</div>
+<div class="Estilo2" style="position:absolute; width:67px; top:322px; left:405px" >%desviada_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:365px; left:410px" >%desviada_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:130px; left:510px" >%AbandonadaUnDosring_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:186px; left:515px" >%AbandonadaUnDosring_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:231px; left:510px" >%AbandonadaMayor3ring_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:286px; left:515px" >%AbandonadaMayor3ring_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:272px; left:690px" >%contestadaSecretaria_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:314px; left:695px" >%contestadaSecretaria_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:356px; left:690px" >%noContestadaSecretaria_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:404px; left:695px" >%noContestadaSecretaria_cantidad%</div></span>-->
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:77px; top:255px; left:310px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=totales&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');">%ingresadas_cantidad%</div></span>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:91px; top:163px; left:215px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=internas&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%internas%</div></span>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:91px; top:283px; left:215px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=externas&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%externas%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:193px; left:405px" >%abandonadas_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:245px; left:410px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=abandonadas&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%abandonadas_cantidad%</div></span>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:107px; left:410px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=contestadas&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%contestadas_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:60px;  left:405px" >%contestadas_porcentaje%</div>
+<div class="Estilo2" style="position:absolute; width:67px; top:322px; left:405px" >%desviada_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:365px; left:410px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=desviadas&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');">%desviada_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:130px; left:510px" >%AbandonadaUnDosring_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:186px; left:515px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=abandonadasMenos3rings&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%AbandonadaUnDosring_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:231px; left:510px" >%AbandonadaMayor3ring_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:286px; left:515px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=abandonadasMas3rings&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%AbandonadaMayor3ring_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:272px; left:690px" >%contestadaSecretaria_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:314px; left:695px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=contestadasSecretariaPool&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%contestadaSecretaria_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:67px; top:356px; left:690px" >%noContestadaSecretaria_porcentaje%</div>
+<span style="cursor:pointer"><div class="Estilo2" style="position:absolute; width:67px; top:404px; left:695px" onclick="Abrir_ventana('listadoLlamadaCAP.jsp?tipo=ambas&categoria=abandonadasSecretariaPool&horario=%horario_validoGet%&rango_fecha=%rango_fechaGet%&inicio=%busca_fechaDesde%&termino=%busca_fechaHasta%&id_centrocosto=%id_centrocosto%&tipoDesvio=%llamada_derivadaGet%');" >%noContestadaSecretaria_cantidad%</div></span>
+<div class="Estilo2" style="position:absolute; width:120px; top:324px; left:505px">%desvioNoContesta%</div>
+<div class="Estilo2" style="position:absolute; width:120px; top:346px; left:505px">%desvioOcupado%</div>
+<div class="Estilo2" style="position:absolute; width:120px; top:369px; left:505px">%desvioProgramado%</div>
+<div style="font-family:verdana; font-size: 9px; font-weight:bold; padding-top:145px;">Rango efectivo de busqueda<br>Desde : %rangoDeBusquedaDesde%<br>Hasta : %rangoDeBusquedaHasta%</div>
+<div style="font-family:verdana; font-size: 9px; font-weight:bold; padding-top:20px;">Rango Total de registros</div>
+<div style="font-family:verdana; font-size: 9px; font-weight:bold; ">Desde:%primer_registro%</div>
+<div style="font-family:verdana; font-size: 9px; font-weight:bold; ">Hasta:%ultimo_registro%</div>
+<br>
+%error%
+%advertencia%
+</body>
+
+
+

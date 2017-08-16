@@ -1,0 +1,156 @@
+<form name="adminForm_seleccion_horarios" action="horarioModificarGeneral.jsp" target="_self" method="post"  >
+    %div_titulo%
+    <div id="tabla_fondo" style="margin: 0 auto;">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%hormod_tbl_selhor% </div>
+            <select name="opciones_horarios" class="campos" id="select"   onchange="javascript:document.adminForm_seleccion_horarios.submit()" >
+                %opciones_horarios%
+            </select>
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%hormod_tbl_name% </div>
+            <input readonly="" type="text" name="nombre_horario" id="nombre_horario" value="%nombre_horario%" />
+        </div>
+    </div>
+    <input type="hidden" name="seleccionar_horario" value="true">
+    <input type="hidden" name="id" value="%id%">
+</form>
+<form name="adminForm_horarioModificar" action="horarioModificarGeneral.jsp" target="_self" method="post">
+    <div style="width: 100%;height: 8%;">
+        <div style="color:grey; padding-left: 10%;text-align: left; float: left;">%hormod_tbl_def%</div>
+        <div style="float:left;margin-left: 1%;color:grey; " class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'))" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t2" class="toolkit" style="left: 200px; top: 280px;">%msg_check_def%</div>
+        <input style="float:left;width: 5%;" type="checkbox" name="es_predefinido" value="" %es_predefinido% />
+    </div>
+    <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0" style="color: grey">
+        <tr>
+            <th>%hormod_tbl_day%</th><th width="25%">%hormod_tbl_from%</th><th width="25%">%hormod_tbl_to%</th><th>%hormod_tbl_val%</th>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_mon%
+            </td>
+            <td>
+                <input type="text" name="Lunes_desde" value="%Lunes_desde%" maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Lunes_hasta" value="%Lunes_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Lunes_valido"  %Lunes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_tue%
+            </td>
+            <td>
+                <input type="text" name="Martes_desde" value="%Martes_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Martes_hasta" value="%Martes_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Martes_valido" value="" %Martes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_wed%
+            </td>
+            <td>
+                <input type="text" name="Miercoles_desde" value="%Miercoles_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Miercoles_hasta" value="%Miercoles_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Miercoles_valido" value="" %Miercoles_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_tur%
+            </td>
+            <td>
+                <input type="text" name="Jueves_desde" value="%Jueves_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Jueves_hasta" value="%Jueves_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Jueves_valido" value="" %Jueves_valido%  />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_fri%
+            </td>
+            <td>
+                <input type="text" name="Viernes_desde" value="%Viernes_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Viernes_hasta" value="%Viernes_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Viernes_valido" value="" %Viernes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_sat%
+            </td>
+            <td>
+                <input type="text" name="Sabado_desde" value="%Sabado_desde%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="text" name="Sabado_hasta" value="%Sabado_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Sabado_valido" value=""  %Sabado_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hormod_day_sun%
+            </td>
+            <td>
+                <input type="text" name="Domingo_desde" value="%Domingo_desde%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="text" name="Domingo_hasta" value="%Domingo_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Domingo_valido" value=""  %Domingo_valido% />
+            </td>
+        </tr>
+     
+
+    </table><br>
+    <input type="hidden" name="id" value="%id%">
+    <input type="hidden" name="pg" value="%pg%">
+    <input type="hidden" name="modificar_horario" value="true">
+    <input type="hidden" name="id_horario" value="%id_horario%">
+    <input type="hidden" name="nombre_horario_grabar" id="nombre_horario_grabar" value="%nombre_horario%" />
+    
+    <!--<input type="button" name="grabar" value="%hormod_btn_save%"  onmouseover="traspasoDeNombre()" onclick="javascript:document.adminForm_horarioModificar.submit()">-->
+    <a href="#" class="botones btnadddel" name="grabar" onclick="javascript:document.adminForm_horarioModificar.submit()">%hormod_btn_save%</a>
+   %boton_borrar%
+    <!--<input type="button" name="nuevo_horario" value="%hormod_btn_new%" onclick="location.href = 'horarioNuevo.jsp'">-->
+    <a href="horarioNuevo.jsp" class="botones btnadddel">
+        %hormod_btn_new%
+    </a>
+    <!--<input type="button" name="excepciones_horario" value="%hormod_btn_addexp%" onclick="javascript:window.open('horarioExcepciones.jsp?id_horario=%id_horario%','window','height=800,width=600')">-->
+    <a name="excepciones_horario" class="botones btnadddel" onclick="javascript:window.open('horarioExcepciones.jsp?id_horario=%id_horario%','window','height=800,width=900')" style="cursor: pointer">
+        %hormod_btn_addexp%
+    </a>
+
+</form>
+
+<form name="adminForm_borrar_horario" action="horarioModificarGeneral.jsp" target="_self" method="post"   >
+    <input type="hidden" name="id_horario" value="%id_horario%">
+     <input type="hidden" name="borrar_horario" value="true">
+    
+</form>

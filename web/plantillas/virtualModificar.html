@@ -1,0 +1,50 @@
+<form name="adminForm_extensionModificar" action="virtualModificar.jsp" target="_self" method="post">
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey;"><strong>%vrtmod_tbl_title%</strong></div>
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%vrtmod_tbl_numvrt% </div>
+            <input style="width: 15%" type="text" name="virtual_numero" size="20" maxlength="15" value="%virtualNumero%" >&nbsp;(*)
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%vrtmod_tbl_mod% </div>
+            <input style="width: 15%" type="text" name="virtual_descripcion" size="20" maxlength="30" value="%virtualDescripcion%" >&nbsp;(*)
+        </div>
+        <!--<div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%vrtmod_tbl_numpkp% </div>
+            <input type="text" name="virtual_pickup" size="20" maxlength="30" value="%virtualPickup%" >&nbsp;(*)
+        </div>-->
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%hora% </div>
+            <input style="width: 15%" type="text" name="virtual_num_fuera_hora" size="20" maxlength="30" value="%virtual_num_fuera_hora%" >&nbsp;
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%vrtmod_tbl_hor% </div>
+            <!--<input type="button" name="virtual_horario" value="%vrtmod_btn_adjhor%" id="%virtualHorario%" onclick="location.href = 'horarioModificar.jsp?id='+this.id">&nbsp;(*)-->
+            <select style="width: 15%" id="horario" name="horario">
+                %opciones_horario%
+            </select>
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%dis% </div>
+            <select style="width: 15%" name="ruteo">
+                %opciones_ruteo%
+            </select>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="%id%">
+    <input type="hidden" name="pg" value="%pg%">
+    <input type="hidden" name="modificar_virtual" value="true">
+    
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <a href="#" class="botones btnadddel" onclick="virtualModificar(document.adminForm_extensionModificar);">
+                %vrtmod_btn_save%
+            </a>
+            &nbsp;&nbsp;
+            <a href="virtualRegistro.jsp" class="botones btnadddel">
+                %vrtmod_btn_cancel%
+            </a>
+      </div>
+    </center>
+</form>

@@ -1,0 +1,50 @@
+%error_jsp%
+<form name="adminForm_extensionAgregar" action="ctiportModificar.jsp" target="_self" method="post">
+    %div_titulo%
+    <div style="padding: 2%;text-align: left;color: grey;"><strong>%mod%</strong></div>
+    <!--<div style="color:grey; padding-left: 100px;text-align: left;padding-bottom: 10px;">%mod%</div>-->
+    
+    <div id="tabla_fondo">
+        <div class="tabla_fondo">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%nom% *</div>
+            <input type="text" name="musica_nombre" size="20" maxlength="15" value="%musica_nombre%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%desc%</div>
+            <input type="text" name="virtual_descripcion" size="20" maxlength="30" value="%virtual_descripcion%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >
+                %lar%
+                <div style="float:right;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'))" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                    <i class="fa fa-question-circle"></i>
+                </div>
+                <div id="t1" class="toolkit">%msg_largo_tooltip%</div>
+            </div>
+            <input type="text" name="largo" size="20" maxlength="30" value="%largo%" >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 15px;">
+            <div  style="float:left;width: 200px; padding-right: 10px;" >%tipo% *</div>
+            <select name="tipo">
+                %opciones_musica%
+            </select>
+        </div>
+    </div>
+    
+    <input type="hidden" name="modificar_virtual">
+    <input type="hidden" name="agregar_anexo" value="true">
+    <input type="hidden" name="id" id="id" value="%id%">
+          
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <a style="cursor:pointer" href="#" class="botones btnadddel" onclick="ctiportModificar(document.adminForm_extensionAgregar);">
+                %vrtmod_btn_save%
+            </a>
+            &nbsp;&nbsp;
+            <a style="cursor:pointer" href="ctiportRegistro.jsp" class="botones btnadddel">
+                %vrtmod_btn_cancel%
+            </a>
+        </div>
+    </center>
+                
+</form>

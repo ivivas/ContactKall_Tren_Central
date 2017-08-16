@@ -1,0 +1,45 @@
+<script language="JavaScript">
+        function guardar(){
+
+        }
+        function seleccionOpcionRadio(nombre,anexo){
+            window.open('opcionDeDeshabilitacion.jsp?nombre='+nombre+'&anexo='+anexo,'window','height=179,width=375');
+            return false;
+        }
+
+</script>
+    <form name="formulario" action="habilitador.jsp" method="post">
+        <div id="datos" style="width: 996;">
+            <div id="input">
+                <span>%habilit_tabla_name%</span>
+                <input name="nombre" type="text"  id="textfield" size="7" value="%nombre%" />
+                <span>%habilit_tabla_extn%</span>
+                <input name="extension"  type="text" id="textfield" size="7" value="%extension%" />
+                &nbsp;&nbsp;&nbsp;
+                <select name="piloto" class="campos" id="select" >
+                    %combo_piloto%
+                </select>
+                &nbsp;&nbsp;&nbsp;
+                <a href="#" onclick="document.formulario.submit();" >
+                    <div style="float:right;" class="botones">
+                        <i class="fa fa-search"></i>
+                    </div>  
+                </a>
+            </div>
+        </div>
+        <div id="tabla">
+            <table width="450" height="150" border="0" cellpadding="0" cellspacing="0" id="t01">
+                %salidaTabla%
+            </table>
+            <div id="paginacion">%paginado%</div>
+            <input name="guardar" type="hidden" id="guardar" value="" />
+            <input name="nsecretarias" type="hidden" value="%nsecretarias%" />
+            <div id="boton-tabla">
+                <a href="#" onclick="document.getElementById('guardar').value='true';document.formulario.submit();">
+                    <div style="float:right;" class="botones">
+                        <i class="fa fa-floppy-o"></i>
+                    </div>  
+                </a>
+            </div>
+        </div>
+    </form>

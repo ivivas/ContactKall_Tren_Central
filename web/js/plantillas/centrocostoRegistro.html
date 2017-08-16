@@ -1,0 +1,73 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<form name="adminForm_centrocostoRegistros" action="centrocostoRegistro.jsp" target="_self" method="post">
+    <table class="admincaja3" width="950" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="sinborde" valign="top" align="center">
+                <!--<div style="height:350px; text-align:left; float:left; width:700px;">   -->
+                <table width="220" border="0" align="left">
+                    <tr>
+                        <td width="82">Nombre</td>
+                        <td width="128"><label>
+                                <input name="busca_centroCosto" type="text" id="textfield" size="10" value="%busca_centroCosto%" />
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td>Descripci&oacute;n</td>
+                        <td><label>
+                                <input name="busca_descripcion" type="text" id="textfield" size="10" value="%busca_descripcion%" />
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td>Ultima modificaci&oacute;n</td>
+                        <td><label>
+                                <input name="busca_fecha" type="text" id="textfield" size="10" value="%busca_fecha%" />
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td>Registros por pagina</td>
+                        <td><select name="registros_mostrar" class="campos" id="select" >
+                                %registros_mostrar_reemplazo%
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td height="34">&nbsp;</td>
+                        <td><input name="buscar" type="image" id="buscar" src="botones/buscar.jpg"></td>
+                    </tr>
+                </table>
+                <div style="width:700; float:right;">
+                    <table class="adminlista" border="0" align="right" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th width="2%" >N&ordm;</th>
+                            <th width="4%" ><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                            <th width="33%">Nombre</th>
+                            <th width="33%">Descripci&oacute;n</th>
+                            <th width="28%" nowrap>Ultima Modificaci&oacute;n</th>
+                        </tr>
+                        <tr>
+                            <td colspan="6" valign="top" height="288">
+                                <div style="overflow:auto;  height:300;">
+                                    <table class="adminlista" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        %registros_centrocosto%
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+    </table>
+    <center>
+        <div>%paginado_usuarios%</div>
+        <div style="width:250px; height:30px;">
+            <input type="hidden" name="ncheckbox_eliminar" value="0" />
+            <input type="hidden" name="ncheckbox_usuarios" value="0">
+            <span style="cursor:pointer">
+                <a href="centrocostoAgregar.jsp"><img src="imagenes/nuevo.jpg" border="0"></a>
+                <img src="imagenes/eliminar.jpg" onclick="ccostoEliminar(document.adminForm_centrocostoRegistros);">
+            </span>
+        </div>
+    </center>
+</form>

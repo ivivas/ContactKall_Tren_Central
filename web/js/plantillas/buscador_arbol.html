@@ -1,0 +1,38 @@
+<form name ="formBuscardor" action="detalleCCbasico.jsp">
+    <table class="caja2" style="border:1px;">
+        <tr>
+            <td>
+                <strong>Internas</strong><br>%check_internas%
+            </td>
+            <td>
+                <strong>Externas</strong><br>%check_externas%
+                &nbsp;&nbsp;
+            </td>
+            <td nowrap>
+                %check_directas%
+            </td>
+            <td>
+                <strong>Fecha Inicial : </strong>
+                <input type="text" name="busca_fechaDesde" value="%busca_fechaDesde%" />
+            </td>
+            <td>
+                <strong>Fecha Final : </strong>
+                <input type="text" name="busca_fechaHasta" value="%busca_fechaHasta%" />
+            </td>
+            <td>
+                <Select NAME="rango_fecha" onChange="cambiaEstado(this.value);">
+                   %rangos_fecha%
+                </Select>
+            </td>
+            <td>
+                <select name="horario_valido">
+                    %horario_valido%
+                </select>
+            </td>
+            <input type="hidden" name="id_centrocosto" value="%id_centrocosto%" />
+            <input type="hidden" name="cargo" value="%cargo%" />
+            <input type="hidden" name="primera_vez" value="true" />
+            <td><input name="buscar" type="image" id="buscar" src="botones/buscar.png"></td>
+        </tr>
+    </table>
+</form>

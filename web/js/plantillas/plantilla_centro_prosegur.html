@@ -1,0 +1,779 @@
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/estilos_prosegur.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+                %javascript%
+        </script>
+        <style type="text/css">
+            #toolTipBox {
+                display: none;
+                padding: 5;
+                font-size: 12px;
+                border: black solid 1px;
+                font-family: verdana;
+                position: absolute;
+                background-color: #ffd038;
+                color: 000000;
+            }
+        </style>
+
+        <style>
+
+            body{background-image:url(img/bg.png); background-repeat:repeat-x; background-color:#DDDDDD; margin:1px 0px 0px 0px;}
+            .pGris_arribaIzquierda{background-image:url(img/pGris_arribaIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+            .pGris_arribaCentro{background-image:url(img/pGris_arribaCentro.jpg); background-repeat:repeat-x; width:180px; height:10px;}
+            .pGris_centroIzquierda{background-image:url(img/pGris_centroIzquierda.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+            .pGris_centro{background-image:url(img/pGris_centro.jpg); background-repeat:repeat;}
+            .pGris_abajoIzquierda{background-image:url(img/pGris_abajoIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+            .pGris_abajoCentro{background-image:url(img/pGris_abajoCentro.jpg); background-repeat:repeat-x; width:180px; height:10px;}
+
+            .pOscuro_arribaIzquierda{background-image:url(img/pOscuro_arribaIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+            .pOscuro_arribaCentro{background-image:url(img/pOscuro_arribaCentro.jpg); background-repeat:repeat-x; width:560px; height:10px;}
+            .pOscuro_arribaDerecha{background-image:url(img/pOscuro_arribaDerecha.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+            .pOscuro_centroIzquierda{background-image:url(img/pOscuro_centroIzquierda.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+            .pOscuro_centro{background-image:url(img/pOscuro_centro.jpg); background-repeat:repeat;}
+            .pOscuro_centroDerecha{background-image:url(img/pOscuro_centroDerecha.jpg); background-repeat:repeat-y; width:10px; height:100px;}
+            .pOscuro_abajoIzquierda{background-image:url(img/pOscuro_abajoIzquierda.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+            .pOscuro_abajoCentro{background-image:url(img/pOscuro_abajoCentro.jpg); background-repeat:repeat-x; width:560px; height:10px;}
+            .pOscuro_abajoDerecha{background-image:url(img/pOscuro_abajoDerecha.jpg); background-repeat:no-repeat; width:10px; height:10px;}
+
+
+            .pBlanco_arribaIzquierda{background-image:url(img/pBlanco_arribaIzquierda.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+            .pBlanco_arribaCentro{background-image:url(img/pBlanco_arribaCentro.jpg); background-repeat:repeat-x; width:140px; height:15px;}
+            .pBlanco_arribaDerecha{background-image:url(img/pBlanco_arribaDerecha.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+            .pBlanco_centroIzquierda{background-image:url(img/pBlanco_centroIzquierda.jpg); background-repeat:repeat-y; width:15px; height:50px;}
+            .pBlanco_centro{background-color:#FFFFFF;}
+            .pBlanco_centroDerecha{background-image:url(img/pBlanco_centroDerecha.jpg); background-repeat:repeat-y; width:15px; height:50px;}
+            .pBlanco_abajoIzquierda{background-image:url(img/pBlanco_abajoIzquierda.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+            .pBlanco_abajoCentro{background-image:url(img/pBlanco_abajoCentro.jpg); background-repeat:repeat-x; width:140px; height:15px;}
+            .pBlanco_abajoDerecha{background-image:url(img/pBlanco_abajoDerecha.jpg); background-repeat:no-repeat; width:15px; height:15px;}
+
+            a.adportas:link {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+            a.adportas:visited {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+            a.adportas:active {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+            a.adportas:hover {text-decoration:none;color:#000000; font-family:arial;font-weight:bold;font-size:12px;}
+
+            .botonera {cursor:pointer; border:1px solid #cccccc; display:inline; float:left;  height:22px; margin-right:20px;}
+            .botonera img { float:left; margin-left:10px;}
+            .botonera a:link {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+            .botonera a:visited {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+            .botonera a:active {text-decoration:none;color:#000000; margin:0px 10px 0px 10px;}
+            .botonera a:hover {text-decoration:none;color:#990000; margin:0px 10px 0px 10px;}
+            /****************************************************/
+            /********** Estilo Botones Paginado ********/
+            /****************************************************/
+            .estiloDivPaginado{font-family: Verdana; margin:5px 0px 8px 0px; color:#990000; font-weight:500;}
+            .estiloDivPaginado .boton,.botonPay{
+                border:1px solid #000000;
+                text-align:center;
+                padding:0px 3px 0px 3px;
+                margin:0px 3px 0px 3px;
+                display:inline;
+                background-color:#F5F5F5;
+            }
+            .estiloDivPaginado a.boton:link{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.boton:visited{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.boton:active{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.boton:hover{text-decoration:none; color:#CC0000;}
+            .estiloDivPaginado a.botonPay:link{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.botonPay:visited{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.botonPay:active{text-decoration:none; color:#000000;}
+            .estiloDivPaginado a.botonPay:hover{text-decoration:none; color:#CC0000;}
+            .estiloDivPaginado a:link {text-decoration:none;color:#000000;}
+            .estiloDivPaginado a:visited {text-decoration:none;color:#000000;}
+            .estiloDivPaginado a:active {text-decoration:none;color:#000000;}
+            .estiloDivPaginado a:hover {text-decoration:underline;color:#CC0000;}
+
+            /******************************************************/
+            /******* Estilo cabecera fija tercero *****/
+            /****************************************************/
+
+            div.fixedHeaderTable {
+                position: relative;
+                height:450px;
+            }
+            div.fixedHeaderTable table {
+                width:100%;
+            }
+            div.fixedHeaderTable tbody {
+                height: 200px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            div.fixedHeaderTable table th {
+                background-color:#CCCCCC;font-weight:bold
+            }
+            div.fixedHeaderTable table td {
+                background-color:#EEEEEE
+            }
+            div.fixedHeaderTable thead td, div.fixedHeaderTable thead th {
+                position:relative;
+            }
+
+            /* IE7 hacks */
+            div.fixedHeaderTable {
+                position: relative;
+                height: 200px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-right:16px;
+            }
+
+            div.fixedHeaderTable thead tr {
+                position: relative;
+                _position: absolute;
+                top: expression(this.offsetParent.scrollTop-2);
+                background:none;
+                background-color:#FFFFFF
+            }
+
+            div.fixedHeaderTable tbody {
+                height: auto;
+                position:absolute;
+                top:50px;
+            }
+            /* IE6 hacks */
+            div.fixedHeaderTable {
+                _width:expression(this.offsetParent.clientWidth-20);
+                _overflow: auto;
+                _overflow-y: scroll;
+                _overflow-x: hidden;
+            }
+            div.fixedHeaderTable thead tr {
+                _position: relative
+            }
+
+
+
+            /******************************************************/
+            /******* Estilo Tabla Nuevo scroll cabecera fija *****/
+            /****************************************************/
+
+            div.tableContainer {
+                width: 800px;		/* table width will be 99% of this*/
+                height: 250px; 	/* must be greater than tbody*/
+                overflow: auto;
+                margin: 0 auto;
+            }
+
+            table.caja {
+                width: 99%;		/*100% of container produces horiz. scroll in Mozilla*/
+                background-color: #FFF;
+                margin: 0px;
+                padding: 0px;
+                border-collapse: collapse;
+            }
+
+
+            table.caja>tbody	{  /* child selector syntax which IE6 and older do not support*/
+                overflow: auto;
+                height: 450px;
+                overflow-x: hidden;
+            }
+
+            table.caja thead tr	{
+                position:relative;
+                /*top: expression(offsetParent.scrollTop); /*IE5+ only*/
+            }
+
+            table.caja thead td, thead th {
+                /*text-align: left;*/
+                margin: 0px;
+                padding: 0px;
+                border-bottom: 1px solid #000;
+                height: 25px;
+                background-color:#E4E1DC;
+                font-size: 11px;
+                font-weight:bold;
+            }
+
+
+
+            table.caja td {
+                border-bottom: 1px solid #e5e5e5;
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            table.caja tr.fila0 {
+                background-color: #F5F5F5;
+            }
+
+            table.caja tr.fila1 {
+                background-color: #FFFFFF;
+            }
+
+            table.caja tfoot tr { /*idea of Renato Cherullo to help IE*/
+                position: relative;
+                overflow-x: hidden;
+                /*top: expression(parentNode.parentNode.offsetHeight >=
+                    offsetParent.offsetHeight ? 0 - parentNode.parentNode.offsetHeight + offsetParent.offsetHeight + offsetParent.scrollTop : 0);*/
+            }
+
+
+            table.caja tfoot td	{
+
+
+            }
+
+            table.caja td:last-child {padding-right: 20px;} /*prevent Mozilla scrollbar from hiding cell content*/
+
+            table.caja td a{color:#990000 ; text-decoration: none; font-weight:200;}
+            table.caja td a:link{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja td a:visited{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja td a:hover{color:#CC0000;	text-decoration: none;}
+
+            table.caja td a.opaco{color:#333333; text-decoration: none;}
+            table.caja td a.opaco:link{color: #333333; text-decoration: none;}
+            table.caja td a.opaco:visited{color: #333333; text-decoration: none;}
+            table.caja td a.opaco:hover{color:#333333; text-decoration: none;}
+
+            table.caja tr.fila0:hover {
+                background-color: #EDFBCE;
+            }
+            table.caja tr.fila1:hover {
+                background-color:#EDFBCE;
+            }
+
+            /*****Estilo input fecha******/
+            input.fecha {
+                width:80px;
+            }
+            /***************************/
+
+            /******************************************************/
+            /******* Estilo Tabla Nuevo scroll cabecera fija2 ****/
+            /****************************************************/
+            div.tableContainer2 {
+                width: 700;		/* table width will be 99% of this*/
+                height: 300px; 	/* must be greater than tbody*/
+                overflow: auto;
+                margin: 0 auto;
+            }
+
+            table.caja2 {
+                width: 99%;		/*100% of container produces horiz. scroll in Mozilla*/
+                background-color: #FFF;
+                margin: 0px;
+                padding: 0px;
+                border-collapse: collapse;
+            }
+
+
+            table.caja2>tbody	{  /* child selector syntax which IE6 and older do not support*/
+                overflow: auto;
+                height: auto;
+                overflow-x: hidden;
+            }
+
+            table.caja2 thead tr	{
+                position:relative;
+                /*top: expression(offsetParent.scrollTop); /*IE5+ only*/
+            }
+
+            table.caja2 thead td, thead th {
+
+                margin: 0px;
+                padding: 0px;
+                border-bottom: 1px solid #000;
+                height: 25px;
+                background-color:#E4E1DC;
+                font-size: 11px;
+                font-weight:bold;
+
+            }
+
+
+
+            table.caja2 td {
+                border-bottom: 1px solid #e5e5e5;
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            table.caja2 tr.fila0 {
+                background-color: #F5F5F5;
+            }
+
+            table.caja2 tr.fila1 {
+                background-color: #FFF;
+            }
+
+            table.caja2 tfoot tr { /*idea of Renato Cherullo to help IE*/
+                position: relative;
+                overflow-x: hidden;
+                /*top: expression(parentNode.parentNode.offsetHeight >=
+                    offsetParent.offsetHeight ? 0 - parentNode.parentNode.offsetHeight + offsetParent.offsetHeight + offsetParent.scrollTop : 0);*/
+            }
+
+
+            table.caja2 tfoot td	{
+
+
+            }
+
+            table.caja2 td:last-child {padding-right: 20px;} /*prevent Mozilla scrollbar from hiding cell content*/
+
+            table.caja2 td a{color:#990000 ; text-decoration: none; font-weight:200;}
+            table.caja2 td a:link{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja2 td a:visited{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja2 td a:hover{color:#CC0000;	text-decoration: none;}
+
+            table.caja2 td a.opaco{color:#333333; text-decoration: none;}
+            table.caja2 td a.opaco:link{color: #333333; text-decoration: none;}
+            table.caja2 td a.opaco:visited{color: #333333; text-decoration: none;}
+            table.caja2 td a.opaco:hover{color:#333333; text-decoration: none;}
+
+            table.caja2 tr.fila0:hover {
+                background-color: #EDFBCE;
+            }
+            table.caja2 tr.fila1:hover {
+                background-color:#EDFBCE;
+            }
+
+            /*ESTILO NUEVO*/
+            table.caja2_1 {
+                width: 99%;		/*100% of container produces horiz. scroll in Mozilla*/
+                background-color: #FFF;
+                /*                border-collapse: collapse;*/
+            }
+
+
+            table.caja2_1>tbody	{  /* child selector syntax which IE6 and older do not support*/
+                overflow: auto;
+                height: auto;
+                overflow-x: hidden;
+            }
+
+            table.caja2_1 thead tr	{
+                position:relative;
+                /*top: expression(offsetParent.scrollTop); /*IE5+ only*/
+            }
+
+            table.caja2_1 thead td, thead th {
+
+                border-bottom: 1px solid #000;
+                height: 25px;
+                background-color:#E4E1DC;
+                font-size: 10px;
+                font-weight:bold;
+
+            }
+
+
+
+            table.caja2_1 td {
+                border-bottom: 1px solid #e5e5e5;
+                font-size: 10px;
+                font-weight: bold;
+                font-family:Verdana;
+                color:#333333;
+
+            }
+
+            table.caja2_1 tr.fila0 {
+                background-color: #F5F5F5;
+            }
+
+            table.caja2_1 tr.fila1 {
+                background-color: #FFF;
+            }
+
+            table.caja2_1 tfoot tr { /*idea of Renato Cherullo to help IE*/
+                position: relative;
+                overflow-x: hidden;
+                /*top: expression(parentNode.parentNode.offsetHeight >=
+                    offsetParent.offsetHeight ? 0 - parentNode.parentNode.offsetHeight + offsetParent.offsetHeight + offsetParent.scrollTop : 0);*/
+            }
+
+
+            table.caja2_1 tfoot td	{
+
+
+            }
+
+            table.caja2_1 td:last-child {padding-right: 20px;} /*prevent Mozilla scrollbar from hiding cell content*/
+
+            table.caja2_1 td a{color:#990000 ; text-decoration: none; font-weight:200;}
+            table.caja2_1 td a:link{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja2_1 td a:visited{color: #990000; text-decoration: none; font-weight:200;}
+            table.caja2_1 td a:hover{color:#CC0000;	text-decoration: none;}
+
+            table.caja2_1 td a.opaco{color:#333333; text-decoration: none;}
+            table.caja2_1 td a.opaco:link{color: #333333; text-decoration: none;}
+            table.caja2_1 td a.opaco:visited{color: #333333; text-decoration: none;}
+            table.caja2_1 td a.opaco:hover{color:#333333; text-decoration: none;}
+
+            table.caja2_1 tr.fila0:hover {
+                background-color: #EDFBCE;
+            }
+            table.caja2_1 tr.fila1:hover {
+                background-color:#EDFBCE;
+            }
+
+            table.caja2_1 select {
+                font-size : 12px;
+                background: transparent;
+                width: 268px;
+                padding: 5px;
+                /*   font-size: 16px;*/
+                border: 1px solid #ccc;
+                height: 34px;
+            }
+
+            /*FIN DE ESTILO NUEVO*/
+
+
+            table.caja3 {
+                /*border-style:solid;*/
+                margin:0px;
+                padding:0px;
+                /*border-width:1px;*/
+                /*background-color: #BBBBBB;*/
+                border-collapse: collapse;
+            }
+
+            table.caja3 thead td, thead th {
+                margin:0px;
+                padding:2px;
+                background-color:#E4E1DC;
+                font-size: 11px;
+                font-weight:bold;
+                border-style:solid;
+                border-width:1px;
+
+            }
+
+
+
+            table.caja3 td {
+                border:1px;
+                border-style:solid;
+                margin:0px;
+                padding:2px;
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                background-color:#FFFFFF;
+            }
+
+
+
+
+            /****************************************************/
+            /******* Estilo Tabla Administracion Listado ********/
+            /****************************************************/
+
+
+            table.admin {
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table.admin th {
+                margin: 0px;
+                font-size: 11px;
+                text-align: left;
+            }
+
+            table.admin th.titulo {
+                color:#FFFFFF;
+                font-weight:bold;
+                font-family:Arial;
+                font-size:13px;
+            }
+
+            table.adminlista {
+                background-color: #FFF;
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                border-collapse: collapse;
+                border:1px solid #ccc;
+            }
+
+            table.adminlista th {
+                text-align: left;
+                margin: 0px;
+                padding: 0px;
+                border-bottom: 2px solid #ffffff;
+                height: 25px;
+                background-color:#E4E1DC;
+                font-size: 11px;
+            }
+
+            table.adminlista th.titulo {
+                text-align: center;
+                color:#FFFFFF;
+                background-color:#cccccc;
+                font-weight:bold;
+                font-family:Verdana;
+            }
+
+            table.adminlista tr.fila0 {
+                background-color: #F5F5F5;
+            }
+            table.adminlista tr.fila1 {
+                background-color: #FFF;
+            }
+            table.adminlista td {
+                border-bottom: 1px solid #e5e5e5;
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            table.adminlista td.registro {
+                color:#333333;
+                font-weight: bold;
+            }
+            table.adminlista td.anexo {
+                color:#333333;
+            }
+            table.adminlista td.contraparte {
+                color:#333333;
+            }
+            table.adminlista td.fecha {
+                color:#333333;
+            }
+            table.adminlista td.inicio {
+                color:#333333;
+            }
+            table.adminlista td.termino {
+                color:#333333;
+            }
+            table.adminlista td.duracion {
+                color:#993333;
+            }
+
+            table.adminlista td a{color:#990000 ; text-decoration: none; font-weight:200;}
+            table.adminlista td a:link{color: #990000; text-decoration: none; font-weight:200;}
+            table.adminlista td a:visited{color: #990000; text-decoration: none; font-weight:200;}
+            table.adminlista td a:hover{color:#CC0000;	text-decoration: none;}
+
+            table.adminlista td a.opaco{color:#333333; text-decoration: none;}
+            table.adminlista td a.opaco:link{color: #333333; text-decoration: none;}
+            table.adminlista td a.opaco:visited{color: #333333; text-decoration: none;}
+            table.adminlista td a.opaco:hover{color:#333333; text-decoration: none;}
+
+
+            table.adminlista tr.fila0:hover {
+                background-color: #EDFBCE;
+            }
+            table.adminlista tr.fila1:hover {
+                background-color:#EDFBCE;
+            }
+
+            select.seleccion, input.seleccion{
+                font-size: 9px;
+                font-weight: normal;
+            }
+
+            textarea.seleccion {font-family:Verdana; font-size:11px;}
+
+            select.seleccion_alerta{
+                font-size: 9px;
+                font-weight: normal;
+                background-color:#C2E3E7;
+            }
+            option.option_alerta {
+                background-color:#C2E3E7;
+            }
+
+            /****************************************************/
+            /********* Estilo Tabla Administracion Caja *********/
+            /****************************************************/
+            table.admincaja {
+                padding: 0px;
+            }
+
+            table.admincaja th {
+                margin: 0px;
+                padding: 4px;
+                text-align: left;
+                border-bottom:1px solid #ccc;
+                height:24px;
+                color:#000000;
+                font-weight:bold;
+                font-family:Verdana;
+                font-size: 11px;
+            }
+
+            table.admincaja td {
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 5px;
+            }
+
+            table.admincaja td input.buscador {
+                width: 100px;
+            }
+            table.admincaja td input.fecha {
+                width: 100px;
+                font-size: 10px;
+            }
+            table.admincaja td select.buscador {
+                width: 100px;
+            }
+            /****************************************************/
+            /********* Estilo Tabla Administracion Caja2 *********/
+            /****************************************************/
+            table.admincaja2 {
+                padding: 0px;
+            }
+
+            table.admincaja2 td {
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 5px;
+                border:none;
+            }
+
+            .divError {
+                background-color:#FFCCCC;
+                border:1px solid #CCCCCC;
+                width:600px;
+                padding:0px 10px 0px 10px;
+                margin:3px 0px 5px 0px;
+                text-align:center;
+            }
+
+            .divAdvertencia {
+                background-color:#FFFFCC;
+                border:1px solid #CCCCCC;
+                width:600px;
+                padding:0px 10px 0px 10px;
+                margin:3px 0px 5px 0px;
+                text-align:center;
+            }
+
+            /****************************************************/
+            /********* Estilo Tabla Administracion Caja *********/
+            /****************************************************/
+            table.admincaja3 {
+                padding: 0px;
+            }
+
+            table.admincaja3 th {
+                margin: 0px 0px 2px 0px;
+                padding: 2px;
+                text-align: left;
+                border-bottom:1px solid #ccc;
+                height:23px;
+                color:#000000;
+                font-weight:bold;
+                font-family:Verdana;
+                font-size: 11px;
+                background-color:#E4E1DC;
+            }
+
+            table.admincaja3 td {
+                border-bottom: 1px solid #e5e5e5;
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            table.admincaja3 td.sinborde {
+                font-size: 11px;
+                font-weight: normal;
+                font-family:Verdana;
+                color:#333333;
+                margin: 0px;
+                padding: 2px;
+                border:none;
+            }
+
+            table.admincaja3 .inputCRM {
+                width:90px;
+                border:1px solid #ccc;
+            }
+
+
+            /****************************************************/
+            /******************* Estilo toolTips*****************/
+            /****************************************************/
+            #toolTipBox {
+                display: none;
+                padding: 5px;
+                font-size: 11px;
+                border:1px outset #ccc;
+                font-family: verdana;
+                position: absolute;
+                background-color:#FFFFE1;
+                color: #000000;
+            }
+            #toolTipBox label { width:100px; float:left; font-weight:bold; text-align:center;}
+
+
+            /***********************************************/
+            /* Componentes Imagenes                        */
+            /***********************************************/
+            .skin {margin-top:3px;}
+            .skin_leftTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftTop.png); width:12px; height:15px; background-repeat:no-repeat;}
+            .skin_leftBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftBottom.png); width:12px; height:15px; background-repeat:no-repeat;}
+            .skin_leftMidle{BACKGROUND-IMAGE:url(imagenes/skin/skin_leftMidle.png); width:12px; background-repeat:repeat-y;}
+            .skin_rightTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightTop.png); width:12px; height:15px; background-repeat:no-repeat;}
+            .skin_rightBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightBottom.png); width:12px; height:15px; background-repeat:no-repeat;}
+            .skin_rightMidle{BACKGROUND-IMAGE:url(imagenes/skin/skin_rightMidle.png); width:12px; background-repeat:repeat-y;}
+            .skin_centerTop{BACKGROUND-IMAGE:url(imagenes/skin/skin_centerTop.png); height:15px; background-repeat:repeat-x;}
+            .skin_centerBottom{BACKGROUND-IMAGE:url(imagenes/skin/skin_centerBottom.png); height:15px; background-repeat:repeat-x;}
+            .relleno{background-color:#FFFFFF;}
+            .skin_title{font-family:Verdana; font-size:12px; font-weight:bold; height:20px;}
+
+            /*******************************************/
+            /* Esta clase es necesaria (FIX WIDTH IE)  */
+            /*******************************************/
+            .selectbox {
+                font-family:Verdana;font-size:12px;
+                /*behavior:expression(window.dropdown_menu_hack!=null?window.dropdown_menu_hack(this):0);*/
+            }
+
+            body{background-image:url(img/bg.png); background-repeat:repeat-x; background-color:#DDDDDD; margin:1px 0px 0px 0px;}
+
+            #cajon {
+                width: 1094px; height: 725px; background-image:url(img/fblancoGrande.png); background-repeat:no-repeat;}
+            /*                width: 820px; height: 460px; background-image:url(img/fondo_prosegur.gif); background-repeat:no-repeat;}*/
+
+            #modulo {
+                width: 820px; height: 275px; padding:50px 25px 10px 40px;}
+
+        </style>
+    </head>
+    <body>
+        <br>
+        <div align="left" >
+            <div id="cajon">
+                <div id="modulo">%contenido%</div>
+            </div>
+
+            <!-- FIN TABLA BLANCA CON PUNTAS REDONDEADAS -->
+        </div>
+    </body>
+</html>
+

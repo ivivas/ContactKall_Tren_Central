@@ -1,0 +1,61 @@
+%error_jsp%
+<form name="adminForm_virtualRegistros" action="ctiportRegistro.jsp" target="_self" method="post">
+    %div_titulo%
+    <div id="datos">
+        <div id="input" style="width: 90%;">
+            %nom%
+            &nbsp;
+            <input name="busca_virtual" type="text" id="textfield" size="15" value="%busca_virtual%" />
+            &nbsp;&nbsp;
+            %desc%
+            &nbsp;
+            <input name="busca_descripcion" type="text" id="textfield" size="30" value="%busca_descripcion%" />
+            &nbsp;&nbsp;
+            %reg%
+            &nbsp;
+            <select name="registros_mostrar" class="campos" id="select" >
+                %registros_mostrar_reemplazo%
+            </select>
+            <a href="#"  onclick="document.adminForm_virtualRegistros.submit();">
+                <div class="botones" style="float: right;">
+                    <i class="fa fa-search"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+  
+    <div class="tableContainer" align="" style="width:90%; height:auto;margin: 0 auto;">
+        <table class="%estilocaja%" cellspacing="0" style=" margin: 2% auto;width: 100%">
+            <thead>
+                <tr>     
+                    <th >&nbsp; N&ordm;</th>
+                    <th ><input type="checkbox" name="checkPrincipal" onClick="checkboxSeleccionar(this,ncheckbox);"></th>
+                    <th >%nom%</th>
+                    <th >%desc%</th>
+                    <th >%tipo%</th>
+                    <th >%largo%</th>
+                </tr>
+            </thead>
+            <tbody>
+                %registros_extensiones%
+            </tbody>
+         </table>
+    </div>
+    
+    <input type="hidden" name="ncheckbox_eliminar" value="0">
+    <input type="hidden" name="ncheckbox_usuarios" value="0">
+    
+    <div align="center">%barraPaginado%</div>
+    
+    <div align="center">    
+        <a href="ctiportAgregar.jsp" class="botones btnadddel" style="cursor:pointer" >
+            %vrtreg_btn_new%
+        </a>
+        &nbsp;&nbsp;
+        <a href="#" class="botones btnadddel" onclick="ctiportEliminar(document.adminForm_virtualRegistros);" style="cursor:pointer">
+            %vrtreg_btn_del%
+        </a>
+    </div>
+
+</form>
+            

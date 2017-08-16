@@ -1,0 +1,159 @@
+<script>
+    function mostrarToolKit(target,nro){
+            target.style.visibility = "visible";
+            target.style.display = "block";
+            if(nro===1){
+                target.innerHTML = "%horarioNombreToolkit%";
+            }
+            else{
+                target.innerHTML = "%horarioPredToolkit%";
+            }
+        }
+        function ocultarToolKit(target){
+            target.style.visibility = "hidden";
+            target.style.display = "none";
+        }
+</script>
+<form name="adminForm_horarioNuevo" action="horarioNuevo.jsp" target="_self" method="post">
+    %div_titulo%
+    <div id="tabla_fondo" style="padding: 2%; margin: 0 auto;">
+        <div class="tabla_fondo" style="padding-left: 5%;">
+            <div  style="float:left;width: 130px; padding-right: 10px;" >%hornew_tbl_name% </div>
+            <div style="float:left;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'),1)" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+               <i class="fa fa-question-circle"></i> 
+            </div>
+            &nbsp;&nbsp;<div id="t1" class="toolkit"></div>
+            <input style="float:left;width:auto;margin-left:20px;" type="text" name="nombre_horario" value="%nombre_horario%"  maxlength="20" />
+            &nbsp;&nbsp;
+            <div  style="float:left;width: 130px; padding-right: 10px;padding-left: 30px;" >%hornew_tbl_def% </div>
+            <div style="float:left; " class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'),2)" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t2" class="toolkit" style="left: 500px;"></div>
+            <input style="float:left;width:auto;margin-left:20px;" type="checkbox" name="es_predefinido" value="" %es_predefinido% />
+        </div>
+    </div>
+    
+    <br>
+   
+    <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>%hornew_tbl_day%</th><th>%hornew_tbl_from%</th><th>%hornew_tbl_to%</th><th>%hornew_tbl_val%</th>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_mon%
+            </td>
+            <td>
+                <input type="text" name="Lunes_desde" value="%Lunes_desde%" maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Lunes_hasta" value="%Lunes_hasta%" maxlength="5"/>
+            </td>
+            <td>
+                <input type="checkbox" name="Lunes_valido"  value="" %Lunes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_tue%
+            </td>
+            <td>
+                <input type="text" name="Martes_desde" value="%Martes_desde%" maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Martes_hasta" value="%Martes_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Martes_valido" value="" %Martes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_wed%
+            </td>
+            <td>
+                <input type="text" name="Miercoles_desde" value="%Miercoles_desde%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="text" name="Miercoles_hasta" value="%Miercoles_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Miercoles_valido" value="" %Miercoles_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_thu%
+            </td>
+            <td>
+                <input type="text" name="Jueves_desde" value="%Jueves_desde%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="text" name="Jueves_hasta" value="%Jueves_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Jueves_valido" value="" %Jueves_valido%  />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_fri%
+            </td>
+            <td>
+                <input type="text" name="Viernes_desde" value="%Viernes_desde%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="text" name="Viernes_hasta" value="%Viernes_hasta%" maxlength="5"  />
+            </td>
+            <td>
+                <input type="checkbox" name="Viernes_valido" value="" %Viernes_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_sat%
+            </td>
+            <td>
+                <input type="text" name="Sabado_desde" value="%Sabado_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Sabado_hasta" value="%Sabado_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Sabado_valido" value=""  %Sabado_valido% />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %hornew_day_sun%
+            </td>
+            <td>
+                <input type="text" name="Domingo_desde" value="%Domingo_desde%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="text" name="Domingo_hasta" value="%Domingo_hasta%"  maxlength="5" />
+            </td>
+            <td>
+                <input type="checkbox" name="Domingo_valido" value=""  %Domingo_valido% />
+            </td>
+        </tr>
+
+
+    </table>
+    <br>
+    <input type="hidden" name="id" value="%id%">
+    <input type="hidden" name="pg" value="%pg%">
+    <input type="hidden" name="nuevo_horario" value="true">
+
+    <!--<input type="button" name="modificar_horario_general" value="%hornew_btn_save%" onclick="javascript:document.adminForm_horarioNuevo.submit()">-->
+    <a href="#" class="botones btnadddel" onclick="javascript:document.adminForm_horarioNuevo.submit()" style="">
+        %hornew_btn_save%
+    </a>
+
+    <!--<input type="button" name="modificar_horario_general" value="%hornew_btn_cancel%" onclick="location.href = 'horarioModificarGeneral.jsp'">-->
+    <a href="horarioModificarGeneral.jsp" class="botones btnadddel" name="modificar_horario_general">
+        %hornew_btn_cancel%
+    </a>
+
+</form>

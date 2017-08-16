@@ -1,0 +1,52 @@
+<!-- 
+    Document   : detalleLlamadaExtension
+    Created on : 30-12-2008, 01:29:20 PM
+    Author     : max
+-->
+  <form action="detalleLlamadaExtension.jsp" method="post">
+    <table class="caja2" cellspacing="0" border="0">
+      <tr>
+        <td nowrap><strong>Ver cada</strong></td>
+        <td nowrap>
+            <select name="registros_mostrar" id="registros_mostrar" value="%registros_mostrar%">
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+            </select> 
+            <strong>registros</strong>
+        </td>
+        <td nowrap><strong>&nbsp;&nbsp; Tipo</strong></td>
+        <td><select name="tipo" id="tipo" onchange="MM_jumpMenu('parent',this,0)">
+          <option>Todas</option>
+          <option>saliente</option>
+          <option>todos</option>
+        </select></td>
+        <td nowrap><strong>&nbsp;&nbsp; Desde</strong></td>
+        <td><input type="desde" name="textfield" id="textfield" /></td>
+        <td nowrap><strong>&nbsp;&nbsp; Hasta</strong></td>
+        <td><input type="hasta" name="textfield2" id="textfield2" /></td>
+        <td><input name="buscar" type="image" id="buscar" src="botones/btn-buscar.jpg"></td>
+        <input type="hidden" name="extension" value="%extension%" >
+      </tr>
+    </table>
+  </form>
+  <div class="tableContainer" style="width:1000">
+  <table class=%estilocaja% cellspacing="0" border="0">
+      <thead>
+          <tr bgcolor="#CCCCCC">
+              <th class="titulo" align="center"> <strong>Fecha </strong></th>
+              <th class="titulo" align="center"> <strong>Hora </strong></th>
+              <th class="titulo" align="center"> <strong>Tipo </strong></th>
+              <th class="titulo" align="center"> <strong>N&uacute;mero </strong></th>
+              <th class="titulo" align="center"> <strong>Duraci&oacute;n </strong></th>
+              <th class="titulo" align="center"> <strong>Centro de Costo B&aacute;sico </strong></th>
+              <th class="titulo" align="center"> <strong>Centro de Costo Superior </strong></th>
+          </tr>
+      </thead>
+      <tbody>
+          %listado%
+      </tbody>
+  </table>
+  </div>
+  <div align="center">%barraPaginado%</div>

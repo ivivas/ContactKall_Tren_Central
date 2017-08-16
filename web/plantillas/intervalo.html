@@ -1,0 +1,45 @@
+
+<form name="adminForm_intervalo" id="idms" action="intervalo.jsp" target="_self" method="post" >
+    %div_titulo%
+    <div id="tabla_fondo">
+        <div class="tabla_fondo" style="height: 8%;width: 100%">
+            <div  style="float:left;width: 20%; padding-right: 1%;" >%dato1%</div>
+            <div style="float:left;padding: 1%;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t1'))" onmouseout="ocultarToolKit(document.getElementById('t1'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t1" class="toolkit" style="top:180px;left:600px;">%msg_intervalo%</div>
+            <input size="3" type="text" value="%dato0%" name="valors" style="float:left"> 
+            <div style="float: left">%lapso_seg%</div>
+        </div>
+        <div class="tabla_fondo" style="margin-top: 1%;height: 8%;width: 100%">
+            <div  style="float:left;width: 20%; padding-right: 1%;" >%tiene_musica%</div>
+            <div style="float:left;padding: 1%;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t2'))" onmouseout="ocultarToolKit(document.getElementById('t2'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t2" class="toolkit" style="top:230px;left:600px;">%msg_bienvenida%</div>
+            <input style="float: left;width: auto;" type="checkbox" name="tiene" %check_musica% >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 1%;height: 8%;width: 100%">
+            <div  style="float:left;width: 20%; padding-right: 1%;" >%tiene_titulo%</div>
+            <div style="float:left;padding: 1%;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t3'))" onmouseout="ocultarToolKit(document.getElementById('t3'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t3" class="toolkit" style="top:270px;left:600px;">%msg_titulo%</div>
+            <input style="float: left;width: auto;" type="checkbox" name="tieneTitulos" %check_titulo% >
+        </div>
+        <div class="tabla_fondo" style="margin-top: 1%;height: 8%;width: 100%;">
+            <div  style="float:left;width:20%; padding-right: 1%;" >%callback%</div>
+            <div style="float:left;padding: 1%;" class="answer" onmouseover="mostrarToolKit(document.getElementById('t4'))" onmouseout="ocultarToolKit(document.getElementById('t4'))">
+                <i class="fa fa-question-circle"></i>
+            </div>
+            <div id="t4" class="toolkit" style="top:320px;left:600px;">%msg_callback%</div>
+            <input style="float: left" type="text" size="5" name="callback" id="callback" value="%maxcallback%">
+        </div>
+        %minmax_ivr%
+    </div>
+    <input type="hidden" name="datos" value="%datos_hid%">
+        
+    <div style="margin-top: 20px;">
+        <a href="#" class="botones btnadddel" onclick="enviar()">%btn_save%</a>
+    </div>
+</form>

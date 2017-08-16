@@ -1,0 +1,45 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<script language="javascript" >
+
+    var theObj="";
+
+    function Abrir_ventana (pagina,parametro) {
+        var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=508, height=365, top=85, left=140";
+        window.open(pagina+"?id="+parametro,"",opciones);
+    }
+</script>
+<form name="contestadasPorOperadoraModificar" action="contestadasPorOperadoraModificar.jsp" target="_self" method="post" >
+    <table class="admincaja3" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top" align="center">
+                <!--<div style="margin-left:10px; text-align:left; float:left; width:850px;">-->
+                <div style="border-bottom:1px solid #ccc; width:850px;"><strong>Contestadas por operadora</strong></div>
+                <div style="text-align:left; float:left; width:150px;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="330">
+                        <tr>
+                            <td width="130">Centro de costo</td><td><input type="text" name="centrocosto" value="%centrocosto%" /></td>
+                        </tr>
+                        <tr>
+                            <td width="130">Contestadas por operadora</td><td><input type="text" name="contestadas" value="%contestadas%" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--</div>-->
+                <!--</div>-->
+            </td>
+    </table>
+    <center>
+        <div style="width:250px; height:30px; padding-top:10px;">
+            <input type="hidden" name="id_centrocosto" value="%id_centrocosto%" />
+            <input type="hidden" name="modificar" value="true" />
+
+            <span style="cursor:pointer">
+                <img src="plantillas/imagenes/guardar.png" onclick="document.contestadasPorOperadoraModificar.submit();" />
+                <a href="centrocostoRegistro.jsp"><img src="plantillas/imagenes/cancelar.png" border="0" /></a>
+            </span>
+        </div>
+    </center>
+</form>

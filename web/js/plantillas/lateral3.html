@@ -1,0 +1,76 @@
+<script type="text/javascript" src="js/usuario.js"></script>
+<script type="text/javascript" src="_lib/jquery.js"></script>
+<script type="text/javascript" src="_lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="_lib/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="jquery.jstree.js"></script>
+
+<!--<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>-->
+<!--<link type="text/css" rel="stylesheet" href="!style.css"/>-->
+<script type="text/javascript" src="syntax/!script.js"></script>
+<link rel="StyleSheet" href="css/dtree.css" type="text/css" />
+<script type="text/javascript" src="css/dtree.js"></script>
+<!--        <script src="js/jquery.tools.min.js"></script>-->
+<!--        <script src="js/iefix/ie-select-width-fix.js"></script>        -->
+<!--        <script src="js/iefix/yahoo-dom-event.js"></script>    -->
+
+<!--<div style="height:500px;width:240px;">
+    <input name="buscar" type="submit" value="buscar666" />
+    holaaaaaaaaaaaaaaaa
+</div>-->
+
+<form name="formulario" action="lateral3.jsp" id="formulario" >
+    <div style="height:500px;width:240px;">
+<!--        <table>
+            <td width="200" align="left">
+                <SELECT NAME="cc_historico_mes" SIZE=1"> 
+                    %select_meses% 
+                </SELECT>
+            </td>
+            <td width="200" align="left">
+                <input type="text" name="cc_historico_anno" size="10" maxlength="4" value="%txt_anno%" onkeypress="ValidaSoloNumeros()">
+                <SELECT NAME="cc_historico_anno" SIZE=1"> 
+                    <OPTION VALUE="2011">2011</OPTION>
+                    <OPTION VALUE="2012">2012</OPTION>
+                    <OPTION SELECTED VALUE="2013">2013</OPTION>
+                    <OPTION VALUE="2014">2014</OPTION> 
+                    <OPTION VALUE="2015">2015</OPTION>                                
+                </SELECT>
+            </td>
+            <td><input type="submit" value="buscar" name="buscar" onclick="verForm_arbolCentroCosto(formulario)"></td>
+        </table>-->
+        <div id="demo" class="demo" ></div>        
+    </div>
+    <script type="text/javascript" >
+        
+        
+        $(function () {
+       
+            $.ajaxSetup ({
+                // Disable caching of AJAX responses
+                cache: false
+            });
+            $("#demo").jstree({ 
+                
+                "json_data" : {
+                    "ajax" : {
+                        "url" : "arbol.jsp",
+                        "data" : function (n) {
+                            
+                            return { id : n.attr ? n.attr("id")+"&"+n.attr("tipo")+"&ran="+Math.floor(Math.random()*1111) : 0 };
+                            
+                        }
+                    }
+                },
+                "plugins" : [ "themes", "json_data" ]
+            });
+        });
+
+   
+    </script>
+    <input type="hidden" name="enlace" id="enlace" />
+    <input name="id" type="hidden" value="%id%" />
+    <input name="tipo" type="hidden" value="%tipo%" /> 
+
+
+</form>
+
